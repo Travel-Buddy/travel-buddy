@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193452B01EAE7612004A52D5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193452AF1EAE7612004A52D5 /* LoginViewController.swift */; };
 		193950251EAD8661003667F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193950241EAD8661003667F2 /* MapKit.framework */; };
 		193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950261EAD882E003667F2 /* TripTableViewController.swift */; };
 		193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950281EAD8A38003667F2 /* TripSettingsViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		193452AF1EAE7612004A52D5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		193950241EAD8661003667F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		193950261EAD882E003667F2 /* TripTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		193950281EAD8A38003667F2 /* TripSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSettingsViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				1939502A1EAD8AD2003667F2 /* TripDetailHomeViewController.swift */,
 				193950281EAD8A38003667F2 /* TripSettingsViewController.swift */,
 				193950261EAD882E003667F2 /* TripTableViewController.swift */,
+				193452AF1EAE7612004A52D5 /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */,
 				1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */,
 				193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */,
+				193452B01EAE7612004A52D5 /* LoginViewController.swift in Sources */,
 				193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
