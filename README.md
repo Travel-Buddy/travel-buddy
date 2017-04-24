@@ -1,25 +1,29 @@
 # *Travel With Friends*
 
 ## Summary
-Travel With Friends is a new travel app that allows you to plan your vacations with your friends. From picking a location, to voting on where to stay and what to do, we have you covered. No longer will it just be one person who is in charge of planning everything. Each person in your travel group will now have their fair say to make your trip the best that it can be. 
+Travel With Friends is a new travel app that allows you to plan your vacations with your friends. From picking a location, to voting on where to stay and what to do, we have you covered. No longer will it just be one person who is in charge of planning everything. Each person in your travel group will now have their fair say to make your trip the best that it can be.
 
 ## User Stories
 
 The **core** functionality:
 
-- [ ] View of list of trips in a table and map view
-- [ ] Add a trip to your list of trips
-- [ ] Add friends to your trip
-- [ ] Have everything synced up between you and everyone in your trip (via Realm.io)
-- [ ] Ability to vote on accomodations and points of interests between people in your trip
-- [ ] Keep track of total group costs for trip (hotels, rentals, etc) and show how much people owe in local currency and home currency
-- [ ] Remove a trip from trip list
-- [ ] Invite a friend to download the app
+- [ ] Users can view a list of past and upcoming trips sorted by date.
+- [ ] Users can add and plan upcoming trips.
+- [ ] Users can add multiple destinations to a trip.
+- [ ] Users can add travel friends to a trip.
+- [ ] Users and their travel friends can save places, activities, restaurants and accommodations they have interest on.
+- [ ] Users and their travel friends can vote on which saved places, restaurants and accommodations in finalizing their itinerary.
+- [ ] Users and their travel friends can keep track of the overall and individual costs as well as balance amount paid/owed in local and home currency for each plan (tickets, hotels, rentals, etc) in their itinerary.
+- [ ] Everything in the trip planning is synced up between users and their travel friends (via Realm.io).
+- [ ] Users can view and step through the trip itinerary chronologically in a table and map view.
+- [ ] A user can withdraw from a trip. The app automatically removes the trip from the user's list and makes adjustment to the saved interests, votes and costs.
+- [ ] Users can invite a friend to download the app.
 
 The **optional** functionality:
 
-- [ ] The ability for a user to put in cost, region, and have the app pick a list of locations for you to choose from
-
+- [ ] Users can view their travel friends' individual activities on the trip. As an example, user A can see flights schedule of user B who is joining from a different city/country.
+- [ ] Users can share their trips anonymously for other users to get inspiration from.
+- [ ] Users can get recommendation based on their budget and travel region.
 
 
 ## License
