@@ -16,6 +16,8 @@
 		1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */; };
 		193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */; };
 		193950341EAD8C74003667F2 /* TripMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950331EAD8C74003667F2 /* TripMapViewController.swift */; };
+		19396C521EAFC75500D464CC /* POICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C501EAFC75500D464CC /* POICell.swift */; };
+		19396C531EAFC75500D464CC /* POICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19396C511EAFC75500D464CC /* POICell.xib */; };
 		193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD291EAD2768005E8D59 /* AppDelegate.swift */; };
 		193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD2B1EAD2768005E8D59 /* ViewController.swift */; };
 		193BBD2F1EAD2768005E8D59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193BBD2D1EAD2768005E8D59 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailPOIViewController.swift; sourceTree = "<group>"; };
 		193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailCostsViewController.swift; sourceTree = "<group>"; };
 		193950331EAD8C74003667F2 /* TripMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapViewController.swift; sourceTree = "<group>"; };
+		19396C501EAFC75500D464CC /* POICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POICell.swift; sourceTree = "<group>"; };
+		19396C511EAFC75500D464CC /* POICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICell.xib; sourceTree = "<group>"; };
 		193BBD261EAD2768005E8D59 /* Travel With Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel With Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BBD291EAD2768005E8D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		193BBD2B1EAD2768005E8D59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		19396C4F1EAFC73700D464CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19396C501EAFC75500D464CC /* POICell.swift */,
+				19396C511EAFC75500D464CC /* POICell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		193BBD1D1EAD2768005E8D59 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,7 @@
 				193BBD291EAD2768005E8D59 /* AppDelegate.swift */,
 				193BBD2B1EAD2768005E8D59 /* ViewController.swift */,
 				193BBD2D1EAD2768005E8D59 /* Main.storyboard */,
+				19396C4F1EAFC73700D464CC /* Views */,
 				193950321EAD8B30003667F2 /* View Controllers */,
 				193BBD301EAD2768005E8D59 /* Assets.xcassets */,
 				193BBD321EAD2768005E8D59 /* LaunchScreen.storyboard */,
@@ -192,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19396C531EAFC75500D464CC /* POICell.xib in Resources */,
 				193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */,
 				193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */,
 				193BBD2F1EAD2768005E8D59 /* Main.storyboard in Resources */,
@@ -254,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				193950341EAD8C74003667F2 /* TripMapViewController.swift in Sources */,
+				19396C521EAFC75500D464CC /* POICell.swift in Sources */,
 				193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */,
 				1939502B1EAD8AD2003667F2 /* TripDetailHomeViewController.swift in Sources */,
 				193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */,
