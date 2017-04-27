@@ -16,8 +16,6 @@ class GooglePlacesAPIController {
     static let shared = GooglePlacesAPIController()
     
     
-    
-    
     private let placesKey = "AIzaSyDQM3QbE5hO8_z4biLKn973lDCWGELrojo"
     private let placesPOIAttractionsTextSearchURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
     

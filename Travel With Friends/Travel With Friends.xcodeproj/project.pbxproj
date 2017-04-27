@@ -48,6 +48,7 @@
 		19396C8B1EB2697A00D464CC /* GooglePlacesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIController.swift; sourceTree = "<group>"; };
 		19396C8D1EB2699100D464CC /* RealmDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataController.swift; sourceTree = "<group>"; };
 		19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacePOIProtocols.swift; sourceTree = "<group>"; };
+		19396C931EB27A7800D464CC /* Travel With Friends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Travel With Friends.entitlements"; sourceTree = "<group>"; };
 		193BBD261EAD2768005E8D59 /* Travel With Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel With Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BBD291EAD2768005E8D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		193BBD2B1EAD2768005E8D59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 		193BBD281EAD2768005E8D59 /* Travel With Friends */ = {
 			isa = PBXGroup;
 			children = (
+				19396C931EB27A7800D464CC /* Travel With Friends.entitlements */,
 				193BBD291EAD2768005E8D59 /* AppDelegate.swift */,
 				193BBD2B1EAD2768005E8D59 /* ViewController.swift */,
 				193BBD2D1EAD2768005E8D59 /* Main.storyboard */,
@@ -231,6 +233,9 @@
 						DevelopmentTeam = YUYDGGZ6SW;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -462,6 +467,7 @@
 			baseConfigurationReference = F53E77145AA3CDD141560C82 /* Pods-Travel With Friends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Travel With Friends/Travel With Friends.entitlements";
 				DEVELOPMENT_TEAM = YUYDGGZ6SW;
 				INFOPLIST_FILE = "Travel With Friends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -476,6 +482,7 @@
 			baseConfigurationReference = 8A75C87B9E29C9AB5C7B7E85 /* Pods-Travel With Friends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Travel With Friends/Travel With Friends.entitlements";
 				DEVELOPMENT_TEAM = YUYDGGZ6SW;
 				INFOPLIST_FILE = "Travel With Friends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

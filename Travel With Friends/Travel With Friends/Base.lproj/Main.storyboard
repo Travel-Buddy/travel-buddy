@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ENS-9N-zmJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,6 +36,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="ENS-9N-zmJ" kind="presentation" identifier="LoginSegue" id="sbQ-AO-xmy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,7 +249,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1Zd-OW-lIh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ENS-9N-zmJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TripNavVC" automaticallyAdjustsScrollViewInsets="NO" id="ENS-9N-zmJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Mp-p2-0ua">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -445,8 +448,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PLo-1a-546"/>
         <segue reference="ens-tT-0EB"/>
+        <segue reference="PLo-1a-546"/>
+        <segue reference="sbQ-AO-xmy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

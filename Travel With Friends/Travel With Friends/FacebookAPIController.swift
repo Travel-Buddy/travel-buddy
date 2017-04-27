@@ -7,8 +7,15 @@
 //
 
 import Foundation
+import FacebookCore
+import FacebookLogin
+
 
 
 class FacebookAPIController {
     static let shared = FacebookAPIController()
+    
+    let accessToken = AccessToken.current
+    
+    
 }

@@ -16,7 +16,11 @@ class LoginViewController: UIViewController {
 
         
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
+        loginButton.delegate = self
         loginButton.center = view.center
+        
+        
+        
         
         view.addSubview(loginButton)
         
@@ -39,4 +43,24 @@ class LoginViewController: UIViewController {
     }
     */
 
+}
+
+extension LoginViewController : LoginButtonDelegate {
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        switch result {
+        case .failed(let error):
+            print(error)
+        case .cancelled:
+            print("Cancelled")
+        //case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+        case .success(_, _, _):
+            print("Logged In")
+            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        print("Logged Out")
+    }
+    
 }
