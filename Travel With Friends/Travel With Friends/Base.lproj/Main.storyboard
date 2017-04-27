@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" id="AQB-3S-zy1">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="9vk-7i-62B">
                             <connections>
-                                <action selector="logoutButtonPressed:" destination="N9K-Hu-bte" id="ign-cH-FJZ"/>
+                                <action selector="logoutButtonPressed:" destination="N9K-Hu-bte" id="Ozr-jB-Zlo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map View" id="S19-4w-1rp">

@@ -34,7 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window?.rootViewController = tripViewController
             
-            
+        }
+        
+        //Observer for if the user logs out
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("UserDidLogout"), object: nil, queue: OperationQueue.main) { (NSNotification) ->
+            Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = loginVC
         }
         
         

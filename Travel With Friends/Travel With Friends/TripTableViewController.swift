@@ -10,7 +10,6 @@ import UIKit
 
 class TripTableViewController: UIViewController {
     
-    
     @IBOutlet weak var tripTableView: UITableView!
 
     override func viewDidLoad() {
@@ -18,6 +17,9 @@ class TripTableViewController: UIViewController {
 
         tripTableView.delegate = self
         tripTableView.dataSource = self
+        
+
+
         
         // Do any additional setup after loading the view.
     }
@@ -28,9 +30,7 @@ class TripTableViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
-        
-        self.dismiss(animated: true)
-        
+        FacebookAPIController.shared.logout()
     }
 
     /*
@@ -60,8 +60,6 @@ extension TripTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
-    
-    
-    
-    
 }
+
+
