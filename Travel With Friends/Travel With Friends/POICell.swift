@@ -9,11 +9,6 @@
 import UIKit
 
 
-
-protocol POIVoteDelegate : class {
-    func sortPOI()
-}
-
 class POICell: UITableViewCell {
 
     @IBOutlet weak var poiNameLabel: UILabel!
@@ -21,7 +16,7 @@ class POICell: UITableViewCell {
     @IBOutlet weak var voteCountLabel: UILabel!
     @IBOutlet weak var downVoteButton: UIButton!
     
-    var poi : POI! {
+    var poi : GooglePlacePOI! {
         didSet {
             configureCell()
         }

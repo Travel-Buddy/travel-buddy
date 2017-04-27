@@ -10,4 +10,7 @@ target 'Travel With Friends' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Alamofire'
+  pod 'UnboxedAlamofire'
+  pod 'Unbox'
 end
