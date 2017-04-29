@@ -6,7 +6,6 @@ target 'Travel With Friends' do
   use_frameworks!
 
   # Pods for Travel With Friends
-  pod 'RealmSwift'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
