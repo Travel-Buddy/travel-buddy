@@ -61,6 +61,7 @@ struct UserFriendsRequest: GraphRequestProtocol {
         var errorParsing = false
         
         init(rawResponse: Any?) {
+                        
             if let jsonResult = rawResponse as? Dictionary<String, Any> {
                 // do whatever with jsonResult
                 do {
@@ -77,7 +78,7 @@ struct UserFriendsRequest: GraphRequestProtocol {
     }
     
     var graphPath = "me/friends"
-    var parameters: [String : Any]? = ["fields": "id, name, picture.type(large)"]
+    var parameters: [String : Any]? = ["fields": "id, name, picture.type(large), email"]
     var accessToken = AccessToken.current
     var httpMethod: GraphRequestHTTPMethod = .GET
     var apiVersion: GraphAPIVersion = .defaultVersion
