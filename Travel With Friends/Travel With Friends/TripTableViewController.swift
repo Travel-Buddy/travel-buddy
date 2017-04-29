@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class TripTableViewController: UIViewController {
     
@@ -18,7 +19,8 @@ class TripTableViewController: UIViewController {
         tripTableView.delegate = self
         tripTableView.dataSource = self
         
-
+       // FacebookAPIController.shared.getUsersFriendsWhoHaveApp()
+        
 
         
         // Do any additional setup after loading the view.
@@ -33,6 +35,16 @@ class TripTableViewController: UIViewController {
         FacebookAPIController.shared.logout()
     }
 
+    @IBAction func GooglePlacesCitySearchTest(_ sender: UIBarButtonItem) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        let filter = GMSAutocompleteFilter.init()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+        present(autocompleteController, animated: true, completion: nil)
+        
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -60,6 +72,37 @@ extension TripTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
+}
+
+extension TripTableViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }
 
 

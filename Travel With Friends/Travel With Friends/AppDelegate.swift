@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookCore
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //fb setup
         
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
+        //google places setup
+        GMSPlacesClient.provideAPIKey("AIzaSyD-suG8UH-JaQ6ZEsXWbpnfe0gTZq1u380")
         
     
         //if there is already a user, need to handle and go to main screen and skip login

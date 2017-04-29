@@ -17,6 +17,7 @@ class TripDetailPOIViewController: UIViewController {
     
     
     var poiArray : [GooglePlacePOI] = []
+    var fbUserArray : [FacebookUser] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +36,29 @@ class TripDetailPOIViewController: UIViewController {
         let nib = UINib(nibName: "POICell", bundle: nil)
         poiTableView.register(nib, forCellReuseIdentifier: "POICell")
         
-        GooglePlacesAPIController.shared.getPOIFrom(locationString: "New York City") { (places, error) in
-            if let places = places {
-                self.poiArray = places
+        let fbNib = UINib(nibName: "FacebookUserCell", bundle: nil)
+        poiTableView.register(fbNib, forCellReuseIdentifier: "FacebookCell")
+        
+        
+//        GooglePlacesAPIController.shared.getPOIFrom(locationString: "New York City") { (places, error) in
+//            if let places = places {
+//                self.poiArray = places
+//                self.poiTableView.reloadData()
+//            }else{
+//                print("Handle Error")
+//            }
+//        }
+        
+        FacebookAPIController.shared.getUsersFriendsWhoHaveApp { (users, error) in
+            if let users = users {
+                self.fbUserArray = users
                 self.poiTableView.reloadData()
             }else{
                 print("Handle Error")
             }
+
         }
+        
         
         
         // Do any additional setup after loading the view.
@@ -76,16 +92,24 @@ extension TripDetailPOIViewController : UITableViewDataSource, UITableViewDelega
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "POICell") as! POICell
         
-        cell.poi = poiArray[indexPath.row]
-        cell.delegate = self
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "POICell") as! POICell
+//        
+//        cell.poi = poiArray[indexPath.row]
+//        cell.delegate = self
+//        return cell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FacebookCell") as! FacebookUserCell
+        
+        cell.user = fbUserArray[indexPath.row]
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return poiArray.count
+        //return poiArray.count
+        return fbUserArray.count
     }
     
 }

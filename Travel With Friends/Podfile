@@ -12,5 +12,9 @@ target 'Travel With Friends' do
   pod 'FacebookShare'
   pod 'Alamofire'
   pod 'UnboxedAlamofire'
+  pod 'AlamofireImage'
   pod 'Unbox'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
 end

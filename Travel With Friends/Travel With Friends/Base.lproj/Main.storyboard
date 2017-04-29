@@ -85,7 +85,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map View" id="S19-4w-1rp">
                             <connections>
-                                <segue destination="05w-7r-occ" kind="presentation" modalTransitionStyle="flipHorizontal" id="Kuq-Q2-wu5"/>
+                                <action selector="GooglePlacesCitySearchTest:" destination="N9K-Hu-bte" id="KVk-eM-5Lr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

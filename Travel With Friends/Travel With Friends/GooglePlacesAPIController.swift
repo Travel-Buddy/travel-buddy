@@ -9,24 +9,24 @@
 import Foundation
 import Alamofire
 import UnboxedAlamofire
+import GooglePlaces
 
 
 class GooglePlacesAPIController {
     
     static let shared = GooglePlacesAPIController()
+  
     
-    
-    private let placesKey = "AIzaSyDQM3QbE5hO8_z4biLKn973lDCWGELrojo"
+    private let placesKeyForSearch = "AIzaSyDQM3QbE5hO8_z4biLKn973lDCWGELrojo"
     private let placesPOIAttractionsTextSearchURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
     
     
     func getPOIFrom(locationString: String?, completion: @escaping ([GooglePlacePOI]?, Error?) -> ()){
         
-        
         let searchString = locationString! + " point of interest"
         
-        let params: [String : AnyObject] = ["query" : searchString as AnyObject, "language" : "en" as AnyObject, "key" : placesKey as AnyObject]
-        
+
+        let params: [String : Any] = ["query" : searchString, "language" : "en", "key" : placesKeyForSearch]
         
         Alamofire.request(placesPOIAttractionsTextSearchURL, method: .get, parameters: params, encoding: URLEncoding.queryString)
             .responseArray(queue: DispatchQueue.main, keyPath: "results", options: JSONSerialization.ReadingOptions.allowFragments) { (response: DataResponse<[GooglePlacePOI]>) in
@@ -40,11 +40,5 @@ class GooglePlacesAPIController {
                 }
         }
     }
-
-    
-    
-    
-    
-    
     
 }

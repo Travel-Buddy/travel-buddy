@@ -55,7 +55,18 @@ extension LoginViewController : LoginButtonDelegate {
         //case .success(let grantedPermissions, let declinedPermissions, let accessToken):
         case .success(_, _, _):
             print("Logged In")
-            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+            
+            
+            FacebookAPIController.shared.getUserInfo(completion: { (user, error) in
+                if let user = user {
+                    
+                    //create user if not already create, else get user from parse api
+                    
+                    self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                }
+            })
+            
+            
         }
     }
     
