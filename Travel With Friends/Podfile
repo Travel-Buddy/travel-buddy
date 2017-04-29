@@ -16,4 +16,8 @@ target 'Travel With Friends' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
+  pod 'Parse'
+  pod 'ParseUI'
+  pod 'ParseFacebookUtilsV4'
+
 end

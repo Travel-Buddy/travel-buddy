@@ -32,7 +32,7 @@ class TripTableViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
-        FacebookAPIController.shared.logout()
+        ParseDataController.shared.logout()
     }
 
     @IBAction func GooglePlacesCitySearchTest(_ sender: UIBarButtonItem) {

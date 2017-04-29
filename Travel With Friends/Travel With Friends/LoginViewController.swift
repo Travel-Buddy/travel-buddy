@@ -7,26 +7,34 @@
 //
 
 import UIKit
-import FacebookLogin
+import ParseFacebookUtilsV4
 
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
-        loginButton.delegate = self
-        loginButton.center = view.center
-        
-        
-        
-        
-        view.addSubview(loginButton)
-        
-        // Do any additional setup after loading the view.
+ 
     }
 
+    @IBAction func loginViaFB(_ sender: UIButton) {
+        
+        PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email", "user_friends"]) { (user, error) in
+            if let user = user {
+                if user.isNew {
+                    print("User signed up and logged in through Facebook!")
+                } else {
+                    print("User logged in through Facebook!")
+                }
+                
+                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                
+            } else {
+                print("Uh oh. The user cancelled the Facebook login.")
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,33 +53,4 @@ class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController : LoginButtonDelegate {
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        switch result {
-        case .failed(let error):
-            print(error)
-        case .cancelled:
-            print("Cancelled")
-        //case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-        case .success(_, _, _):
-            print("Logged In")
-            
-            
-            FacebookAPIController.shared.getUserInfo(completion: { (user, error) in
-                if let user = user {
-                    
-                    //create user if not already create, else get user from parse api
-                    
-                    self.performSegue(withIdentifier: "LoginSegue", sender: nil)
-                }
-            })
-            
-            
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("Logged Out")
-    }
-    
-}
+

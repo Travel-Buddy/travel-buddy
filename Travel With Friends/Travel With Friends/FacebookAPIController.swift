@@ -19,14 +19,7 @@ class FacebookAPIController {
     let accessToken = AccessToken.current
     
     
-    /// Logs the user out and clears the saved credentials
-    func logout() {
-        
-        let loginManager = LoginManager()
-        loginManager.logOut()        
-        NotificationCenter.default.post(name: NSNotification.Name("UserDidLogout"), object: nil)
-        
-    }
+    
     
     
     func getUsersFriendsWhoHaveApp(completion: @escaping ([FacebookUser]?, Error?) -> ()) {
@@ -38,6 +31,7 @@ class FacebookAPIController {
                 completion(response.facebookFriendsWithApp, nil)
             case .failed(let error):
                 print("Custom Graph Request Failed: \(error)")
+                
                 completion(nil, error)
             }
         }

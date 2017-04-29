@@ -9,6 +9,8 @@
 import UIKit
 import FacebookCore
 import GooglePlaces
+import Parse
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,27 +21,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //fb setup
         
-        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
+            configuration.applicationId = "travel-buddy"
+            configuration.server = "https://morning-dusk-12610.herokuapp.com/parse"
+        }))
         
+        
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+
         
         //google places setup
         GMSPlacesClient.provideAPIKey("AIzaSyD-suG8UH-JaQ6ZEsXWbpnfe0gTZq1u380")
         
-    
-        //if there is already a user, need to handle and go to main screen and skip login
-        if let accessToken = FacebookAPIController.shared.accessToken {
-            // User is logged in, use 'accessToken' here.
-            print("User alread has access = \(accessToken)")
+        
+        if let _ = PFUser.current() {
+            // Do stuff with the user
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let tripViewController = storyboard.instantiateViewController(withIdentifier: "TripNavVC") as! UINavigationController
             
             window?.rootViewController = tripViewController
-            
+ 
         }
+        
+        
+    
+//        //if there is already a user, need to handle and go to main screen and skip login
+//        if let accessToken = FacebookAPIController.shared.accessToken {
+//            // User is logged in, use 'accessToken' here.
+//            print("User alread has access = \(accessToken)")
+//            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            
+//            let tripViewController = storyboard.instantiateViewController(withIdentifier: "TripNavVC") as! UINavigationController
+//            
+//            window?.rootViewController = tripViewController
+//            
+//        }
         
         //Observer for if the user logs out
         NotificationCenter.default.addObserver(forName: NSNotification.Name("UserDidLogout"), object: nil, queue: OperationQueue.main) { (NSNotification) ->
@@ -55,13 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = SDKApplicationDelegate.shared.application(app, open: url, options: options)
+        return SDKApplicationDelegate.shared.application(app, open: url, options: options)
         
-        print("Handled fb url - \(handled)")
-        
-        return handled
-        
-    
     }
     
     
@@ -82,8 +97,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
+    
         //lets fb analytics know that app is being used
          AppEventsLogger.activate(application)
         

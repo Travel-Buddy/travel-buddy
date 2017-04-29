@@ -21,7 +21,7 @@
 		19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C841EB267D500D464CC /* GooglePlacePOI.swift */; };
 		19396C8A1EB2692900D464CC /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C891EB2692900D464CC /* FacebookAPIController.swift */; };
 		19396C8C1EB2697A00D464CC /* GooglePlacesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C8B1EB2697A00D464CC /* GooglePlacesAPIController.swift */; };
-		19396C8E1EB2699100D464CC /* RealmDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C8D1EB2699100D464CC /* RealmDataController.swift */; };
+		19396C8E1EB2699100D464CC /* ParseDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C8D1EB2699100D464CC /* ParseDataController.swift */; };
 		19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */; };
 		193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD291EAD2768005E8D59 /* AppDelegate.swift */; };
 		193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD2B1EAD2768005E8D59 /* ViewController.swift */; };
@@ -49,7 +49,7 @@
 		19396C841EB267D500D464CC /* GooglePlacePOI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacePOI.swift; sourceTree = "<group>"; };
 		19396C891EB2692900D464CC /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
 		19396C8B1EB2697A00D464CC /* GooglePlacesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIController.swift; sourceTree = "<group>"; };
-		19396C8D1EB2699100D464CC /* RealmDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataController.swift; sourceTree = "<group>"; };
+		19396C8D1EB2699100D464CC /* ParseDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseDataController.swift; sourceTree = "<group>"; };
 		19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacePOIProtocols.swift; sourceTree = "<group>"; };
 		19396C931EB27A7800D464CC /* Travel With Friends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Travel With Friends.entitlements"; sourceTree = "<group>"; };
 		193BBD261EAD2768005E8D59 /* Travel With Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel With Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +133,7 @@
 		19396C881EB2691200D464CC /* Data Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				19396C8D1EB2699100D464CC /* RealmDataController.swift */,
+				19396C8D1EB2699100D464CC /* ParseDataController.swift */,
 			);
 			name = "Data Controllers";
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 				19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */,
 				193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */,
 				1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */,
-				19396C8E1EB2699100D464CC /* RealmDataController.swift in Sources */,
+				19396C8E1EB2699100D464CC /* ParseDataController.swift in Sources */,
 				1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */,
 				19396C8A1EB2692900D464CC /* FacebookAPIController.swift in Sources */,
 				193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */,
