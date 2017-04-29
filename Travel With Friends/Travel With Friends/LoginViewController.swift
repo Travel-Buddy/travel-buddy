@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
                     print("User logged in through Facebook!")
                 }
                 
+                ParseDataController.shared.updateUserFields()
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
                 
             } else {

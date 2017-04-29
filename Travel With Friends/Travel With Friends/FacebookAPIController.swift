@@ -18,10 +18,6 @@ class FacebookAPIController {
     
     let accessToken = AccessToken.current
     
-    
-    
-    
-    
     func getUsersFriendsWhoHaveApp(completion: @escaping ([FacebookUser]?, Error?) -> ()) {
         let connection = GraphRequestConnection()
         connection.add(UserFriendsRequest()) { response, result in
@@ -111,7 +107,7 @@ struct UserInfoRequest: GraphRequestProtocol {
     }
     
     var graphPath = "me"
-    var parameters: [String : Any]? = ["fields": "id, name, picture.type(large)"]
+    var parameters: [String : Any]? = ["fields": "id, name, picture.type(large), email"]
     var accessToken = AccessToken.current
     var httpMethod: GraphRequestHTTPMethod = .GET
     var apiVersion: GraphAPIVersion = .defaultVersion
