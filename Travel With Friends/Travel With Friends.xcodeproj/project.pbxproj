@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193452B01EAE7612004A52D5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193452AF1EAE7612004A52D5 /* LoginViewController.swift */; };
 		193950251EAD8661003667F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193950241EAD8661003667F2 /* MapKit.framework */; };
 		193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950261EAD882E003667F2 /* TripTableViewController.swift */; };
 		193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950281EAD8A38003667F2 /* TripSettingsViewController.swift */; };
@@ -15,15 +16,26 @@
 		1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */; };
 		193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */; };
 		193950341EAD8C74003667F2 /* TripMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950331EAD8C74003667F2 /* TripMapViewController.swift */; };
+		19396C521EAFC75500D464CC /* POICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C501EAFC75500D464CC /* POICell.swift */; };
+		19396C531EAFC75500D464CC /* POICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19396C511EAFC75500D464CC /* POICell.xib */; };
+		19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C841EB267D500D464CC /* GooglePlacePOI.swift */; };
+		19396C8A1EB2692900D464CC /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C891EB2692900D464CC /* FacebookAPIController.swift */; };
+		19396C8C1EB2697A00D464CC /* GooglePlacesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C8B1EB2697A00D464CC /* GooglePlacesAPIController.swift */; };
+		19396C8E1EB2699100D464CC /* ParseDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C8D1EB2699100D464CC /* ParseDataController.swift */; };
+		19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */; };
 		193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD291EAD2768005E8D59 /* AppDelegate.swift */; };
 		193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD2B1EAD2768005E8D59 /* ViewController.swift */; };
 		193BBD2F1EAD2768005E8D59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193BBD2D1EAD2768005E8D59 /* Main.storyboard */; };
 		193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 193BBD301EAD2768005E8D59 /* Assets.xcassets */; };
 		193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193BBD321EAD2768005E8D59 /* LaunchScreen.storyboard */; };
+		19B537C31EB407DD0059808C /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B537C21EB407DD0059808C /* FacebookUser.swift */; };
+		19B537C81EB41ADC0059808C /* FacebookUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B537C61EB41ADC0059808C /* FacebookUserCell.swift */; };
+		19B537C91EB41ADC0059808C /* FacebookUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B537C71EB41ADC0059808C /* FacebookUserCell.xib */; };
 		BC55857B1843B64BFFD18F29 /* Pods_Travel_With_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753AD398283E1B25BB260893 /* Pods_Travel_With_Friends.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		193452AF1EAE7612004A52D5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		193950241EAD8661003667F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		193950261EAD882E003667F2 /* TripTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		193950281EAD8A38003667F2 /* TripSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSettingsViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +44,14 @@
 		1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailPOIViewController.swift; sourceTree = "<group>"; };
 		193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailCostsViewController.swift; sourceTree = "<group>"; };
 		193950331EAD8C74003667F2 /* TripMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapViewController.swift; sourceTree = "<group>"; };
+		19396C501EAFC75500D464CC /* POICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POICell.swift; sourceTree = "<group>"; };
+		19396C511EAFC75500D464CC /* POICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICell.xib; sourceTree = "<group>"; };
+		19396C841EB267D500D464CC /* GooglePlacePOI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacePOI.swift; sourceTree = "<group>"; };
+		19396C891EB2692900D464CC /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
+		19396C8B1EB2697A00D464CC /* GooglePlacesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIController.swift; sourceTree = "<group>"; };
+		19396C8D1EB2699100D464CC /* ParseDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseDataController.swift; sourceTree = "<group>"; };
+		19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacePOIProtocols.swift; sourceTree = "<group>"; };
+		19396C931EB27A7800D464CC /* Travel With Friends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Travel With Friends.entitlements"; sourceTree = "<group>"; };
 		193BBD261EAD2768005E8D59 /* Travel With Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel With Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BBD291EAD2768005E8D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		193BBD2B1EAD2768005E8D59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +59,9 @@
 		193BBD301EAD2768005E8D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		193BBD331EAD2768005E8D59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		193BBD351EAD2768005E8D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19B537C21EB407DD0059808C /* FacebookUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
+		19B537C61EB41ADC0059808C /* FacebookUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUserCell.swift; sourceTree = "<group>"; };
+		19B537C71EB41ADC0059808C /* FacebookUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookUserCell.xib; sourceTree = "<group>"; };
 		753AD398283E1B25BB260893 /* Pods_Travel_With_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_With_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A75C87B9E29C9AB5C7B7E85 /* Pods-Travel With Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.release.xcconfig"; sourceTree = "<group>"; };
 		F53E77145AA3CDD141560C82 /* Pods-Travel With Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,8 +99,62 @@
 				1939502A1EAD8AD2003667F2 /* TripDetailHomeViewController.swift */,
 				193950281EAD8A38003667F2 /* TripSettingsViewController.swift */,
 				193950261EAD882E003667F2 /* TripTableViewController.swift */,
+				193452AF1EAE7612004A52D5 /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		19396C4F1EAFC73700D464CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19396C8F1EB26A9000D464CC /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		19396C861EB267DD00D464CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19396C841EB267D500D464CC /* GooglePlacePOI.swift */,
+				19B537C21EB407DD0059808C /* FacebookUser.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		19396C871EB268EA00D464CC /* API Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				19396C891EB2692900D464CC /* FacebookAPIController.swift */,
+				19396C8B1EB2697A00D464CC /* GooglePlacesAPIController.swift */,
+			);
+			name = "API Controllers";
+			sourceTree = "<group>";
+		};
+		19396C881EB2691200D464CC /* Data Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				19396C8D1EB2699100D464CC /* ParseDataController.swift */,
+			);
+			name = "Data Controllers";
+			sourceTree = "<group>";
+		};
+		19396C8F1EB26A9000D464CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19B537C61EB41ADC0059808C /* FacebookUserCell.swift */,
+				19B537C71EB41ADC0059808C /* FacebookUserCell.xib */,
+				19396C501EAFC75500D464CC /* POICell.swift */,
+				19396C511EAFC75500D464CC /* POICell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		19396C901EB26AA900D464CC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		193BBD1D1EAD2768005E8D59 = {
@@ -101,9 +178,15 @@
 		193BBD281EAD2768005E8D59 /* Travel With Friends */ = {
 			isa = PBXGroup;
 			children = (
+				19396C931EB27A7800D464CC /* Travel With Friends.entitlements */,
 				193BBD291EAD2768005E8D59 /* AppDelegate.swift */,
 				193BBD2B1EAD2768005E8D59 /* ViewController.swift */,
 				193BBD2D1EAD2768005E8D59 /* Main.storyboard */,
+				19396C901EB26AA900D464CC /* Protocols */,
+				19396C881EB2691200D464CC /* Data Controllers */,
+				19396C871EB268EA00D464CC /* API Controllers */,
+				19396C4F1EAFC73700D464CC /* Views */,
+				19396C861EB267DD00D464CC /* Models */,
 				193950321EAD8B30003667F2 /* View Controllers */,
 				193BBD301EAD2768005E8D59 /* Assets.xcassets */,
 				193BBD321EAD2768005E8D59 /* LaunchScreen.storyboard */,
@@ -159,6 +242,9 @@
 						DevelopmentTeam = YUYDGGZ6SW;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -189,6 +275,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19396C531EAFC75500D464CC /* POICell.xib in Resources */,
+				19B537C91EB41ADC0059808C /* FacebookUserCell.xib in Resources */,
 				193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */,
 				193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */,
 				193BBD2F1EAD2768005E8D59 /* Main.storyboard in Resources */,
@@ -251,13 +339,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				193950341EAD8C74003667F2 /* TripMapViewController.swift in Sources */,
+				19396C521EAFC75500D464CC /* POICell.swift in Sources */,
 				193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */,
+				19B537C31EB407DD0059808C /* FacebookUser.swift in Sources */,
+				19396C8C1EB2697A00D464CC /* GooglePlacesAPIController.swift in Sources */,
 				1939502B1EAD8AD2003667F2 /* TripDetailHomeViewController.swift in Sources */,
+				19B537C81EB41ADC0059808C /* FacebookUserCell.swift in Sources */,
 				193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */,
+				19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */,
+				19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */,
 				193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */,
 				1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */,
+				19396C8E1EB2699100D464CC /* ParseDataController.swift in Sources */,
 				1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */,
+				19396C8A1EB2692900D464CC /* FacebookAPIController.swift in Sources */,
 				193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */,
+				193452B01EAE7612004A52D5 /* LoginViewController.swift in Sources */,
 				193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +479,7 @@
 			baseConfigurationReference = F53E77145AA3CDD141560C82 /* Pods-Travel With Friends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Travel With Friends/Travel With Friends.entitlements";
 				DEVELOPMENT_TEAM = YUYDGGZ6SW;
 				INFOPLIST_FILE = "Travel With Friends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -396,6 +494,7 @@
 			baseConfigurationReference = 8A75C87B9E29C9AB5C7B7E85 /* Pods-Travel With Friends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Travel With Friends/Travel With Friends.entitlements";
 				DEVELOPMENT_TEAM = YUYDGGZ6SW;
 				INFOPLIST_FILE = "Travel With Friends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
