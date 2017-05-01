@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let tripViewController = storyboard.instantiateViewController(withIdentifier: "TripNavVC") as! UINavigationController
+            let tripViewController = storyboard.instantiateViewController(withIdentifier: "TripsNavigationController") as! UINavigationController
             
             window?.rootViewController = tripViewController
  
