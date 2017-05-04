@@ -7,14 +7,29 @@
 //
 
 import UIKit
+import Parse
 
 class TripCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateRangeLabel: UILabel!
     @IBOutlet weak var destinationsLabel: UILabel!
     @IBOutlet weak var participantsLabel: UILabel!
-
-    @IBAction func deleteTrip(_ sender: Any) {
-        /* TODO: Implement deleting a trip functionality */
+    
+    
+    var trip : PFObject! {
+        didSet {
+            configureCell()
+        }
     }
+    
+    
+    func configureCell(){
+        
+    }
+    
+
+    @IBAction func editTrip(_ sender: Any) {
+        
+    }
+    
 }

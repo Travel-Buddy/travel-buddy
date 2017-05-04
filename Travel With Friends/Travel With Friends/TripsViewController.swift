@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class TripsViewController: UIViewController {
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tripsTableView: UITableView!
 
-    let testTripNames = [
+    var testTripNames = [
         "2018 Winter Olympics",
         "2017 Total Solar Eclipse",
         "2017 Greece",
@@ -21,7 +22,7 @@ class TripsViewController: UIViewController {
         "2016 Summer Olympics",
         "2016 East Asia"
     ]
-    let testTripDateRanges = [
+    var testTripDateRanges = [
         "February 14, 2018 - February 25, 2018",
         "August 18, 2017 - August 22, 2017",
         "July 23, 2017 - July 30, 2017",
@@ -30,7 +31,7 @@ class TripsViewController: UIViewController {
         "August 10, 2016 - August 29, 2016",
         "March 22, 2016 - April 10, 2016"
     ]
-    let testTripDestinations = [
+    var testTripDestinations = [
         "Seoul, PyeongChang",
         "Salt Lake City, Yellowstone National Park, Grand Teton National Park",
         "Athens, Santorini, Meteora, Crete",
@@ -39,7 +40,7 @@ class TripsViewController: UIViewController {
         "Iguazu, Rio de Janeiro, Amazon Rainforest",
         "Kyoto, Osaka, Matsusaka, Tokyo, Seoul"
     ]
-    let testTripParticipants = [
+    var testTripParticipants = [
         "Janvier Wijaya, Minxi Rao",
         "Janvier Wijaya, Minxi Rao, Gautam Srinivasan, Jeffrey Chen",
         "Janvier Wijaya, Minxi Rao, Sutanto Wibowo, Agatha Christy",
@@ -68,8 +69,41 @@ class TripsViewController: UIViewController {
 
         let nib = UINib(nibName: "TripCell", bundle: nil)
         tripsTableView.register(nib, forCellReuseIdentifier: "TripCell")
+        
+        
+        let query = PFQuery(className:"Trip")
+        query.whereKey("users", equalTo: PFUser.current()!)
+        
+        query.findObjectsInBackground { (trips, error) in
+            if let trips = trips {
+                
+                for trip in trips {
+                    let relation = trip.relation(forKey: "users")
+                    let queryUsers = relation.query()
+                    queryUsers.findObjectsInBackground(block: { (users, error) in
+                        if let users = users {
+                            print(users)
+                        }
+                    })
+                    
+                }
+                
+                
+            }
+        }
+        
+        
+        
+        
     }
 
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        ParseDataController.shared.logout()
+        
+        
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "ComposeTripSegue" {
@@ -115,4 +149,36 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "ShowTripDetailSegue",
                 sender: tableView.cellForRow(at: indexPath))
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        //if user is owner, return true, else return false
+    
+        return false
+        
+    }
+    
+    
+    // this method handles row deletion
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
+        if editingStyle == .delete {
+            
+            // remove the item from the data model
+           // animals.remove(at: indexPath.row)
+            testTripNames.remove(at: indexPath.row)
+            testTripDateRanges.remove(at: indexPath.row)
+            testTripDestinations.remove(at: indexPath.row)
+            testTripParticipants.remove(at: indexPath.row)
+            
+            // delete the table view row
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+            
+        
+    }
+    
+    
 }

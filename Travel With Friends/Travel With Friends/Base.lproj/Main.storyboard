@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,6 +59,7 @@
         <!--Create Trip-->
         <scene sceneID="B9E-Hg-mpx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhE-84-M7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="an4-ls-FvV" customClass="TripComposerViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KJ1-GC-kYl"/>
@@ -67,7 +68,19 @@
                     <view key="view" contentMode="scaleToFill" id="dIV-dM-Fub">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-Hm-Wmf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fes-Hm-Wmf" firstAttribute="leading" secondItem="dIV-dM-Fub" secondAttribute="leading" id="2nw-Nw-z2L"/>
+                            <constraint firstItem="Fes-Hm-Wmf" firstAttribute="top" secondItem="dIV-dM-Fub" secondAttribute="top" id="NZJ-2W-5Eq"/>
+                            <constraint firstItem="ZsW-P9-2KB" firstAttribute="top" secondItem="Fes-Hm-Wmf" secondAttribute="bottom" id="gsE-Fd-iEK"/>
+                            <constraint firstAttribute="trailing" secondItem="Fes-Hm-Wmf" secondAttribute="trailing" id="kQD-Z1-O0F"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Trip" id="1md-5a-DLC">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="2kw-Wg-bgh">
@@ -75,151 +88,53 @@
                                 <action selector="cancelChanges:" destination="an4-ls-FvV" id="Zvy-P1-hYW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="bNH-BC-kDb">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="bNH-BC-kDb">
                             <connections>
-                                <action selector="saveChanges:" destination="an4-ls-FvV" id="NL9-gy-xxT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qhE-84-M7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1510" y="-1059"/>
-        </scene>
-        <!--Trips-->
-        <scene sceneID="GFs-yq-cb5">
-            <objects>
-                <viewController id="013-hb-pcN" customClass="TripsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4bO-Z5-SYa"/>
-                        <viewControllerLayoutGuide type="bottom" id="qkW-YW-ifp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IDG-mr-2IX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dER-zV-b9V">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dER-zV-b9V" firstAttribute="leading" secondItem="IDG-mr-2IX" secondAttribute="leading" id="0ie-wv-YGa"/>
-                            <constraint firstItem="dER-zV-b9V" firstAttribute="top" secondItem="IDG-mr-2IX" secondAttribute="top" id="AJ0-4l-fhv"/>
-                            <constraint firstItem="qkW-YW-ifp" firstAttribute="top" secondItem="dER-zV-b9V" secondAttribute="bottom" id="Fmw-dA-gkD"/>
-                            <constraint firstAttribute="trailing" secondItem="dER-zV-b9V" secondAttribute="trailing" id="yMD-vT-2mE"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Trips" id="3ye-xK-JVt">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="Rjt-DJ-oaX">
-                            <connections>
-                                <action selector="createTrip:" destination="013-hb-pcN" id="hYQ-GW-ftr"/>
+                                <action selector="saveTrip:" destination="an4-ls-FvV" id="vy5-5I-Wqv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addBarButtonItem" destination="Rjt-DJ-oaX" id="wG6-ft-9pU"/>
-                        <outlet property="tripsTableView" destination="dER-zV-b9V" id="uIm-NC-rg5"/>
-                        <segue destination="W32-rY-EP4" kind="presentation" identifier="ShowTripDetailSegue" id="Osu-wE-hiy"/>
-                        <segue destination="VBq-I9-fHL" kind="presentation" identifier="ComposeTripSegue" id="pPU-xO-xa8"/>
+                        <outlet property="saveBarButton" destination="bNH-BC-kDb" id="43Y-Ci-eet"/>
+                        <outlet property="tableView" destination="Fes-Hm-Wmf" id="Mmf-gq-Lgg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ukq-RI-GQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="-332"/>
+            <point key="canvasLocation" x="1509.5999999999999" y="-1059.2203898050975"/>
         </scene>
-        <!--Trip Table View Controller-->
-        <scene sceneID="oSN-71-KtA">
+        <!--Trips Home View Controller-->
+        <scene sceneID="cWW-sh-pqb">
             <objects>
-                <viewController id="N9K-Hu-bte" customClass="TripTableViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vim-tY-g3m"/>
-                        <viewControllerLayoutGuide type="bottom" id="tu4-T3-hn4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gDQ-xP-Bmp">
+                <tableViewController id="j1q-zf-tZV" customClass="TripsHomeViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vec-X7-KsL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xzh-eJ-Gcn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TripCell" id="sqO-nj-OPa">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sqO-nj-OPa" id="IJZ-jP-baR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="W32-rY-EP4" kind="presentation" identifier="TripDetailSegue" id="PLo-1a-546"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="AQB-3S-zy1">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9vk-7i-62B">
+                        <connections>
+                            <outlet property="dataSource" destination="j1q-zf-tZV" id="gO6-ix-dUT"/>
+                            <outlet property="delegate" destination="j1q-zf-tZV" id="DpF-2p-v05"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="I2I-5q-qEQ">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="KU0-6x-xYh">
                             <connections>
-                                <action selector="logoutButtonPressed:" destination="N9K-Hu-bte" id="Ozr-jB-Zlo"/>
+                                <action selector="logout:" destination="j1q-zf-tZV" id="5IV-co-d3C"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Map View" id="S19-4w-1rp">
+                        <barButtonItem key="rightBarButtonItem" title="Add Trip" id="CmC-10-HmR">
                             <connections>
-                                <action selector="GooglePlacesCitySearchTest:" destination="N9K-Hu-bte" id="KVk-eM-5Lr"/>
+                                <segue destination="VBq-I9-fHL" kind="presentation" identifier="ComposeTripSegue" id="WdY-Id-BKS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tripTableView" destination="Xzh-eJ-Gcn" id="zZ5-gK-b9T"/>
+                        <outlet property="addTripBarButton" destination="CmC-10-HmR" id="BeZ-Va-Dss"/>
+                        <segue destination="W32-rY-EP4" kind="show" identifier="ShowTripDetailSegue" id="Nyo-DU-KGZ"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VaA-s9-XhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a7-1B-bX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="575"/>
-        </scene>
-        <!--Trip Map View Controller-->
-        <scene sceneID="hMV-yb-6lJ">
-            <objects>
-                <viewController id="C1x-xm-NvV" customClass="TripMapViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NcM-dr-G7c"/>
-                        <viewControllerLayoutGuide type="bottom" id="pwQ-Hh-p7N"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="13z-wc-0TD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gUO-lv-6IL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="keg-qB-vwh">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9VL-6d-k55">
-                            <connections>
-                                <action selector="logoutButtonPressed:" destination="C1x-xm-NvV" id="lcy-vD-WhX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Trip Table View" id="7ef-VY-kmk">
-                            <connections>
-                                <segue destination="ENS-9N-zmJ" kind="presentation" modalTransitionStyle="flipHorizontal" id="YTv-8v-sHR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="W32-rY-EP4" kind="presentation" identifier="TripDetailSegue" id="cUW-db-8Y4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vt2-8r-68x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1809" y="1281"/>
+            <point key="canvasLocation" x="1596" y="-332"/>
         </scene>
         <!--Trip Detail Locations View Controller-->
         <scene sceneID="J3k-ea-SH8">
@@ -296,42 +211,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jR-vh-1kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2708" y="-332"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1Zd-OW-lIh">
-            <objects>
-                <navigationController storyboardIdentifier="TripNavVC" automaticallyAdjustsScrollViewInsets="NO" id="ENS-9N-zmJ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Mp-p2-0ua">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="N9K-Hu-bte" kind="relationship" relationship="rootViewController" id="2dz-SK-qKy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c4K-jW-v5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="868" y="575"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0NK-tZ-LXq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="05w-7r-occ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="flX-gT-T9b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="C1x-xm-NvV" kind="relationship" relationship="rootViewController" id="HGe-DX-1ot"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u96-EY-WsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="868" y="1281"/>
         </scene>
         <!--Create | Edit Destination-->
         <scene sceneID="ZmC-Xp-351">
@@ -670,7 +549,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="013-hb-pcN" kind="relationship" relationship="rootViewController" id="R9N-ay-hT5"/>
+                        <segue destination="j1q-zf-tZV" kind="relationship" relationship="rootViewController" id="Dqd-o1-DTI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pT9-z4-MMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -752,9 +631,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cUW-db-8Y4"/>
-        <segue reference="7s3-Pk-ALy"/>
         <segue reference="sHL-Ut-P2e"/>
+        <segue reference="7s3-Pk-ALy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

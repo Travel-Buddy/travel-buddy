@@ -19,5 +19,5 @@ target 'Travel With Friends' do
   pod 'Parse'
   pod 'ParseUI'
   pod 'ParseFacebookUtilsV4'
-
+  pod 'Eureka'
 end

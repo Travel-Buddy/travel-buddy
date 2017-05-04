@@ -8,6 +8,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Eureka (3.0.0)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -56,6 +57,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Eureka
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -72,6 +74,7 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
@@ -87,6 +90,6 @@ SPEC CHECKSUMS:
   Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
   UnboxedAlamofire: 3ecaf2a745aa018ba3497c0d61487b7338190ac6
 
-PODFILE CHECKSUM: ab04c92da82e26386d71df92655fbd8e39cdc134
+PODFILE CHECKSUM: 0f1956ff8b74c46e370a712a942b2827f64badad
 
 COCOAPODS: 1.2.0
