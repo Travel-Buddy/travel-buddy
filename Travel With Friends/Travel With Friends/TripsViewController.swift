@@ -136,8 +136,8 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
 
         cell.nameLabel.text = testTripNames[indexPath.row]
         cell.dateRangeLabel.text = testTripDateRanges[indexPath.row]
-        cell.destinationsLabel.text = testTripDestinations[indexPath.row]
-        cell.participantsLabel.text = testTripParticipants[indexPath.row]
+//        cell.destinationsLabel.text = testTripDestinations[indexPath.row]
+//        cell.participantsLabel.text = testTripParticipants[indexPath.row]
 
         return cell
     }

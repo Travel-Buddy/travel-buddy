@@ -15,6 +15,11 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    
+    var tripToEdit : PFObject?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,13 +33,43 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
             
         }
         
+        
+        
         initializeForm()
         
-        let row = self.form.rowBy(tag: "Trip Title") as! TextRow
+        if let _ = tripToEdit {
+            let owner = tripToEdit!["createdBy"] as? PFUser
+            let current = PFUser.current()
+            
+            if let owner = owner, let current = current, owner["facebookId"] as! String == current["facebookId"] as! String {
+                self.title = "Edit Trip"
+                let row = self.form.rowBy(tag: "Trip Title") as! TextRow
+                row.cell.textField.becomeFirstResponder()
+            }else{
+                self.title = "Trip Settings"
+                let row = self.form.rowBy(tag: "Trip Title") as! TextRow
+                row.cell.isUserInteractionEnabled = false
+
+                let tripStartDateRow = self.form.rowBy(tag: "START DATE") as! DateInlineRow
+                tripStartDateRow.cell.isUserInteractionEnabled = false
+                let tripEndDateRow = self.form.rowBy(tag: "END DATE") as! DateInlineRow
+                tripEndDateRow.cell.isUserInteractionEnabled = false
+                saveBarButton.isEnabled = false
+                saveBarButton.tintColor = UIColor.clear
+                cancelBarButton.title = "Close"
+            }
+        }else{
+            let row = self.form.rowBy(tag: "Trip Title") as! TextRow
+            row.cell.textField.becomeFirstResponder()
+        }
         
-        row.cell.textField.becomeFirstResponder()
+        
+       
         
     }
+    
+
+    
     
     func initializeForm() {
         
@@ -43,6 +78,10 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 
                 <<< TextRow("Trip Title") {
                     $0.add(rule: RuleRequired())
+                    if let tripToEdit = tripToEdit {
+                        $0.value = tripToEdit["title"] as? String
+                    }
+                    
                     $0.validationOptions = .validatesOnChange
                 }
                 .cellUpdate { cell, row in
@@ -72,7 +111,14 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 <<< DateInlineRow("START DATE") {
                     $0.title = $0.tag
                     $0.add(rule: RuleRequired())
-                    $0.value = Date().addingTimeInterval(60*60*24)
+                    
+                    if let tripToEdit = tripToEdit {
+                        $0.value = tripToEdit["startDate"] as? Date
+                    }else{
+                        $0.value = Date().addingTimeInterval(60*60*24)
+                    }
+                    
+                    
                     }
                     .onChange { [weak self] row in
                         let endRow: DateInlineRow! = self?.form.rowBy(tag: "END DATE")
@@ -96,7 +142,13 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 <<< DateInlineRow("END DATE"){
                     $0.title = $0.tag
                     $0.add(rule: RuleRequired())
-                    $0.value = Date().addingTimeInterval(60*60*25)
+                    
+                    if let tripToEdit = tripToEdit {
+                        $0.value = tripToEdit["endDate"] as? Date
+                    }else{
+                        $0.value = Date().addingTimeInterval(60*60*24)
+                    }
+                    
                     }
                     .onChange { [weak self] row in
                         let startRow: DateInlineRow! = self?.form.rowBy(tag: "START DATE")
@@ -127,26 +179,52 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
         let tripStartDateRow = self.form.rowBy(tag: "START DATE") as! DateInlineRow
         let tripEndDateRow = self.form.rowBy(tag: "END DATE") as! DateInlineRow
         
-        let trip = PFObject(className:"Trip")
-        trip["createAt"] = Date()
-        trip["updatedAt"] = Date()
-        trip["startDate"] = tripStartDateRow.value
-        trip["endDate"] = tripEndDateRow.value
-        trip["title"] = tripTitleRow.cell.textField.text
-        trip["createdBy"] = PFUser.current()
-        trip["destinations"] = []
-        
-        let users = trip.relation(forKey: "users")
-        users.add(PFUser.current()!)
-        
-        trip.saveEventually { (success, error) in
-            if success {
-                print("trip saved")
+        if let tripToEdit = tripToEdit {
+            
+            tripToEdit["updatedAt"] = Date()
+            tripToEdit["startDate"] = tripStartDateRow.value
+            tripToEdit["endDate"] = tripEndDateRow.value
+            tripToEdit["title"] = tripTitleRow.cell.textField.text
+            
+//            let users = trip.relation(forKey: "users")
+//            users.add(PFUser.current()!)
+            
+            tripToEdit.saveEventually { (success, error) in
+                if success {
+                    print("trip saved")
+                }
+            }
+            
+            
+        }else{
+            let trip = PFObject(className:"Trip")
+            trip["createAt"] = Date()
+            trip["updatedAt"] = Date()
+            trip["startDate"] = tripStartDateRow.value
+            trip["endDate"] = tripEndDateRow.value
+            trip["title"] = tripTitleRow.cell.textField.text
+            trip["createdBy"] = PFUser.current()
+            
+            let users = trip.relation(forKey: "users")
+            users.add(PFUser.current()!)
+            
+            trip.saveEventually { (success, error) in
+                if success {
+                    print("trip saved")
+                }
             }
         }
+        
+        
+        
         
         dismiss(animated: true, completion: nil)
         
     }
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }

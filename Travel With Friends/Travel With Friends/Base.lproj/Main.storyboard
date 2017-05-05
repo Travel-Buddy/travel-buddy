@@ -85,7 +85,7 @@
                     <navigationItem key="navigationItem" title="Create Trip" id="1md-5a-DLC">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="2kw-Wg-bgh">
                             <connections>
-                                <action selector="cancelChanges:" destination="an4-ls-FvV" id="Zvy-P1-hYW"/>
+                                <action selector="cancel:" destination="an4-ls-FvV" id="l3v-DJ-Jw9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="bNH-BC-kDb">
@@ -95,6 +95,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelBarButton" destination="2kw-Wg-bgh" id="w5B-n9-Z05"/>
                         <outlet property="saveBarButton" destination="bNH-BC-kDb" id="43Y-Ci-eet"/>
                         <outlet property="tableView" destination="Fes-Hm-Wmf" id="Mmf-gq-Lgg"/>
                     </connections>
@@ -123,13 +124,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Trip" id="CmC-10-HmR">
                             <connections>
-                                <segue destination="VBq-I9-fHL" kind="presentation" identifier="ComposeTripSegue" id="WdY-Id-BKS"/>
+                                <action selector="addTrip:" destination="j1q-zf-tZV" id="RtR-Ra-QYX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addTripBarButton" destination="CmC-10-HmR" id="BeZ-Va-Dss"/>
                         <segue destination="W32-rY-EP4" kind="show" identifier="ShowTripDetailSegue" id="Nyo-DU-KGZ"/>
+                        <segue destination="VBq-I9-fHL" kind="presentation" identifier="ComposeTripSegue" id="vzE-sn-4ek"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a7-1B-bX6" userLabel="First Responder" sceneMemberID="firstResponder"/>

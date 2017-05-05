@@ -28,16 +28,8 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.20.2):
     - FBSDKCoreKit
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
-    - GoogleMaps/Base
-  - GooglePlacePicker (2.2.0):
-    - GoogleMaps (= 2.2.0)
-    - GooglePlaces (= 2.2.0)
-  - GooglePlaces (2.2.0):
-    - GoogleMaps/Base (= 2.2.0)
+  - GooglePlacesRow (2.1.0):
+    - Eureka (~> 3.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.1):
@@ -61,9 +53,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
-  - GoogleMaps
-  - GooglePlacePicker
-  - GooglePlaces
+  - GooglePlacesRow
   - Parse
   - ParseFacebookUtilsV4
   - ParseUI
@@ -81,15 +71,13 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
   FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
   FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
-  GooglePlacePicker: 345b1aabd42c9d6d9bf2369c1bae1234d903e764
-  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
+  GooglePlacesRow: b746f7213e0436c4e7529fbade8eeb10d22de3eb
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
   UnboxedAlamofire: 3ecaf2a745aa018ba3497c0d61487b7338190ac6
 
-PODFILE CHECKSUM: 0f1956ff8b74c46e370a712a942b2827f64badad
+PODFILE CHECKSUM: b3927e2f2e78c54ffe674c246c4f71d79897cbea
 
 COCOAPODS: 1.2.0
