@@ -56,8 +56,8 @@ class TripCell: PFTableViewCell {
         if let owner = owner, let current = current, owner["facebookId"] as! String == current["facebookId"] as! String {
             ownerLabel.text = "From You"
 
-        }else{
-            ownerLabel.text = "From \(owner!["name"]!)"
+        }else if let owner = owner{
+            ownerLabel.text = "From \(owner["name"]!)"
         }
         
         

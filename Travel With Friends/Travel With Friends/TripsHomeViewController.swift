@@ -75,7 +75,7 @@ class TripsHomeViewController: PFQueryTableViewController {
     override func queryForTable() -> PFQuery<PFObject> {
         let query = PFQuery(className: self.parseClassName!)
         
-       // query.whereKey("users", equalTo: PFUser.current()!)
+        query.whereKey("users", equalTo: PFUser.current()!)
         query.includeKey("createdBy")
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
@@ -119,6 +119,7 @@ class TripsHomeViewController: PFQueryTableViewController {
             
             self.removeObject(at: indexPath, animated: true)
             
+            PFCloud.callFunction(inBackground: "hello", withParameters: nil)
         }
     }
     

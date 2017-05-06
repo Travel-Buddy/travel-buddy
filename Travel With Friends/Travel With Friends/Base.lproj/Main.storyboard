@@ -98,6 +98,7 @@
                         <outlet property="cancelBarButton" destination="2kw-Wg-bgh" id="w5B-n9-Z05"/>
                         <outlet property="saveBarButton" destination="bNH-BC-kDb" id="43Y-Ci-eet"/>
                         <outlet property="tableView" destination="Fes-Hm-Wmf" id="Mmf-gq-Lgg"/>
+                        <segue destination="y3m-vR-suN" kind="presentation" identifier="AddFriendsSegue" id="4hC-hn-bUU"/>
                     </connections>
                 </viewController>
             </objects>
@@ -242,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aby-yk-Ux2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="-1059"/>
+            <point key="canvasLocation" x="5540" y="-1059.2203898050975"/>
         </scene>
         <!--Destinations-->
         <scene sceneID="Es1-O7-r0x">
@@ -364,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SJ-Mh-ihZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6228" y="-1059"/>
+            <point key="canvasLocation" x="7167.1999999999998" y="-1059.2203898050975"/>
         </scene>
         <!--Plan-->
         <scene sceneID="3M3-mf-vRZ">
@@ -401,7 +402,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gsw-WY-TvV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Locations" id="Fdg-V8-XDn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QIO-qJ-KEP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QIO-qJ-KEP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -490,7 +491,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8zh-Ay-Ont" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Points of Interests" id="erJ-Sx-hr5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FcW-V8-dCy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FcW-V8-dCy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -509,7 +510,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6qD-k5-cOf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Costs" id="5bE-6N-1KQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="41N-GD-tge">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="41N-GD-tge">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -527,7 +528,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCl-Xp-Yep" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mTp-0y-t7x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mTp-0y-t7x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -545,7 +546,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TripsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="U0y-68-Cqn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="io1-eq-ZRE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="io1-eq-ZRE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -564,7 +565,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ba-JW-9zx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Trip" id="eaP-AE-mG8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mhd-5J-MJW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mhd-5J-MJW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -582,7 +583,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vj-N4-1G6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8kf-4V-dnJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kf-4V-dnJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -593,14 +594,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqE-5g-nVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="-1059"/>
+            <point key="canvasLocation" x="4732" y="-1059.2203898050975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DHM-vp-Lyh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hw-ad-11H" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IkV-dn-Bw3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IkV-dn-Bw3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -611,14 +612,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gh-6H-QSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5420" y="-1059"/>
+            <point key="canvasLocation" x="6359.1999999999998" y="-1059.2203898050975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qSa-QD-w4n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBq-I9-fHL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARR-qf-lgV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARR-qf-lgV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -630,6 +631,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxQ-zF-rpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="702" y="-1059"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TDd-FC-qP0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y3m-vR-suN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xmu-Hh-k31">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o4x-SP-oug" kind="relationship" relationship="rootViewController" id="lbm-Uq-JZ2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEM-Gv-T9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2376.8000000000002" y="-1056.5217391304348"/>
+        </scene>
+        <!--Add Friends View Controller-->
+        <scene sceneID="Mqa-N6-ZBL">
+            <objects>
+                <tableViewController id="o4x-SP-oug" customClass="AddFriendsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="x7s-rz-MA0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="o4x-SP-oug" id="hQu-h0-9ze"/>
+                            <outlet property="delegate" destination="o4x-SP-oug" id="h5S-BD-STY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KLj-vR-gtp">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sqP-lp-hyJ">
+                            <connections>
+                                <action selector="cancel:" destination="o4x-SP-oug" id="doe-m8-m6p"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="7FO-IC-9H0">
+                            <connections>
+                                <action selector="add:" destination="o4x-SP-oug" id="MIQ-jf-8ib"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0qT-dl-5ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3122" y="-1057"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
