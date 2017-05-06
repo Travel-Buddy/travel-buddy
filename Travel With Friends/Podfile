@@ -13,11 +13,12 @@ target 'Travel With Friends' do
   pod 'UnboxedAlamofire'
   pod 'AlamofireImage'
   pod 'Unbox'
-  pod 'GooglePlaces'
-  pod 'GooglePlacePicker'
-  pod 'GoogleMaps'
+  # pod 'GooglePlaces'
+  # pod 'GooglePlacePicker'
+  # pod 'GoogleMaps'
   pod 'Parse'
   pod 'ParseUI'
   pod 'ParseFacebookUtilsV4'
-
+  pod 'Eureka'
+  pod 'GooglePlacesRow'
 end
