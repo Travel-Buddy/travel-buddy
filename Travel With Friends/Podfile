@@ -13,20 +13,11 @@ target 'Travel With Friends' do
   pod 'UnboxedAlamofire'
   pod 'AlamofireImage'
   pod 'Unbox'
-<<<<<<< HEAD
   #pod 'GooglePlacePicker'
-=======
-  # pod 'GooglePlaces'
-  # pod 'GooglePlacePicker'
-  # pod 'GoogleMaps'
->>>>>>> janvier-changes
   pod 'Parse'
   pod 'ParseUI'
   pod 'ParseFacebookUtilsV4'
   pod 'Eureka'
   pod 'GooglePlacesRow'
-<<<<<<< HEAD
 
-=======
->>>>>>> janvier-changes
 end

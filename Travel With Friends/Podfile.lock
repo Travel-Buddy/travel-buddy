@@ -30,11 +30,7 @@ PODS:
     - FBSDKCoreKit
   - GooglePlacesRow (2.1.0):
     - Eureka (~> 3.0)
-<<<<<<< HEAD
   - Parse (1.14.4):
-=======
-  - Parse (1.14.2):
->>>>>>> janvier-changes
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.1):
     - Bolts/Tasks (>= 1.6)
@@ -72,28 +68,16 @@ SPEC CHECKSUMS:
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
-<<<<<<< HEAD
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
   FBSDKShareKit: 21ab3c8d173f4fa20c47c1061f3a9fac5950b5fa
   GooglePlacesRow: b746f7213e0436c4e7529fbade8eeb10d22de3eb
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
-=======
-  FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
-  FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
-  FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
-  GooglePlacesRow: b746f7213e0436c4e7529fbade8eeb10d22de3eb
-  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
->>>>>>> janvier-changes
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
   UnboxedAlamofire: 3ecaf2a745aa018ba3497c0d61487b7338190ac6
 
-<<<<<<< HEAD
 PODFILE CHECKSUM: 3ec3dbd81362057f466fb8457c63c414a7316462
-=======
-PODFILE CHECKSUM: e11f152981665b010f225cb1698cc8496481613a
->>>>>>> janvier-changes
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.2.0
