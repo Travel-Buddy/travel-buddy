@@ -247,6 +247,36 @@
             </objects>
             <point key="canvasLocation" x="4777" y="575"/>
         </scene>
+        <!--Plans-->
+        <scene sceneID="r6R-Tj-7u8">
+            <objects>
+                <tableViewController id="7rq-hD-Wvq" customClass="PlansViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="N03-75-aIQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="7rq-hD-Wvq" id="46j-xA-ORZ"/>
+                            <outlet property="delegate" destination="7rq-hD-Wvq" id="CZ9-ji-LG3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Plans" id="aQh-jM-x1K">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="hbU-tu-1hI">
+                            <connections>
+                                <action selector="createPlan:" destination="7rq-hD-Wvq" id="zyF-F3-je3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="hbU-tu-1hI" id="my5-nq-cdc"/>
+                        <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="V6B-dv-q4O"/>
+                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="ttz-X1-pax"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HKv-dL-dt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5420" y="-331"/>
+        </scene>
         <!--Trip Settings View Controller-->
         <scene sceneID="Wc3-DM-4rr">
             <objects>
@@ -302,7 +332,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TripNavVC" automaticallyAdjustsScrollViewInsets="NO" id="ENS-9N-zmJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Mp-p2-0ua">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Mp-p2-0ua">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -320,7 +350,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="05w-7r-occ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="flX-gT-T9b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="flX-gT-T9b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -389,59 +419,24 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+<<<<<<< HEAD:Travel With Friends/Travel With Friends/Main-curtis.storyboard
                         <outlet property="addBarButtonItem" destination="mhl-0e-xsb" id="XYn-XK-73e"/>
                         <outlet property="homeBarButtonItem" destination="biU-Hv-kK1" id="FyJ-wx-XYC"/>
                         <segue destination="IGh-mM-C4l" kind="show" identifier="ShowDestinationDetailSegue" id="jJr-SJ-2gZ"/>
                         <segue destination="4vj-N4-1G6" kind="presentation" identifier="ComposeDestinationSegue" id="cob-jA-wyS"/>
                         <segue destination="4vj-N4-1G6" kind="presentation" identifier="EditDestinationSegue" id="jwB-de-ZfU"/>
+=======
+                        <outlet property="addBarButtonItem" destination="mR2-b5-13t" id="dec-xc-6hy"/>
+                        <outlet property="destinationsTableView" destination="RXC-U3-yR3" id="SF0-YH-1eB"/>
+                        <outlet property="homeBarButtonItem" destination="qbX-f1-ulc" id="9Ln-93-mP9"/>
+                        <segue destination="4vj-N4-1G6" kind="presentation" identifier="ComposeDestinationSegue" id="4CL-My-Akz"/>
+                        <segue destination="7rq-hD-Wvq" kind="show" identifier="ShowDestinationDetailSegue" id="wci-zh-rZ8"/>
+>>>>>>> janvier-changes:Travel With Friends/Travel With Friends/Base.lproj/Main.storyboard
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVr-Zf-Blr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4601" y="-331"/>
-        </scene>
-        <!--Plans-->
-        <scene sceneID="JRG-dd-dup">
-            <objects>
-                <viewController id="IGh-mM-C4l" customClass="PlansViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RCG-xK-rXM"/>
-                        <viewControllerLayoutGuide type="bottom" id="jsh-NI-Zvc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f5b-dF-uL1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ql-2H-Kur">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="0Ql-2H-Kur" firstAttribute="leading" secondItem="f5b-dF-uL1" secondAttribute="leading" id="I57-cb-ZmY"/>
-                            <constraint firstItem="0Ql-2H-Kur" firstAttribute="top" secondItem="f5b-dF-uL1" secondAttribute="top" id="iP2-n3-Oz5"/>
-                            <constraint firstAttribute="trailing" secondItem="0Ql-2H-Kur" secondAttribute="trailing" id="pBG-UI-KAw"/>
-                            <constraint firstAttribute="bottom" secondItem="0Ql-2H-Kur" secondAttribute="bottom" id="xuL-Kf-94b"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Plans" id="RMx-w2-vSs">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="SGN-WZ-0do">
-                            <connections>
-                                <action selector="createPlan:" destination="IGh-mM-C4l" id="6yt-nC-5oE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addBarButtonItem" destination="SGN-WZ-0do" id="gOj-og-wPJ"/>
-                        <outlet property="plansTableView" destination="0Ql-2H-Kur" id="kpW-M5-L6h"/>
-                        <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="TZn-JB-gIe"/>
-                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="sHL-Ut-P2e"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x98-pO-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5420" y="-332"/>
         </scene>
         <!--Create | Edit Plan-->
         <scene sceneID="VN3-bV-kJ0">
@@ -471,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SJ-Mh-ihZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6228" y="-1059"/>
+            <point key="canvasLocation" x="6228" y="-1059.2203898050975"/>
         </scene>
         <!--Plan-->
         <scene sceneID="3M3-mf-vRZ">
@@ -508,7 +503,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gsw-WY-TvV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Locations" id="Fdg-V8-XDn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QIO-qJ-KEP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QIO-qJ-KEP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -601,7 +596,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8zh-Ay-Ont" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Points of Interests" id="erJ-Sx-hr5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FcW-V8-dCy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FcW-V8-dCy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -620,7 +615,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6qD-k5-cOf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Costs" id="5bE-6N-1KQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="41N-GD-tge">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="41N-GD-tge">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -638,7 +633,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCl-Xp-Yep" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mTp-0y-t7x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mTp-0y-t7x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -656,7 +651,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TripsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="U0y-68-Cqn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="io1-eq-ZRE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="io1-eq-ZRE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -675,7 +670,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ba-JW-9zx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Trip" id="eaP-AE-mG8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mhd-5J-MJW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mhd-5J-MJW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -693,7 +688,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vj-N4-1G6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8kf-4V-dnJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kf-4V-dnJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -711,7 +706,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hw-ad-11H" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IkV-dn-Bw3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IkV-dn-Bw3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -729,7 +724,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBq-I9-fHL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARR-qf-lgV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARR-qf-lgV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -748,6 +743,10 @@
         <segue reference="cob-jA-wyS"/>
         <segue reference="eFx-Oa-glY"/>
         <segue reference="7s3-Pk-ALy"/>
+<<<<<<< HEAD:Travel With Friends/Travel With Friends/Main-curtis.storyboard
+=======
+        <segue reference="ttz-X1-pax"/>
+>>>>>>> janvier-changes:Travel With Friends/Travel With Friends/Base.lproj/Main.storyboard
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
