@@ -8,6 +8,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Eureka (3.0.0)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -27,16 +28,8 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.20.2):
     - FBSDKCoreKit
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
-    - GoogleMaps/Base
-  - GooglePlacePicker (2.2.0):
-    - GoogleMaps (= 2.2.0)
-    - GooglePlaces (= 2.2.0)
-  - GooglePlaces (2.2.0):
-    - GoogleMaps/Base (= 2.2.0)
+  - GooglePlacesRow (2.1.0):
+    - Eureka (~> 3.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.1):
@@ -56,12 +49,11 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Eureka
   - FacebookCore
   - FacebookLogin
   - FacebookShare
-  - GoogleMaps
-  - GooglePlacePicker
-  - GooglePlaces
+  - GooglePlacesRow
   - Parse
   - ParseFacebookUtilsV4
   - ParseUI
@@ -72,21 +64,20 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
   FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
   FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
   FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
-  GooglePlacePicker: 345b1aabd42c9d6d9bf2369c1bae1234d903e764
-  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
+  GooglePlacesRow: b746f7213e0436c4e7529fbade8eeb10d22de3eb
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
   UnboxedAlamofire: 3ecaf2a745aa018ba3497c0d61487b7338190ac6
 
-PODFILE CHECKSUM: ab04c92da82e26386d71df92655fbd8e39cdc134
+PODFILE CHECKSUM: b3927e2f2e78c54ffe674c246c4f71d79897cbea
 
 COCOAPODS: 1.2.0

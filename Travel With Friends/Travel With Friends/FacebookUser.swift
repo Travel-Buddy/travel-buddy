@@ -17,6 +17,9 @@ struct FacebookUser : Unboxable {
     let picture : Picture?
     let email : String?
     
+    
+    
+    
     init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
         self.name = try unboxer.unbox(key: "name")
