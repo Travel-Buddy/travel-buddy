@@ -46,6 +46,8 @@
 		7B98F1F51EB6B31600DE19ED /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98F1F31EB6B31600DE19ED /* PlanCell.swift */; };
 		7B98F1F61EB6B31600DE19ED /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B98F1F41EB6B31600DE19ED /* PlanCell.xib */; };
 		82E8D3D93105E8EE9DADAA00 /* Pods_Travel_With_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */; };
+		E9F8D3D21EBEAEF900ABD38F /* CostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */; };
+		E9F8D3D41EBEAF2600ABD38F /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		7B98F1F31EB6B31600DE19ED /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		7B98F1F41EB6B31600DE19ED /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
 		C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_With_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCell.swift; sourceTree = "<group>"; };
+		E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,8 @@
 				7B98F1ED1EB688D100DE19ED /* DestinationCell.xib */,
 				7B98F1F31EB6B31600DE19ED /* PlanCell.swift */,
 				7B98F1F41EB6B31600DE19ED /* PlanCell.xib */,
+				E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */,
+				E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F8D3D41EBEAF2600ABD38F /* CostCell.xib in Resources */,
 				7B98F1E61EB66D6200DE19ED /* TripCell.xib in Resources */,
 				19396C531EAFC75500D464CC /* POICell.xib in Resources */,
 				7B98F1F61EB6B31600DE19ED /* PlanCell.xib in Resources */,
@@ -408,6 +415,7 @@
 				19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */,
 				7B98F1F51EB6B31600DE19ED /* PlanCell.swift in Sources */,
 				19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */,
+				E9F8D3D21EBEAEF900ABD38F /* CostCell.swift in Sources */,
 				193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */,
 				1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */,
 				7B539A271EB6D43000343D64 /* PlanComposerViewController.swift in Sources */,

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="CostCell" id="Zty-z7-GQV" customClass="CostCell" customModule="Travel_With_Friends" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zty-z7-GQV" id="TcI-52-ci3">
+                <rect key="frame" x="0.0" y="0.0" width="328" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyu-7h-6SE">
+                        <rect key="frame" x="18" y="8" width="99" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date - End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcg-Gp-I7f">
+                        <rect key="frame" x="18" y="40" width="165" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-3N-APm">
+                        <rect key="frame" x="284" y="24" width="36" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Eyh-3N-APm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bcg-Gp-I7f" secondAttribute="trailing" constant="8" id="3yG-lt-DnY"/>
+                    <constraint firstItem="wyu-7h-6SE" firstAttribute="top" secondItem="TcI-52-ci3" secondAttribute="top" constant="8" id="5xb-QM-lgH"/>
+                    <constraint firstItem="Eyh-3N-APm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wyu-7h-6SE" secondAttribute="trailing" constant="8" id="GAN-Aa-rRE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Eyh-3N-APm" secondAttribute="trailing" id="Qv5-P5-jEt"/>
+                    <constraint firstItem="Bcg-Gp-I7f" firstAttribute="leading" secondItem="TcI-52-ci3" secondAttribute="leading" constant="18" id="aV6-qH-P6v"/>
+                    <constraint firstAttribute="bottom" secondItem="Bcg-Gp-I7f" secondAttribute="bottom" constant="8" id="koS-X3-LjU"/>
+                    <constraint firstItem="Bcg-Gp-I7f" firstAttribute="top" secondItem="wyu-7h-6SE" secondAttribute="bottom" constant="8" id="lDy-gD-ybY"/>
+                    <constraint firstItem="wyu-7h-6SE" firstAttribute="leading" secondItem="TcI-52-ci3" secondAttribute="leading" constant="18" id="lVN-jJ-N8J"/>
+                    <constraint firstItem="Eyh-3N-APm" firstAttribute="top" secondItem="TcI-52-ci3" secondAttribute="topMargin" constant="16" id="m4U-W1-AOU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="costLabel" destination="Eyh-3N-APm" id="YX2-tG-kUv"/>
+                <outlet property="dateRangeLabel" destination="Bcg-Gp-I7f" id="Hox-wl-rkb"/>
+                <outlet property="nameLabel" destination="wyu-7h-6SE" id="fjx-GV-tHg"/>
+            </connections>
+            <point key="canvasLocation" x="82.5" y="68"/>
+        </tableViewCell>
+    </objects>
+</document>

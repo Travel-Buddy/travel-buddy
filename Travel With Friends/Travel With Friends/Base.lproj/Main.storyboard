@@ -561,23 +561,23 @@
             </objects>
             <point key="canvasLocation" x="4777" y="1283"/>
         </scene>
-        <!--Trip Detail Costs View Controller-->
-        <scene sceneID="bP3-Nq-IaY">
+        <!--Trip Costs-->
+        <scene sceneID="7la-6C-JRP">
             <objects>
-                <viewController id="wiy-Ia-Dk2" customClass="TripDetailCostsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m9K-4s-wh7"/>
-                        <viewControllerLayoutGuide type="bottom" id="qo0-qb-6dB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uij-Wz-Ww2">
+                <tableViewController id="jEV-b1-iIi" customClass="TripDetailCostsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7vi-Cq-iOc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vaG-PW-nLm">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="fWr-G5-SI6">
+                        <connections>
+                            <outlet property="dataSource" destination="jEV-b1-iIi" id="ObG-Dn-hzT"/>
+                            <outlet property="delegate" destination="jEV-b1-iIi" id="1gU-0V-779"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Trip Costs" id="qoE-et-l0S">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="fWr-G5-SI6">
                             <connections>
-                                <action selector="closeButtonPressed:" destination="wiy-Ia-Dk2" id="sbo-AT-0Bd"/>
+                                <action selector="showHome:" destination="jEV-b1-iIi" id="3dA-cp-T5P"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="ZgU-E5-EAl">
@@ -586,8 +586,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ukC-nT-NnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="homeBarButtonItem" destination="fWr-G5-SI6" id="piP-G5-Yvx"/>
+                        <outlet property="settingsBarButtonItem" destination="ZgU-E5-EAl" id="rjJ-5U-kmZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPl-Hu-fAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4780" y="1988"/>
         </scene>
@@ -622,7 +626,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wiy-Ia-Dk2" kind="relationship" relationship="rootViewController" id="eEX-Zd-2he"/>
+                        <segue destination="jEV-b1-iIi" kind="relationship" relationship="rootViewController" id="9RE-hw-vxh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUN-am-1Sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -742,7 +746,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Osu-wE-hiy"/>
         <segue reference="jwB-de-ZfU"/>
-        <segue reference="sHL-Ut-P2e"/>
+        <segue reference="eFx-Oa-glY"/>
         <segue reference="7s3-Pk-ALy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

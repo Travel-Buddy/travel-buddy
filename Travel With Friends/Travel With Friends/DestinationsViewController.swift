@@ -19,13 +19,11 @@ class DestinationsViewController: PFQueryTableViewController {
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
         parseClassName = "Destination"
-        pullToRefreshEnabled = true
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         parseClassName = "Destination"
-        pullToRefreshEnabled = true
     }
 
     override func queryForTable() -> PFQuery<PFObject> {
