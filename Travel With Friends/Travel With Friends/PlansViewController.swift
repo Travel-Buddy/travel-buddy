@@ -53,6 +53,8 @@ let debugPlanLocations = [
 class PlansViewController: PFQueryTableViewController {
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
 
+    var destination: PFObject!
+
     var shouldReloadObjects = false
 
     let planStages = ["finalized", "proposal"]
@@ -113,14 +115,14 @@ class PlansViewController: PFQueryTableViewController {
         if shouldReloadObjects {
             loadObjects()
             shouldReloadObjects = false
+            tableView.reloadData()
         }
     }
 
     override func queryForTable() -> PFQuery<PFObject> {
         let query = PFQuery(className: parseClassName!)
 
-        /* FIX ME: Query based on the selected destination and trip */
-        query.whereKey("createdBy", equalTo: PFUser.current()!)
+        query.whereKey("destination", equalTo: destination)
 
         /* If no objects are loaded in memory, retrieve from the cache first and
          * then subsequently from the network
@@ -151,9 +153,19 @@ class PlansViewController: PFQueryTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "ComposePlanSegue" {
-                /* TODO: Implement creating a new plan functionality in
-                 *       PlanComposerViewController
-                 */
+                var viewController: PlanComposerViewController?
+
+                if let navigationController = segue.destination
+                           as? UINavigationController {
+                    viewController = navigationController.topViewController
+                            as? PlanComposerViewController
+                } else {
+                    viewController = segue.destination
+                            as? PlanComposerViewController
+                }
+                if viewController != nil {
+                  viewController!.destination = destination
+                }
             } else if identifier == "ShowPlanDetailSegue" {
             }
         }

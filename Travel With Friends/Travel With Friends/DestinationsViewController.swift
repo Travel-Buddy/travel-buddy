@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class DestinationsViewController: UIViewController {
     @IBOutlet weak var destinationsTableView: UITableView!
     @IBOutlet weak var homeBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
 
+    /* DEBUG CODE BEG */
     let testDestinationNames = [
         "Salt Lake City",
         "Yellowstone National Park",
@@ -25,6 +27,9 @@ class DestinationsViewController: UIViewController {
         "August 21, 2017",
         "August 22, 2017"
     ]
+
+    var destination: PFObject?
+    /* DEBUG CODE END */
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +67,8 @@ class DestinationsViewController: UIViewController {
                  *       DestinationComposerViewController.
                  */
             } else if identifier == "ShowDestinationDetailSegue" {
+                let viewController = segue.destination as! PlansViewController
+                viewController.destination = destination
             }
         }
     }
@@ -95,6 +102,26 @@ extension DestinationsViewController: UITableViewDataSource, UITableViewDelegate
 
     func tableView(_ tableView: UITableView,
             didSelectRowAt indexPath: IndexPath) {
+        /* DEBUG CODE BEG */
+        let destinationIDs = [
+            "DeF9ZptxgR",
+            "VYVVzWh1Fe",
+            "x8bNwUdH2y",
+            "xSHTpCLLlm"
+        ]
+        let query = PFQuery(className: "Destination")
+        /* BAD: Highly possible blocking the main thread! */
+        destination = try? query.getObjectWithId(destinationIDs[indexPath.row])
+        /*
+        query.getObjectInBackground(withId: destinationIDs[indexPath.row]) {
+                (destination, error) in
+                    if destination != nil {
+                        self.destination = destination
+                    }
+                }
+        */
+        /* DEBUG CODE END */
+
         tableView.deselectRow(at: indexPath, animated: true)
 
         performSegue(withIdentifier: "ShowDestinationDetailSegue",
