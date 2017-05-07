@@ -30,7 +30,7 @@
 		19B2559F1EBBB1E100C9CBD5 /* TripsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2559E1EBBB1E100C9CBD5 /* TripsHomeViewController.swift */; };
 		19B255A11EBD81D800C9CBD5 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B255A01EBD81D800C9CBD5 /* AddFriendsViewController.swift */; };
 		19B255A41EBF8E6700C9CBD5 /* Main-curtis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B255A21EBF8E6700C9CBD5 /* Main-curtis.storyboard */; };
-		19B255A51EBF8E6700C9CBD5 /* Main-kevin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B255A31EBF8E6700C9CBD5 /* Main-kevin.storyboard */; };
+		19B255A51EBF8E6700C9CBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B255A31EBF8E6700C9CBD5 /* Main.storyboard */; };
 		19B537C31EB407DD0059808C /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B537C21EB407DD0059808C /* FacebookUser.swift */; };
 		19B537C81EB41ADC0059808C /* FacebookUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B537C61EB41ADC0059808C /* FacebookUserCell.swift */; };
 		19B537C91EB41ADC0059808C /* FacebookUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B537C71EB41ADC0059808C /* FacebookUserCell.xib */; };
@@ -80,7 +80,7 @@
 		19B2559E1EBBB1E100C9CBD5 /* TripsHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsHomeViewController.swift; sourceTree = "<group>"; };
 		19B255A01EBD81D800C9CBD5 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
 		19B255A21EBF8E6700C9CBD5 /* Main-curtis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-curtis.storyboard"; sourceTree = "<group>"; };
-		19B255A31EBF8E6700C9CBD5 /* Main-kevin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-kevin.storyboard"; sourceTree = "<group>"; };
+		19B255A31EBF8E6700C9CBD5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		19B537C21EB407DD0059808C /* FacebookUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
 		19B537C61EB41ADC0059808C /* FacebookUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUserCell.swift; sourceTree = "<group>"; };
 		19B537C71EB41ADC0059808C /* FacebookUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookUserCell.xib; sourceTree = "<group>"; };
@@ -246,8 +246,8 @@
 				19396C931EB27A7800D464CC /* Travel With Friends.entitlements */,
 				193BBD291EAD2768005E8D59 /* AppDelegate.swift */,
 				193BBD2B1EAD2768005E8D59 /* ViewController.swift */,
-				19B255A21EBF8E6700C9CBD5 /* Main-curtis.storyboard */,
-				19B255A31EBF8E6700C9CBD5 /* Main-kevin.storyboard */,
+				19B255A61EBFAFD500C9CBD5 /* Old Storyboards */,
+				19B255A31EBF8E6700C9CBD5 /* Main.storyboard */,
 				19396C901EB26AA900D464CC /* Protocols */,
 				19396C881EB2691200D464CC /* Data Controllers */,
 				19396C871EB268EA00D464CC /* API Controllers */,
@@ -259,6 +259,14 @@
 				193BBD351EAD2768005E8D59 /* Info.plist */,
 			);
 			path = "Travel With Friends";
+			sourceTree = "<group>";
+		};
+		19B255A61EBFAFD500C9CBD5 /* Old Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				19B255A21EBF8E6700C9CBD5 /* Main-curtis.storyboard */,
+			);
+			name = "Old Storyboards";
 			sourceTree = "<group>";
 		};
 		7B98F1E71EB6763B00DE19ED /* Fonts */ = {
@@ -350,7 +358,7 @@
 				193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */,
 				193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */,
 				7B98F1EF1EB688D100DE19ED /* DestinationCell.xib in Resources */,
-				19B255A51EBF8E6700C9CBD5 /* Main-kevin.storyboard in Resources */,
+				19B255A51EBF8E6700C9CBD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
