@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-io-cC2">
+                                <rect key="frame" x="123" y="130" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Replace with Globe Animation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GC-94-cyc">
+                                <rect key="frame" x="73" y="266" width="229" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IK2-Zu-JQu">
+                                <rect key="frame" x="90" y="414" width="212" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="42"/>
+                                <state key="normal" title="Login FB">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginViaFB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l0d-t9-7qY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="U0y-68-Cqn" kind="presentation" identifier="LoginSegue" id="7ad-Yj-nWk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-410.39999999999998" y="-332.38380809595208"/>
+        </scene>
+        <!--Create Trip-->
+        <scene sceneID="B9E-Hg-mpx">
+            <objects>
+                <viewController id="an4-ls-FvV" customClass="TripComposerViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KJ1-GC-kYl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZsW-P9-2KB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dIV-dM-Fub">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Trip" id="1md-5a-DLC">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2kw-Wg-bgh">
+                            <connections>
+                                <action selector="cancelChanges:" destination="an4-ls-FvV" id="Zvy-P1-hYW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="bNH-BC-kDb">
+                            <connections>
+                                <action selector="saveChanges:" destination="an4-ls-FvV" id="NL9-gy-xxT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhE-84-M7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510" y="-1059"/>
+        </scene>
+        <!--Trips-->
+        <scene sceneID="GFs-yq-cb5">
+            <objects>
+                <viewController id="013-hb-pcN" customClass="TripsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4bO-Z5-SYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="qkW-YW-ifp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IDG-mr-2IX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dER-zV-b9V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dER-zV-b9V" firstAttribute="leading" secondItem="IDG-mr-2IX" secondAttribute="leading" id="0ie-wv-YGa"/>
+                            <constraint firstItem="dER-zV-b9V" firstAttribute="top" secondItem="IDG-mr-2IX" secondAttribute="top" id="AJ0-4l-fhv"/>
+                            <constraint firstItem="qkW-YW-ifp" firstAttribute="top" secondItem="dER-zV-b9V" secondAttribute="bottom" id="Fmw-dA-gkD"/>
+                            <constraint firstAttribute="trailing" secondItem="dER-zV-b9V" secondAttribute="trailing" id="yMD-vT-2mE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trips" id="3ye-xK-JVt">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="Rjt-DJ-oaX">
+                            <connections>
+                                <action selector="createTrip:" destination="013-hb-pcN" id="hYQ-GW-ftr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="Rjt-DJ-oaX" id="wG6-ft-9pU"/>
+                        <outlet property="tripsTableView" destination="dER-zV-b9V" id="uIm-NC-rg5"/>
+                        <segue destination="W32-rY-EP4" kind="presentation" identifier="ShowTripDetailSegue" id="Osu-wE-hiy"/>
+                        <segue destination="VBq-I9-fHL" kind="presentation" identifier="ComposeTripSegue" id="pPU-xO-xa8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ukq-RI-GQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510" y="-332"/>
+        </scene>
+        <!--Trip Table View Controller-->
+        <scene sceneID="oSN-71-KtA">
+            <objects>
+                <viewController id="N9K-Hu-bte" customClass="TripTableViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vim-tY-g3m"/>
+                        <viewControllerLayoutGuide type="bottom" id="tu4-T3-hn4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gDQ-xP-Bmp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xzh-eJ-Gcn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TripCell" id="sqO-nj-OPa">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sqO-nj-OPa" id="IJZ-jP-baR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="W32-rY-EP4" kind="presentation" identifier="TripDetailSegue" id="PLo-1a-546"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AQB-3S-zy1">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9vk-7i-62B">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="N9K-Hu-bte" id="Ozr-jB-Zlo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map View" id="S19-4w-1rp">
+                            <connections>
+                                <action selector="GooglePlacesCitySearchTest:" destination="N9K-Hu-bte" id="KVk-eM-5Lr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tripTableView" destination="Xzh-eJ-Gcn" id="zZ5-gK-b9T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VaA-s9-XhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="575"/>
+        </scene>
+        <!--Trip Map View Controller-->
+        <scene sceneID="hMV-yb-6lJ">
+            <objects>
+                <viewController id="C1x-xm-NvV" customClass="TripMapViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NcM-dr-G7c"/>
+                        <viewControllerLayoutGuide type="bottom" id="pwQ-Hh-p7N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="13z-wc-0TD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gUO-lv-6IL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="keg-qB-vwh">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9VL-6d-k55">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="C1x-xm-NvV" id="lcy-vD-WhX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Trip Table View" id="7ef-VY-kmk">
+                            <connections>
+                                <segue destination="ENS-9N-zmJ" kind="presentation" modalTransitionStyle="flipHorizontal" id="YTv-8v-sHR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="W32-rY-EP4" kind="presentation" identifier="TripDetailSegue" id="cUW-db-8Y4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vt2-8r-68x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="1281"/>
+        </scene>
+        <!--Trip Detail Locations View Controller-->
+        <scene sceneID="J3k-ea-SH8">
+            <objects>
+                <viewController id="8Su-pc-uLj" customClass="TripDetailLocationsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dNS-HP-tqF"/>
+                        <viewControllerLayoutGuide type="bottom" id="lyG-Zy-Ore"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9I0-77-4iN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QzH-8Q-1Hc">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="ZeO-O0-2Dr">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="8Su-pc-uLj" id="9oh-Eo-EMa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Z1K-Jo-YE6"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jS8-ND-rRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4777" y="575"/>
+        </scene>
+        <!--Trip Settings View Controller-->
+        <scene sceneID="Wc3-DM-4rr">
+            <objects>
+                <viewController id="8ZF-Xh-9wy" customClass="TripSettingsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f22-Gu-UF7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Itk-H9-OFP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eoH-ah-l28">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D6u-h1-wK4">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="LGj-kb-f7x">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="8ZF-Xh-9wy" id="5JU-vO-RZn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="H4J-r6-BMd">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="8ZF-Xh-9wy" id="dMF-lX-I2S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uz5-It-sRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6607" y="1283"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Gzo-3d-iEu">
+            <objects>
+                <tabBarController id="W32-rY-EP4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3wX-7e-48Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1Ba-JW-9zx" kind="relationship" relationship="viewControllers" id="ZFo-6n-2OM"/>
+                        <segue destination="gsw-WY-TvV" kind="relationship" relationship="viewControllers" id="PIh-e3-d9Z"/>
+                        <segue destination="8zh-Ay-Ont" kind="relationship" relationship="viewControllers" id="S1D-zz-twx"/>
+                        <segue destination="6qD-k5-cOf" kind="relationship" relationship="viewControllers" id="j9T-qq-gtP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6jR-vh-1kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2708" y="-332"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Zd-OW-lIh">
+            <objects>
+                <navigationController storyboardIdentifier="TripNavVC" automaticallyAdjustsScrollViewInsets="NO" id="ENS-9N-zmJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Mp-p2-0ua">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="N9K-Hu-bte" kind="relationship" relationship="rootViewController" id="2dz-SK-qKy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4K-jW-v5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="575"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0NK-tZ-LXq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="05w-7r-occ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="flX-gT-T9b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C1x-xm-NvV" kind="relationship" relationship="rootViewController" id="HGe-DX-1ot"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u96-EY-WsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="1281"/>
+        </scene>
+        <!--Create | Edit Destination-->
+        <scene sceneID="ZmC-Xp-351">
+            <objects>
+                <viewController id="FUO-Xi-duF" customClass="DestinationComposerViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="40D-Qx-uMz"/>
+                        <viewControllerLayoutGuide type="bottom" id="5C0-sp-qxO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iMY-3A-FiN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create | Edit Destination" id="b6Q-SS-qya">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="voK-nG-SL1">
+                            <connections>
+                                <action selector="cancelChanges:" destination="FUO-Xi-duF" id="eFo-VD-nFx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="sST-GA-J6b">
+                            <connections>
+                                <action selector="saveChanges:" destination="FUO-Xi-duF" id="njk-3q-f3k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aby-yk-Ux2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4601" y="-1059"/>
+        </scene>
+        <!--Destinations-->
+        <scene sceneID="k7k-wo-Fls">
+            <objects>
+                <tableViewController id="yHZ-Gt-nH1" customClass="DestinationsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qa9-tX-ya9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="yHZ-Gt-nH1" id="BgI-FO-jW6"/>
+                            <outlet property="delegate" destination="yHZ-Gt-nH1" id="STh-Z2-HBs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Destinations" id="h9B-Da-KCW">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="biU-Hv-kK1">
+                            <connections>
+                                <action selector="showHome:" destination="yHZ-Gt-nH1" id="4Df-zm-1Le"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="mhl-0e-xsb">
+                            <connections>
+                                <action selector="createDestination:" destination="yHZ-Gt-nH1" id="0mV-vb-HxH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="mhl-0e-xsb" id="XYn-XK-73e"/>
+                        <outlet property="homeBarButtonItem" destination="biU-Hv-kK1" id="FyJ-wx-XYC"/>
+                        <segue destination="IGh-mM-C4l" kind="show" identifier="ShowDestinationDetailSegue" id="jJr-SJ-2gZ"/>
+                        <segue destination="4vj-N4-1G6" kind="presentation" identifier="ComposeDestinationSegue" id="cob-jA-wyS"/>
+                        <segue destination="4vj-N4-1G6" kind="presentation" identifier="EditDestinationSegue" id="jwB-de-ZfU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVr-Zf-Blr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4601" y="-331"/>
+        </scene>
+        <!--Plans-->
+        <scene sceneID="JRG-dd-dup">
+            <objects>
+                <viewController id="IGh-mM-C4l" customClass="PlansViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RCG-xK-rXM"/>
+                        <viewControllerLayoutGuide type="bottom" id="jsh-NI-Zvc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f5b-dF-uL1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ql-2H-Kur">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Ql-2H-Kur" firstAttribute="leading" secondItem="f5b-dF-uL1" secondAttribute="leading" id="I57-cb-ZmY"/>
+                            <constraint firstItem="0Ql-2H-Kur" firstAttribute="top" secondItem="f5b-dF-uL1" secondAttribute="top" id="iP2-n3-Oz5"/>
+                            <constraint firstAttribute="trailing" secondItem="0Ql-2H-Kur" secondAttribute="trailing" id="pBG-UI-KAw"/>
+                            <constraint firstAttribute="bottom" secondItem="0Ql-2H-Kur" secondAttribute="bottom" id="xuL-Kf-94b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plans" id="RMx-w2-vSs">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="SGN-WZ-0do">
+                            <connections>
+                                <action selector="createPlan:" destination="IGh-mM-C4l" id="6yt-nC-5oE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="SGN-WZ-0do" id="gOj-og-wPJ"/>
+                        <outlet property="plansTableView" destination="0Ql-2H-Kur" id="kpW-M5-L6h"/>
+                        <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="TZn-JB-gIe"/>
+                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="sHL-Ut-P2e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x98-pO-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5420" y="-332"/>
+        </scene>
+        <!--Create | Edit Plan-->
+        <scene sceneID="VN3-bV-kJ0">
+            <objects>
+                <viewController id="WcH-Z3-iOA" customClass="PlanComposerViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NR9-K7-EiY"/>
+                        <viewControllerLayoutGuide type="bottom" id="f1c-AA-uPo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PXv-7w-gkQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create | Edit Plan" id="Thu-gR-w9K">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="04k-tP-jr0">
+                            <connections>
+                                <action selector="cancelChanges:" destination="WcH-Z3-iOA" id="egs-0b-ndq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fSb-1n-InX">
+                            <connections>
+                                <action selector="saveChanges:" destination="WcH-Z3-iOA" id="U7w-Q6-qxn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1SJ-Mh-ihZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6228" y="-1059"/>
+        </scene>
+        <!--Plan-->
+        <scene sceneID="3M3-mf-vRZ">
+            <objects>
+                <viewController id="kgF-CD-hvp" customClass="DetailedPlanViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GKQ-XO-TrF"/>
+                        <viewControllerLayoutGuide type="bottom" id="yAC-a6-ehk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n1V-Md-IoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plan" id="taD-CM-fSU">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="pPV-4R-1Pe">
+                            <connections>
+                                <action selector="editPlan:" destination="kgF-CD-hvp" id="wzM-lt-OFv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editBarButtonItem" destination="pPV-4R-1Pe" id="768-AC-989"/>
+                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="eFx-Oa-glY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-LD-tEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6228" y="-331"/>
+        </scene>
+        <!--Locations-->
+        <scene sceneID="Mpu-LV-vfV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gsw-WY-TvV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locations" id="Fdg-V8-XDn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QIO-qJ-KEP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Su-pc-uLj" kind="relationship" relationship="rootViewController" id="OIx-KT-rst"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ZM-S1-ene" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3841" y="575"/>
+        </scene>
+        <!--Trip DetailPOI View Controller-->
+        <scene sceneID="FVJ-ZQ-VjU">
+            <objects>
+                <viewController id="Kfn-D2-blI" customClass="TripDetailPOIViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pwp-p3-vt3"/>
+                        <viewControllerLayoutGuide type="bottom" id="TcK-X1-V1u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mSF-qN-xoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EgS-7n-1Jp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="c24-3Q-dFQ">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Eq6-mP-kmf">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="Kfn-D2-blI" id="Ifv-CI-gHv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="FlC-4x-ZOe">
+                            <connections>
+                                <segue destination="bCl-Xp-Yep" kind="presentation" id="ens-tT-0EB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="poiTableView" destination="EgS-7n-1Jp" id="L5R-2d-pKR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Niq-Cn-5Fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4777" y="1283"/>
+        </scene>
+        <!--Trip Costs-->
+        <scene sceneID="7la-6C-JRP">
+            <objects>
+                <tableViewController id="jEV-b1-iIi" customClass="TripDetailCostsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7vi-Cq-iOc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="jEV-b1-iIi" id="ObG-Dn-hzT"/>
+                            <outlet property="delegate" destination="jEV-b1-iIi" id="1gU-0V-779"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Trip Costs" id="qoE-et-l0S">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="fWr-G5-SI6">
+                            <connections>
+                                <action selector="showHome:" destination="jEV-b1-iIi" id="3dA-cp-T5P"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ZgU-E5-EAl">
+                            <connections>
+                                <segue destination="bCl-Xp-Yep" kind="presentation" id="7s3-Pk-ALy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="homeBarButtonItem" destination="fWr-G5-SI6" id="piP-G5-Yvx"/>
+                        <outlet property="settingsBarButtonItem" destination="ZgU-E5-EAl" id="rjJ-5U-kmZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPl-Hu-fAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4777" y="1988"/>
+        </scene>
+        <!--Points of Interests-->
+        <scene sceneID="nRT-bd-w1y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8zh-Ay-Ont" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Points of Interests" id="erJ-Sx-hr5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FcW-V8-dCy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kfn-D2-blI" kind="relationship" relationship="rootViewController" id="BKh-SD-Qhs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWu-og-xdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3838" y="1283"/>
+        </scene>
+        <!--Costs-->
+        <scene sceneID="bQv-vG-qiP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6qD-k5-cOf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Costs" id="5bE-6N-1KQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="41N-GD-tge">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jEV-b1-iIi" kind="relationship" relationship="rootViewController" id="9RE-hw-vxh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUN-am-1Sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3841" y="1988"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hKZ-o0-llR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCl-Xp-Yep" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mTp-0y-t7x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8ZF-Xh-9wy" kind="relationship" relationship="rootViewController" id="H2u-cX-s3P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pvt-RZ-PGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5788" y="1283"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BTy-Ch-a4t">
+            <objects>
+                <navigationController storyboardIdentifier="TripsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="U0y-68-Cqn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="io1-eq-ZRE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="013-hb-pcN" kind="relationship" relationship="rootViewController" id="R9N-ay-hT5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pT9-z4-MMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702" y="-332"/>
+        </scene>
+        <!--Trip-->
+        <scene sceneID="KkM-4U-7qH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ba-JW-9zx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trip" id="eaP-AE-mG8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mhd-5J-MJW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yHZ-Gt-nH1" kind="relationship" relationship="rootViewController" id="AY6-1i-bfX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JDE-oL-uFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="-331"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kqc-Fx-f7O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vj-N4-1G6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8kf-4V-dnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FUO-Xi-duF" kind="relationship" relationship="rootViewController" id="5Xs-E9-S1m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NqE-5g-nVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="-1059"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DHM-vp-Lyh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hw-ad-11H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IkV-dn-Bw3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WcH-Z3-iOA" kind="relationship" relationship="rootViewController" id="Nyg-vu-lhx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gh-6H-QSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5420" y="-1059"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qSa-QD-w4n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBq-I9-fHL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARR-qf-lgV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="an4-ls-FvV" kind="relationship" relationship="rootViewController" id="AGw-zS-zXw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KxQ-zF-rpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702" y="-1059"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cUW-db-8Y4"/>
+        <segue reference="cob-jA-wyS"/>
+        <segue reference="eFx-Oa-glY"/>
+        <segue reference="7s3-Pk-ALy"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

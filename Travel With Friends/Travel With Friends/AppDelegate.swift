@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let _ = PFUser.current() {
             // Do stuff with the user
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main-kevin", bundle: nil)
             
             let tripViewController = storyboard.instantiateViewController(withIdentifier: "TripsNavigationController") as! UINavigationController
             
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Observer for if the user logs out
         NotificationCenter.default.addObserver(forName: NSNotification.Name("UserDidLogout"), object: nil, queue: OperationQueue.main) { (NSNotification) ->
             Void in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main-kevin", bundle: nil)
             let loginVC = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = loginVC
         }

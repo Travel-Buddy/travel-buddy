@@ -15,6 +15,8 @@ class TripsHomeViewController: PFQueryTableViewController {
     @IBOutlet weak var addTripBarButton: UIBarButtonItem!
     var tripToEdit : PFObject?
     var shouldReload = false
+    var trip: PFObject?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +135,17 @@ class TripsHomeViewController: PFQueryTableViewController {
         self.performSegue(withIdentifier: "ComposeTripSegue", sender: self)
     }
     
+    
+    override func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        trip = objects![indexPath.row]
+        
+        performSegue(withIdentifier: "ShowTripDetailSegue",
+                     sender: self)
+    }
 
     
     // MARK: - Navigation
@@ -155,6 +168,10 @@ class TripsHomeViewController: PFQueryTableViewController {
             } else if segue.identifier == "ShowTripDetailSegue" {
                 if let tabBarController = segue.destination as? UITabBarController {
                     tabBarController.selectedIndex = 0
+                    
+                    let navVc = tabBarController.selectedViewController as? UINavigationController
+                    let vc = navVc?.viewControllers.first as! DestinationsViewController
+                    vc.trip = trip
                 }
             }
     }
