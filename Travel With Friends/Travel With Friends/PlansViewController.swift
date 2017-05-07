@@ -5,143 +5,223 @@
 //  Created by Janvier Wijaya on 4/30/17.
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
-
-import Parse
 import UIKit
 
-class PlansViewController: UIViewController {
-    @IBOutlet weak var plansTableView: UITableView!
+import Parse
+import ParseUI
+
+/* DEBUG CODE BEG
+ let debugPlanStages = [
+ "Finalized Plans",
+ "Proposed Plans"
+ ]
+ let debugPlanNames = [
+ [
+ "!! San Diego (SAN) - Salt Lake City (SLC)",
+ "!! Avis Car Rental",
+ "Kelly Inn-West Yellowstone"
+ ],
+ [
+ "Hotel ABC",
+ "Temple Square",
+ "Old Faithful",
+ "Mammoth Hot Springs",
+ "Jenny Lake",
+ "Jackson Lake",
+ "Hotel XYZ",
+ ]
+ ]
+ let debugPlanLocations = [
+ [
+ "!! Delta Air Lines 2546",
+ "!! Pick-up at 11:30PM at 656 3800 W, Salt Lake City, UT 84116, USA",
+ "104 S Canyon St, West Yellowstone, MT 59758, USA",
+ ],
+ [
+ "1234 S Unknown Rd, Salt Lake City, UT 84150, USA",
+ "50 N Temple, Salt Lake City, UT 84150, USA",
+ "Yellowstone National Park, WY 82190, USA",
+ "Yellowstone National Park, WY 82190, USA",
+ "Jenny Lake, Wyoming 83414, USA",
+ "Jackson Lake, Wyoming 83013, USA",
+ "9876 N Random Rd, Salt Lake City, UT 84150, USA"
+ ]
+ ]
+ DEBUG CODE END */
+
+class PlansViewController: PFQueryTableViewController {
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
-
-    /* begin temporary codeblock */
-    var destination: PFObject?
-    /* end temporary code block */
-
-    let testPlanStages = [
-        "Finalized Plans",
-        "Proposed Plans"
+    
+    var destination: PFObject!
+    
+    var shouldReloadObjects = false
+    
+    let planStages = ["finalized", "proposal"]
+    
+    let planStageTitles = [
+        "finalized" : "Finalized Plans",
+        "proposal" : "Proposed Plans"
     ]
-    let testPlanNames = [
-        [
-            "!! San Diego (SAN) - Salt Lake City (SLC)",
-            "!! Avis Car Rental",
-            "Kelly Inn-West Yellowstone"
-        ],
-        [
-            "Hotel ABC",
-            "Temple Square",
-            "Old Faithful",
-            "Mammoth Hot Springs",
-            "Jenny Lake",
-            "Jackson Lake",
-            "Hotel XYZ",
-        ]
+    
+    var plans = [
+        "finalized" : [PFObject](),
+        "proposal" : [PFObject]()
     ]
-    let testPlanLocations = [
-        [
-            "!! Delta Air Lines 2546",
-            "!! Pick-up at 11:30PM at 656 3800 W, Salt Lake City, UT 84116, USA",
-            "104 S Canyon St, West Yellowstone, MT 59758, USA",
-        ],
-        [
-            "1234 S Unknown Rd, Salt Lake City, UT 84150, USA",
-            "50 N Temple, Salt Lake City, UT 84150, USA",
-            "Yellowstone National Park, WY 82190, USA",
-            "Yellowstone National Park, WY 82190, USA",
-            "Jenny Lake, Wyoming 83414, USA",
-            "Jackson Lake, Wyoming 83013, USA",
-            "9876 N Random Rd, Salt Lake City, UT 84150, USA"
-        ]
-    ]
-
+    
+    override init(style: UITableViewStyle, className: String?) {
+        super.init(style: style, className: className)
+        
+        parseClassName = "Plan"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        parseClassName = "Plan"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /* begin temporary codeblock */
-        print(destination!)
-        /* end temporary code block */
-
+        
         /* Use 'fa-plus' text icon from FontAwesome.
          * http://fontawesome.io/cheatsheet/
          */
         if let font = UIFont(name: "FontAwesome", size: 17) {
             addBarButtonItem.setTitleTextAttributes(
-                    [NSFontAttributeName: font], for: .normal)
+                [NSFontAttributeName: font], for: .normal)
             addBarButtonItem.title = "\u{f067}"
         }
-
-        plansTableView.dataSource = self
-        plansTableView.delegate = self
-        plansTableView.rowHeight = UITableViewAutomaticDimension
-        plansTableView.estimatedRowHeight = 99
-
-        plansTableView.register(UITableViewHeaderFooterView.self,
-                forHeaderFooterViewReuseIdentifier: "TableViewHeaderView")
-
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 92
+        
+        tableView.register(UITableViewHeaderFooterView.self,
+                           forHeaderFooterViewReuseIdentifier: "TableViewHeaderView")
+        
         let nib = UINib(nibName: "PlanCell", bundle: nil)
-        plansTableView.register(nib,
-                forCellReuseIdentifier: "PlanCell")
+        tableView.register(nib, forCellReuseIdentifier: "PlanCell")
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if shouldReloadObjects {
+            loadObjects()
+            shouldReloadObjects = false
+            tableView.reloadData()
+        }
+    }
+    
+    override func queryForTable() -> PFQuery<PFObject> {
+        let query = PFQuery(className: parseClassName!)
+        
+        query.whereKey("destination", equalTo: destination)
+        
+        /* If no objects are loaded in memory, retrieve from the cache first and
+         * then subsequently from the network
+         */
+        if objects!.count == 0 {
+            query.cachePolicy = .cacheThenNetwork
+        }
+        
+        query.order(byAscending: "planStage, startDate, createdAt")
+        
+        return query
+    }
+    
+    override func objectsDidLoad(_ error: Error?) {
+        super.objectsDidLoad(error)
+        
+        for stage in planStages {
+            plans[stage]?.removeAll()
+        }
+        
+        for object in objects! {
+            if let stage = object["planStage"] as? String {
+                plans[stage]?.append(object)
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "ComposePlanSegue" {
-                /* TODO: Implement creating a new plan functionality in
-                 *       PlanComposerViewController
-                 */
+                var viewController: PlanComposerViewController?
+                
+                if let navigationController = segue.destination
+                    as? UINavigationController {
+                    viewController = navigationController.topViewController
+                        as? PlanComposerViewController
+                } else {
+                    viewController = segue.destination
+                        as? PlanComposerViewController
+                }
+                if viewController != nil {
+                    viewController!.destination = destination
+                }
             } else if identifier == "ShowPlanDetailSegue" {
             }
         }
     }
-
+    
     @IBAction func createPlan(_ sender: Any) {
         performSegue(withIdentifier: "ComposePlanSegue", sender: nil)
     }
-}
-
-extension PlansViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return testPlanStages.count
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return planStages.count
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-            -> Int {
-        return testPlanNames[section].count
+    
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
+        let stage = planStages[section]
+        if let plansByStage = plans[stage] {
+            return plansByStage.count
+        }
+        
+        return 0
     }
-
-    func tableView(_ tableView: UITableView,
-            viewForHeaderInSection section: Int) -> UIView? {
+    
+    override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(
-                withIdentifier: "TableViewHeaderView")!
-
-        header.textLabel?.text = testPlanStages[section]
-
+            withIdentifier: "TableViewHeaderView")!
+        let stage = planStages[section]
+        if let title = planStageTitles[stage] {
+            header.textLabel?.text = title
+        }
+        
         return header
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-            -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
+    
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath, object: PFObject?)
+        -> PFTableViewCell? {
+            let cell = tableView.dequeueReusableCell(
                 withIdentifier: "PlanCell", for: indexPath)
                 as! PlanCell
-
-        cell.nameLabel.text = testPlanNames[indexPath.section][indexPath.row]
-        cell.locationLabel.text =
-                testPlanLocations[indexPath.section][indexPath.row]
-
-        return cell
+            let stage = planStages[indexPath.section]
+            cell.plan = plans[stage]?[indexPath.row]
+            
+            return cell
     }
-
-    func tableView(_ tableView: UITableView,
-            heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
+    
+    override func tableView(_ tableView: UITableView,
+                            heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
-
-    func tableView(_ tableView: UITableView,
-            didSelectRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         performSegue(withIdentifier: "ShowPlanDetailSegue",
-                sender: tableView.cellForRow(at: indexPath))
+                     sender: tableView.cellForRow(at: indexPath))
     }
 }
