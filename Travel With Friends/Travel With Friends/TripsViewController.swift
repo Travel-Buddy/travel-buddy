@@ -6,6 +6,7 @@
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class TripsViewController: UIViewController {
@@ -49,6 +50,10 @@ class TripsViewController: UIViewController {
         "Janvier Wijaya, Andrew Tran, Lisa Chang"
     ]
 
+    /* begin temporary codeblock */
+    var trip: PFObject?
+    /* end temporary code block */
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +73,15 @@ class TripsViewController: UIViewController {
 
         let nib = UINib(nibName: "TripCell", bundle: nil)
         tripsTableView.register(nib, forCellReuseIdentifier: "TripCell")
+
+        /* begin temporary codeblock */
+        let tripQuery = PFQuery(className: "Trip")
+        tripQuery.getObjectInBackground(withId: "UDX4m8mZGM") { (trip, error) in
+            if error == nil && trip != nil {
+                self.trip = trip
+            }
+        }
+        /* end temporary code block */
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,6 +93,12 @@ class TripsViewController: UIViewController {
             } else if identifier == "ShowTripDetailSegue" {
                 if let tabBarController = segue.destination as? UITabBarController {
                   tabBarController.selectedIndex = 0
+
+                    /* begin temporary codeblock */
+                    let navVc = tabBarController.selectedViewController as? UINavigationController
+                    let vc = navVc?.viewControllers.first as! DestinationsViewController
+                    vc.trip = trip
+                    /* end temporary code block */
                 }
             }
         }

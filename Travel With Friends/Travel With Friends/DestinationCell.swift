@@ -6,13 +6,12 @@
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
 
+import ParseUI
 import UIKit
 
-class DestinationCell: UITableViewCell {
+class DestinationCell: PFTableViewCell {
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateRangeLabel: UILabel!
 
-    @IBAction func deleteDestination(_ sender: Any) {
-        /* TODO: Implement deleting a destination functionality */
-    }
 }
