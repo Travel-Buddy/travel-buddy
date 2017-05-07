@@ -1,17 +1,18 @@
 //
-//  DestinationCell.swift
+//  CostCell.swift
 //  Travel With Friends
 //
-//  Created by Janvier Wijaya on 4/30/17.
+//  Created by Curtis Wilcox on 5/6/17.
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
 
 import ParseUI
 import UIKit
 
-class DestinationCell: PFTableViewCell {
+class CostCell: PFTableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateRangeLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
 
 }

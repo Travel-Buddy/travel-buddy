@@ -19,4 +19,5 @@ target 'Travel With Friends' do
   pod 'ParseFacebookUtilsV4'
   pod 'Eureka'
   pod 'GooglePlacesRow'
+
 end

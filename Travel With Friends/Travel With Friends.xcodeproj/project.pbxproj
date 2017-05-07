@@ -47,7 +47,9 @@
 		7B98F1F11EB68E6D00DE19ED /* PlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98F1F01EB68E6D00DE19ED /* PlansViewController.swift */; };
 		7B98F1F51EB6B31600DE19ED /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98F1F31EB6B31600DE19ED /* PlanCell.swift */; };
 		7B98F1F61EB6B31600DE19ED /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B98F1F41EB6B31600DE19ED /* PlanCell.xib */; };
-		BC55857B1843B64BFFD18F29 /* Pods_Travel_With_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753AD398283E1B25BB260893 /* Pods_Travel_With_Friends.framework */; };
+		82E8D3D93105E8EE9DADAA00 /* Pods_Travel_With_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */; };
+		E9F8D3D21EBEAEF900ABD38F /* CostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */; };
+		E9F8D3D41EBEAF2600ABD38F /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +82,8 @@
 		19B537C21EB407DD0059808C /* FacebookUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
 		19B537C61EB41ADC0059808C /* FacebookUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUserCell.swift; sourceTree = "<group>"; };
 		19B537C71EB41ADC0059808C /* FacebookUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookUserCell.xib; sourceTree = "<group>"; };
-		753AD398283E1B25BB260893 /* Pods_Travel_With_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_With_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		490AFDF24C0092CBCEC3E685 /* Pods-Travel With Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.release.xcconfig"; sourceTree = "<group>"; };
+		667B7F979B2161223EA5DE72 /* Pods-Travel With Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0805881EB668B900D592D8 /* TripsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		7B539A201EB6C7C900343D64 /* DetailedPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPlanViewController.swift; sourceTree = "<group>"; };
 		7B539A221EB6D41000343D64 /* TripComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripComposerViewController.swift; sourceTree = "<group>"; };
@@ -95,8 +98,9 @@
 		7B98F1F01EB68E6D00DE19ED /* PlansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansViewController.swift; sourceTree = "<group>"; };
 		7B98F1F31EB6B31600DE19ED /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		7B98F1F41EB6B31600DE19ED /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
-		8A75C87B9E29C9AB5C7B7E85 /* Pods-Travel With Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.release.xcconfig"; sourceTree = "<group>"; };
-		F53E77145AA3CDD141560C82 /* Pods-Travel With Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.debug.xcconfig"; sourceTree = "<group>"; };
+		C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_With_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCell.swift; sourceTree = "<group>"; };
+		E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,18 +109,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				193950251EAD8661003667F2 /* MapKit.framework in Frameworks */,
-				BC55857B1843B64BFFD18F29 /* Pods_Travel_With_Friends.framework in Frameworks */,
+				82E8D3D93105E8EE9DADAA00 /* Pods_Travel_With_Friends.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F039E354496B3A9FC2D8B9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				667B7F979B2161223EA5DE72 /* Pods-Travel With Friends.debug.xcconfig */,
+				490AFDF24C0092CBCEC3E685 /* Pods-Travel With Friends.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		179818E176B856ADD1DE4E0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				193950241EAD8661003667F2 /* MapKit.framework */,
-				753AD398283E1B25BB260893 /* Pods_Travel_With_Friends.framework */,
+				C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +205,8 @@
 				7B98F1ED1EB688D100DE19ED /* DestinationCell.xib */,
 				7B98F1F31EB6B31600DE19ED /* PlanCell.swift */,
 				7B98F1F41EB6B31600DE19ED /* PlanCell.xib */,
+				E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */,
+				E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -210,8 +225,8 @@
 				7B98F1E71EB6763B00DE19ED /* Fonts */,
 				193BBD281EAD2768005E8D59 /* Travel With Friends */,
 				193BBD271EAD2768005E8D59 /* Products */,
-				683A013599C5F81B0EDB33E7 /* Pods */,
 				179818E176B856ADD1DE4E0B /* Frameworks */,
+				0F039E354496B3A9FC2D8B9B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,15 +258,6 @@
 			path = "Travel With Friends";
 			sourceTree = "<group>";
 		};
-		683A013599C5F81B0EDB33E7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F53E77145AA3CDD141560C82 /* Pods-Travel With Friends.debug.xcconfig */,
-				8A75C87B9E29C9AB5C7B7E85 /* Pods-Travel With Friends.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		7B98F1E71EB6763B00DE19ED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,12 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 193BBD381EAD2768005E8D59 /* Build configuration list for PBXNativeTarget "Travel With Friends" */;
 			buildPhases = (
-				813C8E6A09E92B4862D14EB6 /* [CP] Check Pods Manifest.lock */,
+				187EA4CD384210C2404DA589 /* [CP] Check Pods Manifest.lock */,
 				193BBD221EAD2768005E8D59 /* Sources */,
 				193BBD231EAD2768005E8D59 /* Frameworks */,
 				193BBD241EAD2768005E8D59 /* Resources */,
-				0441906C06E3A562BEFB885D /* [CP] Embed Pods Frameworks */,
-				36A221AF8011C58C2D344A72 /* [CP] Copy Pods Resources */,
+				ABFB71E774F93F44CF9ECA60 /* [CP] Embed Pods Frameworks */,
+				575656104421517ED8A38EAE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F8D3D41EBEAF2600ABD38F /* CostCell.xib in Resources */,
 				7B98F1E61EB66D6200DE19ED /* TripCell.xib in Resources */,
 				19396C531EAFC75500D464CC /* POICell.xib in Resources */,
 				7B98F1F61EB6B31600DE19ED /* PlanCell.xib in Resources */,
@@ -346,22 +353,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0441906C06E3A562BEFB885D /* [CP] Embed Pods Frameworks */ = {
+		187EA4CD384210C2404DA589 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		36A221AF8011C58C2D344A72 /* [CP] Copy Pods Resources */ = {
+		575656104421517ED8A38EAE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,19 +383,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		813C8E6A09E92B4862D14EB6 /* [CP] Check Pods Manifest.lock */ = {
+		ABFB71E774F93F44CF9ECA60 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -415,6 +422,7 @@
 				19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */,
 				7B98F1F51EB6B31600DE19ED /* PlanCell.swift in Sources */,
 				19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */,
+				E9F8D3D21EBEAEF900ABD38F /* CostCell.swift in Sources */,
 				193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */,
 				1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */,
 				7B539A271EB6D43000343D64 /* PlanComposerViewController.swift in Sources */,
@@ -548,7 +556,7 @@
 		};
 		193BBD391EAD2768005E8D59 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F53E77145AA3CDD141560C82 /* Pods-Travel With Friends.debug.xcconfig */;
+			baseConfigurationReference = 667B7F979B2161223EA5DE72 /* Pods-Travel With Friends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Travel With Friends/Travel With Friends.entitlements";
@@ -563,7 +571,7 @@
 		};
 		193BBD3A1EAD2768005E8D59 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A75C87B9E29C9AB5C7B7E85 /* Pods-Travel With Friends.release.xcconfig */;
+			baseConfigurationReference = 490AFDF24C0092CBCEC3E685 /* Pods-Travel With Friends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Travel With Friends/Travel With Friends.entitlements";

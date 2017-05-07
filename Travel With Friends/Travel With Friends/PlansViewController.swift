@@ -6,11 +6,16 @@
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class PlansViewController: UIViewController {
     @IBOutlet weak var plansTableView: UITableView!
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
+
+    /* begin temporary codeblock */
+    var destination: PFObject?
+    /* end temporary code block */
 
     let testPlanStages = [
         "Finalized Plans",
@@ -51,6 +56,10 @@ class PlansViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        /* begin temporary codeblock */
+        print(destination!)
+        /* end temporary code block */
 
         /* Use 'fa-plus' text icon from FontAwesome.
          * http://fontawesome.io/cheatsheet/

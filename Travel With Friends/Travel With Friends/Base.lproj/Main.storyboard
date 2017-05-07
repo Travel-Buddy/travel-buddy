@@ -215,6 +215,45 @@
             </objects>
             <point key="canvasLocation" x="2708" y="-332"/>
         </scene>
+<<<<<<< HEAD
+=======
+        <!--Navigation Controller-->
+        <scene sceneID="1Zd-OW-lIh">
+            <objects>
+                <navigationController storyboardIdentifier="TripNavVC" automaticallyAdjustsScrollViewInsets="NO" id="ENS-9N-zmJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Mp-p2-0ua">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="N9K-Hu-bte" kind="relationship" relationship="rootViewController" id="2dz-SK-qKy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4K-jW-v5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="575"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0NK-tZ-LXq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="05w-7r-occ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="flX-gT-T9b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C1x-xm-NvV" kind="relationship" relationship="rootViewController" id="HGe-DX-1ot"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u96-EY-WsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="1281"/>
+        </scene>
+>>>>>>> curtis-changes
         <!--Create | Edit Destination-->
         <scene sceneID="ZmC-Xp-351">
             <objects>
@@ -246,53 +285,41 @@
             <point key="canvasLocation" x="5540" y="-1059.2203898050975"/>
         </scene>
         <!--Destinations-->
-        <scene sceneID="Es1-O7-r0x">
+        <scene sceneID="k7k-wo-Fls">
             <objects>
-                <viewController id="Wsp-F7-lEd" customClass="DestinationsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oTe-fw-2XN"/>
-                        <viewControllerLayoutGuide type="bottom" id="bTa-Oo-DF8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sa2-Hs-G9V">
+                <tableViewController id="yHZ-Gt-nH1" customClass="DestinationsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qa9-tX-ya9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RXC-U3-yR3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RXC-U3-yR3" firstAttribute="leading" secondItem="sa2-Hs-G9V" secondAttribute="leading" id="Wsh-eP-f5x"/>
-                            <constraint firstAttribute="trailing" secondItem="RXC-U3-yR3" secondAttribute="trailing" id="bJu-O7-HbI"/>
-                            <constraint firstItem="RXC-U3-yR3" firstAttribute="top" secondItem="sa2-Hs-G9V" secondAttribute="top" id="cFP-S0-bcV"/>
-                            <constraint firstAttribute="bottom" secondItem="RXC-U3-yR3" secondAttribute="bottom" id="zrG-xc-y6G"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Destinations" id="XWj-qa-S03">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="qbX-f1-ulc">
+                        <connections>
+                            <outlet property="dataSource" destination="yHZ-Gt-nH1" id="BgI-FO-jW6"/>
+                            <outlet property="delegate" destination="yHZ-Gt-nH1" id="STh-Z2-HBs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Destinations" id="h9B-Da-KCW">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="biU-Hv-kK1">
                             <connections>
-                                <action selector="showHome:" destination="Wsp-F7-lEd" id="qwr-aC-TvU"/>
+                                <action selector="showHome:" destination="yHZ-Gt-nH1" id="4Df-zm-1Le"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="mR2-b5-13t">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="mhl-0e-xsb">
                             <connections>
-                                <action selector="createDestination:" destination="Wsp-F7-lEd" id="Cx0-ne-cdC"/>
+                                <action selector="createDestination:" destination="yHZ-Gt-nH1" id="0mV-vb-HxH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addBarButtonItem" destination="mR2-b5-13t" id="dec-xc-6hy"/>
-                        <outlet property="destinationsTableView" destination="RXC-U3-yR3" id="SF0-YH-1eB"/>
-                        <outlet property="homeBarButtonItem" destination="qbX-f1-ulc" id="9Ln-93-mP9"/>
-                        <segue destination="IGh-mM-C4l" kind="show" identifier="ShowDestinationDetailSegue" id="WKP-Fk-aWt"/>
-                        <segue destination="4vj-N4-1G6" kind="presentation" identifier="ComposeDestinationSegue" id="4CL-My-Akz"/>
+                        <outlet property="addBarButtonItem" destination="mhl-0e-xsb" id="XYn-XK-73e"/>
+                        <outlet property="homeBarButtonItem" destination="biU-Hv-kK1" id="FyJ-wx-XYC"/>
+                        <segue destination="IGh-mM-C4l" kind="show" identifier="ShowDestinationDetailSegue" id="jJr-SJ-2gZ"/>
+                        <segue destination="4vj-N4-1G6" kind="presentation" identifier="ComposeDestinationSegue" id="cob-jA-wyS"/>
+                        <segue destination="4vj-N4-1G6" kind="presentation" identifier="EditDestinationSegue" id="jwB-de-ZfU"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oP3-NV-MQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVr-Zf-Blr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="-331"/>
+            <point key="canvasLocation" x="4601" y="-332"/>
         </scene>
         <!--Plans-->
         <scene sceneID="JRG-dd-dup">
@@ -455,23 +482,23 @@
             </objects>
             <point key="canvasLocation" x="4777" y="1283"/>
         </scene>
-        <!--Trip Detail Costs View Controller-->
-        <scene sceneID="bP3-Nq-IaY">
+        <!--Trip Costs-->
+        <scene sceneID="7la-6C-JRP">
             <objects>
-                <viewController id="wiy-Ia-Dk2" customClass="TripDetailCostsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m9K-4s-wh7"/>
-                        <viewControllerLayoutGuide type="bottom" id="qo0-qb-6dB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uij-Wz-Ww2">
+                <tableViewController id="jEV-b1-iIi" customClass="TripDetailCostsViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7vi-Cq-iOc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vaG-PW-nLm">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="fWr-G5-SI6">
+                        <connections>
+                            <outlet property="dataSource" destination="jEV-b1-iIi" id="ObG-Dn-hzT"/>
+                            <outlet property="delegate" destination="jEV-b1-iIi" id="1gU-0V-779"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Trip Costs" id="qoE-et-l0S">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="fWr-G5-SI6">
                             <connections>
-                                <action selector="closeButtonPressed:" destination="wiy-Ia-Dk2" id="sbo-AT-0Bd"/>
+                                <action selector="showHome:" destination="jEV-b1-iIi" id="3dA-cp-T5P"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="ZgU-E5-EAl">
@@ -480,8 +507,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ukC-nT-NnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="homeBarButtonItem" destination="fWr-G5-SI6" id="piP-G5-Yvx"/>
+                        <outlet property="settingsBarButtonItem" destination="ZgU-E5-EAl" id="rjJ-5U-kmZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPl-Hu-fAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4780" y="1988"/>
         </scene>
@@ -516,7 +547,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wiy-Ia-Dk2" kind="relationship" relationship="rootViewController" id="eEX-Zd-2he"/>
+                        <segue destination="jEV-b1-iIi" kind="relationship" relationship="rootViewController" id="9RE-hw-vxh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUN-am-1Sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -571,7 +602,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Wsp-F7-lEd" kind="relationship" relationship="rootViewController" id="6xV-ZY-XcH"/>
+                        <segue destination="yHZ-Gt-nH1" kind="relationship" relationship="rootViewController" id="AY6-1i-bfX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDE-oL-uFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -682,7 +713,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="sHL-Ut-P2e"/>
+=======
+        <segue reference="Osu-wE-hiy"/>
+        <segue reference="jwB-de-ZfU"/>
+        <segue reference="eFx-Oa-glY"/>
+>>>>>>> curtis-changes
         <segue reference="7s3-Pk-ALy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
