@@ -13,6 +13,7 @@ import GooglePlaces
 import GooglePlacesRow
 import Parse
 
+/* DEBUG CODE BEG */
 struct Plan {
     var name = ""
     var address: String?
@@ -41,12 +42,10 @@ func debugLog(_ varName: String?, _ varValue: Any?) {
 let (debugNELat, debugNELng) = (40.8529699, -111.7394581)
 let (debugSWLat, debugSWLng) = (40.700246, -112.101512)
 */
-
 /* Yellowstone National Park */
 
 let (debugNELat, debugNELng) = (45.0553667, -109.927147)
 let (debugSWLat, debugSWLng) = (44.1162236, -111.1009672)
-
 
 /* San Diego */
 /*
@@ -60,15 +59,17 @@ let (debugNamePlaceFilterType, debugLocationPlaceFilterType) =
         (GMSPlacesAutocompleteTypeFilter.establishment,
          GMSPlacesAutocompleteTypeFilter.address)
 */
-
 /* Natural Features */
+
 let (debugNamePlaceFilterType, debugLocationPlaceFilterType) =
         (GMSPlacesAutocompleteTypeFilter.geocode,
          GMSPlacesAutocompleteTypeFilter.region)
 
+
 let debugCoordinateBound = GMSCoordinateBounds(
         coordinate: CLLocationCoordinate2D(latitude: debugNELat, longitude: debugNELng),
         coordinate: CLLocationCoordinate2D(latitude: debugSWLat, longitude: debugSWLng))
+/* DEBUG CODE END */
 
 
 class PlanComposerViewController: FormViewController {
@@ -135,7 +136,7 @@ class PlanComposerViewController: FormViewController {
                 as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()
 
-        /* DEBUG: Get goecode info of a place */
+        /* DEBUG CODE BEG: Get geocode info of a place */
         GooglePlacesAPIController.shared.getGeocode(address: "Salt Lake City") {
                 (destinations: [GooglePlaceDestination]?, error: Error?) in
                     if destinations != nil {
@@ -150,12 +151,14 @@ class PlanComposerViewController: FormViewController {
                             debugLog("SW Lat, Lng",
                                     "\(destination.geometryViewportSWLat)" +
                                     ", \(destination.geometryViewportSWLng)")
+                            print("let (debugNELat, debugNELng) = (\(destination.geometryViewportNELat), \(destination.geometryViewportNELng))")
+                            print("let (debugSWLat, debugSWLng) = (\(destination.geometryViewportSWLat), \(destination.geometryViewportSWLng))")
                         }
                     } else if let error = error {
                         print("ERROR: \(error.localizedDescription)")
                     }
                 }
-        
+        /* DEBUG CODE END */
     }
 
     func updateFormUsingGooglePlacesTableRow(row: GooglePlacesTableRow) {

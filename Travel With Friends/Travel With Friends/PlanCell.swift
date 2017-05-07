@@ -8,9 +8,22 @@
 
 import UIKit
 
-class PlanCell: UITableViewCell {
+import ParseUI
+
+class PlanCell: PFTableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+
+    var plan: PFObject! {
+        didSet {
+            updateCell()
+        }
+    }
+
+    func updateCell() {
+        nameLabel.text = plan["estabName"] as? String
+        locationLabel.text = plan["estabLocation"] as? String
+    }
 
     @IBAction func deletePlan(_ sender: Any) {
         /* TODO: Implement deleting a plan functionality */

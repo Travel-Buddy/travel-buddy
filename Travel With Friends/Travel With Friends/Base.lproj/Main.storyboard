@@ -247,6 +247,36 @@
             </objects>
             <point key="canvasLocation" x="4777" y="575"/>
         </scene>
+        <!--Plans-->
+        <scene sceneID="r6R-Tj-7u8">
+            <objects>
+                <tableViewController id="7rq-hD-Wvq" customClass="PlansViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="N03-75-aIQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="7rq-hD-Wvq" id="46j-xA-ORZ"/>
+                            <outlet property="delegate" destination="7rq-hD-Wvq" id="CZ9-ji-LG3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Plans" id="aQh-jM-x1K">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="hbU-tu-1hI">
+                            <connections>
+                                <action selector="createPlan:" destination="7rq-hD-Wvq" id="zyF-F3-je3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="hbU-tu-1hI" id="my5-nq-cdc"/>
+                        <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="V6B-dv-q4O"/>
+                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="ttz-X1-pax"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HKv-dL-dt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5420" y="-331"/>
+        </scene>
         <!--Trip Settings View Controller-->
         <scene sceneID="Wc3-DM-4rr">
             <objects>
@@ -404,56 +434,13 @@
                         <outlet property="addBarButtonItem" destination="mR2-b5-13t" id="dec-xc-6hy"/>
                         <outlet property="destinationsTableView" destination="RXC-U3-yR3" id="SF0-YH-1eB"/>
                         <outlet property="homeBarButtonItem" destination="qbX-f1-ulc" id="9Ln-93-mP9"/>
-                        <segue destination="IGh-mM-C4l" kind="show" identifier="ShowDestinationDetailSegue" id="WKP-Fk-aWt"/>
                         <segue destination="4vj-N4-1G6" kind="presentation" identifier="ComposeDestinationSegue" id="4CL-My-Akz"/>
+                        <segue destination="7rq-hD-Wvq" kind="show" identifier="ShowDestinationDetailSegue" id="wci-zh-rZ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oP3-NV-MQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4601" y="-331"/>
-        </scene>
-        <!--Plans-->
-        <scene sceneID="JRG-dd-dup">
-            <objects>
-                <viewController id="IGh-mM-C4l" customClass="PlansViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RCG-xK-rXM"/>
-                        <viewControllerLayoutGuide type="bottom" id="jsh-NI-Zvc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f5b-dF-uL1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ql-2H-Kur">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="0Ql-2H-Kur" firstAttribute="leading" secondItem="f5b-dF-uL1" secondAttribute="leading" id="I57-cb-ZmY"/>
-                            <constraint firstItem="0Ql-2H-Kur" firstAttribute="top" secondItem="f5b-dF-uL1" secondAttribute="top" id="iP2-n3-Oz5"/>
-                            <constraint firstAttribute="trailing" secondItem="0Ql-2H-Kur" secondAttribute="trailing" id="pBG-UI-KAw"/>
-                            <constraint firstAttribute="bottom" secondItem="0Ql-2H-Kur" secondAttribute="bottom" id="xuL-Kf-94b"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Plans" id="RMx-w2-vSs">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="SGN-WZ-0do">
-                            <connections>
-                                <action selector="createPlan:" destination="IGh-mM-C4l" id="6yt-nC-5oE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addBarButtonItem" destination="SGN-WZ-0do" id="gOj-og-wPJ"/>
-                        <outlet property="plansTableView" destination="0Ql-2H-Kur" id="kpW-M5-L6h"/>
-                        <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="TZn-JB-gIe"/>
-                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="sHL-Ut-P2e"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x98-pO-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5420" y="-332"/>
         </scene>
         <!--Create | Edit Plan-->
         <scene sceneID="VN3-bV-kJ0">
@@ -480,47 +467,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="FT5-I2-PjD" kind="show" identifier="searchSegue" id="6nw-HS-RRl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SJ-Mh-ihZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6228" y="-1059.2203898050975"/>
-        </scene>
-        <!--Search View Controller-->
-        <scene sceneID="yqD-bh-2eB">
-            <objects>
-                <viewController id="XuN-sY-Iuq" customClass="SearchViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DXT-Ln-CM6"/>
-                        <viewControllerLayoutGuide type="bottom" id="o9X-bV-bCV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZZH-tz-fKH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="86f-uO-qtY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="86f-uO-qtY" firstAttribute="top" secondItem="ZZH-tz-fKH" secondAttribute="top" id="7rO-Jh-Ldk"/>
-                            <constraint firstItem="o9X-bV-bCV" firstAttribute="top" secondItem="86f-uO-qtY" secondAttribute="bottom" id="8pF-Sg-W2f"/>
-                            <constraint firstItem="86f-uO-qtY" firstAttribute="leading" secondItem="ZZH-tz-fKH" secondAttribute="leading" id="JfC-m8-Gzj"/>
-                            <constraint firstAttribute="trailing" secondItem="86f-uO-qtY" secondAttribute="trailing" id="X4k-w5-IXo"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="l5j-OD-goO"/>
-                    <connections>
-                        <outlet property="resultsTableView" destination="86f-uO-qtY" id="Gz3-Az-b3c"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I5p-gD-YlT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8141.6000000000004" y="-1059.2203898050975"/>
         </scene>
         <!--Plan-->
         <scene sceneID="3M3-mf-vRZ">
@@ -787,29 +737,11 @@
             </objects>
             <point key="canvasLocation" x="702" y="-1059"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="VCV-Qa-sIf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FT5-I2-PjD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="447-D6-WfL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XuN-sY-Iuq" kind="relationship" relationship="rootViewController" id="tMS-jj-ghS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IjF-R1-TCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7330" y="-1059"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cUW-db-8Y4"/>
         <segue reference="7s3-Pk-ALy"/>
-        <segue reference="sHL-Ut-P2e"/>
+        <segue reference="ttz-X1-pax"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
