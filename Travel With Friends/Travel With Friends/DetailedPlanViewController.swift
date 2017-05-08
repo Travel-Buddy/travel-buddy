@@ -109,12 +109,40 @@ class DetailedPlanViewController: UIViewController {
                 finalizePlanButton.setTitle("Reconsider Plan", for: .normal)
             }
         }
+
+        if let createdByUser = plan["createdBy"] as? PFObject {
+            createdByUser.fetchIfNeededInBackground {
+                    (user: PFObject?, error: Error?) in
+                        if let name = user?["name"] as? String {
+                            self.createdByLabel.text = name
+                        }
+                    }
+        }
+
+        let relation = plan.relation(forKey: "likedBy")
+        relation.query().findObjectsInBackground {
+                (users: [PFObject]?, error: Error?) in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                    } else if let users = users {
+                        var isLikedByUser = false
+                        for user in users {
+                            if user.objectId == PFUser.current()!.objectId {
+                                isLikedByUser = true
+                                break
+                            }
+                        }
+                        self.likeButton.setTitleColor(
+                                (isLikedByUser ? .red : .lightGray),
+                                for: .normal)
+                        self.likeCountLabel.text = "\(users.count)"
+                    }
+                }
     }
 
-    func updateLike(_ isLike: Bool) {
+    func updateIsLikedByUser(_ isLikedByUser: Bool) {
         let relation = plan.relation(forKey: "likedBy")
-
-        if isLike {
+        if isLikedByUser {
             relation.add(PFUser.current()!)
         } else {
             relation.remove(PFUser.current()!)
@@ -124,7 +152,9 @@ class DetailedPlanViewController: UIViewController {
                     if let error = error {
                         print("ERROR: \(error.localizedDescription)")
                     } else if success {
-                        print(" ###### SUCCESS #######")
+                        self.updateUI()
+                        self.delegate?.detailedPlanViewController?(
+                                self, didEditPlan: self.plan)
                     }
                 }
     }
@@ -133,15 +163,21 @@ class DetailedPlanViewController: UIViewController {
         performSegue(withIdentifier: "ComposePlanSegue", sender: nil)
     }
 
-    @IBAction func toggleLikePlan(_ sender: Any) {
+    @IBAction func toggleIsLikedByUser(_ sender: Any) {
         let relation = plan.relation(forKey: "likedBy")
-        relation.query().getObjectInBackground(
-                withId: PFUser.current()!.objectId ?? "") {
-                (user: PFObject?, error: Error?) in
+        relation.query().findObjectsInBackground {
+                (users: [PFObject]?, error: Error?) in
                     if let error = error {
                         print("ERROR: \(error.localizedDescription)")
-                    } else {
-                        self.updateLike(user == nil)
+                    } else if let users = users {
+                        var isLikedByUser = false
+                        for user in users {
+                            if user.objectId == PFUser.current()!.objectId {
+                                isLikedByUser = true
+                                break
+                            }
+                        }
+                        self.updateIsLikedByUser(!isLikedByUser)
                     }
                 }
     }
