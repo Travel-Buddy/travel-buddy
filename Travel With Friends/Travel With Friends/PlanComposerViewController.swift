@@ -204,11 +204,14 @@ class PlanComposerViewController: FormViewController {
         if let date = dictionary["StartDate"] as? Date {
             plan["startDate"] = date
         }
-        
-        plan["planType"] = "natural_feature"
-        plan["planStage"] = "proposal"
-        plan["createdBy"] = PFUser.current()
-        plan["destination"] = destination
+
+        /* Prevent overwriting the followings when editing existing plans */
+        if self.plan == nil {
+            plan["planType"] = "natural_feature"
+            plan["planStage"] = "proposal"
+            plan["createdBy"] = PFUser.current()
+            plan["destination"] = destination
+        }
         
         return plan
     }

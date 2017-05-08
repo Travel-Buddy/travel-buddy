@@ -370,7 +370,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="toggleLikePlan:" destination="kgF-CD-hvp" eventType="touchUpInside" id="C05-hG-Gis"/>
+                                    <action selector="toggleIsLikedByUser:" destination="kgF-CD-hvp" eventType="touchUpInside" id="KfR-Tz-PN1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-jM-G4s">
@@ -379,8 +379,8 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0D-9n-0h4">
-                                <rect key="frame" x="16" y="281" width="84" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Added by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0D-9n-0h4">
+                                <rect key="frame" x="16" y="281" width="74" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="bIa-ot-eoK"/>
                                     <constraint firstAttribute="height" constant="21" id="mqS-2A-ZWp"/>
@@ -389,8 +389,8 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dll-6b-VlO">
-                                <rect key="frame" x="108" y="281" width="83" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dll-6b-VlO">
+                                <rect key="frame" x="96" y="281" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -426,7 +426,7 @@
                             <constraint firstItem="dll-6b-VlO" firstAttribute="centerY" secondItem="l0D-9n-0h4" secondAttribute="centerY" id="a8q-kn-Ggo"/>
                             <constraint firstItem="l0D-9n-0h4" firstAttribute="leading" secondItem="NY2-BG-gZk" secondAttribute="leading" id="aUM-ox-exU"/>
                             <constraint firstItem="NY2-BG-gZk" firstAttribute="top" secondItem="Ilb-YV-0wK" secondAttribute="bottom" constant="24" id="kHm-oJ-17G"/>
-                            <constraint firstItem="dll-6b-VlO" firstAttribute="leading" secondItem="l0D-9n-0h4" secondAttribute="trailing" constant="8" id="rk8-rJ-HN7"/>
+                            <constraint firstItem="dll-6b-VlO" firstAttribute="leading" secondItem="l0D-9n-0h4" secondAttribute="trailing" constant="6" id="rk8-rJ-HN7"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NY2-BG-gZk" secondAttribute="trailing" constant="16" id="s1n-T7-ouh"/>
                             <constraint firstItem="PLe-Ly-xbl" firstAttribute="leading" secondItem="NY2-BG-gZk" secondAttribute="leading" id="uYN-hI-vGR"/>
                         </constraints>
