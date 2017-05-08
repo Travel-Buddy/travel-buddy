@@ -20,6 +20,7 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
     var tripToEdit : PFObject?
     var shouldAllowAddFriends : Bool = false
     var friends : [String : PFObject] = [:]
+    var unsubscribe : ButtonRow?
     
     
     
@@ -66,8 +67,17 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 self.title = "Trip Settings"
                 let row = self.form.rowBy(tag: "Trip Title") as! TextRow
                 row.cell.isUserInteractionEnabled = false
+                
+                let sRow = self.form.rowBy(tag: "START DATE") as! DateInlineRow
+                sRow.cell.isUserInteractionEnabled = false
+                
+                let eRow = self.form.rowBy(tag: "END DATE") as! DateInlineRow
+                eRow.cell.isUserInteractionEnabled = false
 
-                self.tableView.isUserInteractionEnabled = false
+               // self.tableView.isUserInteractionEnabled = false
+                
+                
+                
                 saveBarButton.isEnabled = false
                 saveBarButton.tintColor = UIColor.clear
                 cancelBarButton.title = "Close"
@@ -232,6 +242,11 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                             section <<< TextRow("\(user["facebookId"]!)") {
                                 $0.title = user["name"] as? String
                                 $0.cell.textField.isUserInteractionEnabled = false
+                                if self.shouldAllowAddFriends {
+                                    $0.cell.isUserInteractionEnabled = true
+                                }else{
+                                    $0.cell.isUserInteractionEnabled = false
+                                }
                                 
                             }
                         }
@@ -245,6 +260,24 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                             .onCellSelection({ (cell, row) in
                                 self.performSegue(withIdentifier: "AddFriendsSegue", sender: self)
                             })
+                    }else{
+                        self.unsubscribe =  ButtonRow("Unsubscribe") { (row: ButtonRow) in
+                            row.title = "Unsubscribe"
+                            row.cell.isUserInteractionEnabled = true
+                            }
+                            .onCellSelection({ (cell, row) in
+                                
+                                relation.remove(PFUser.current()!)
+                                
+                                tripToEdit.saveInBackground(block: { (success, error) in
+                                    if success {
+                                        self.dismiss(animated: true)
+                                    }else{
+                                        print("Error Unsubscribing \(error!.localizedDescription)")
+                                    }
+                                })
+                            })
+                        section <<< self.unsubscribe!
                     }
                     
                 }
@@ -260,8 +293,9 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 $0.cell.textField.isUserInteractionEnabled = false
             }
             
-            
+        
             if self.shouldAllowAddFriends {
+                
                 section <<< ButtonRow() { (row: ButtonRow) in
                     row.title = "Add Friends"
                     }
@@ -269,6 +303,8 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                         self.performSegue(withIdentifier: "AddFriendsSegue", sender: self)
                     })
             }
+
+                
         }
 
         
