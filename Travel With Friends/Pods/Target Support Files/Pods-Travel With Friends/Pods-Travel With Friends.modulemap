@@ -1,6 +1,0 @@
-framework module Pods_Travel_With_Friends {
-  umbrella header "Pods-Travel With Friends-umbrella.h"
-
-  export *
-  module * { export * }
-}
