@@ -15,10 +15,10 @@ import Parse
 /* DEBUG CODE BEG */
 /* Filter type: Points of Interest */
 /*
- let (debugNamePlaceFilterType, debugLocationPlaceFilterType) =
- (GMSPlacesAutocompleteTypeFilter.establishment,
- GMSPlacesAutocompleteTypeFilter.address)
- */
+let (debugNamePlaceFilterType, debugLocationPlaceFilterType) =
+    (GMSPlacesAutocompleteTypeFilter.establishment,
+     GMSPlacesAutocompleteTypeFilter.address)
+*/
 /* Filter type: Natural Features */
 
 let (debugNamePlaceFilterType, debugLocationPlaceFilterType) =
@@ -28,7 +28,15 @@ let (debugNamePlaceFilterType, debugLocationPlaceFilterType) =
 /* DEBUG CODE END */
 
 
+@objc protocol PlanComposerViewControllerDelegate {
+    @objc optional func planComposerViewController(
+            _ planComposerViewController: PlanComposerViewController,
+            didSavePlan plan: PFObject)
+}
+
 class PlanComposerViewController: FormViewController {
+    weak var delegate: PlanComposerViewControllerDelegate?
+
     var destination: PFObject!
     var plan: PFObject?
     
@@ -48,8 +56,8 @@ class PlanComposerViewController: FormViewController {
                     let name = plan["estabName"] as? String {
                     $0.value = GooglePlace(string: name)
                 }
-                }
-                .onChange(updateFormUsingGooglePlacesTableRow)
+            }
+            .onChange(updateFormUsingGooglePlacesTableRow)
             
             +++ Section("Location")
             <<< GooglePlacesTableRow() {
@@ -73,9 +81,10 @@ class PlanComposerViewController: FormViewController {
                 }
             }
             
-            +++ Section("Date")
+            +++ Section()
             <<< DateRow() {
                 $0.tag = "StartDate"
+                $0.title = "Date"
                 
                 let minDate = self.destination["startDate"] as? Date ?? Date()
                 let maxDate = self.destination["endDate"] as? Date
@@ -85,11 +94,11 @@ class PlanComposerViewController: FormViewController {
                 var calendar = Calendar(identifier: .gregorian)
                 calendar.timeZone = TimeZone(abbreviation: "UTC")!
                 $0.value = calendar.date(bySettingHour: 12, minute: 0,
-                                         second: 0, of: minDate)
-        }
+                        second: 0, of: minDate)
+            }
         
         let nameRow = self.form.rowBy(tag: "EstablishmentName")
-            as! GooglePlacesTableRow
+                as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()
         
         /* Get coordinate bounds to be used in autocomplete function */
@@ -112,21 +121,21 @@ class PlanComposerViewController: FormViewController {
     }
     
     private func updateCoordinateBoundsUsingGPDestination(
-        _ destination: GooglePlaceDestination) {
+            _ destination: GooglePlaceDestination) {
         coordinateBounds = GMSCoordinateBounds(
-            coordinate:  CLLocationCoordinate2D(
-                latitude: destination.geometryViewportNELat,
-                longitude: destination.geometryViewportNELng),
-            coordinate: CLLocationCoordinate2D(
-                latitude: destination.geometryViewportSWLat,
-                longitude: destination.geometryViewportSWLng))
+                coordinate:  CLLocationCoordinate2D(
+                        latitude: destination.geometryViewportNELat,
+                        longitude: destination.geometryViewportNELng),
+                coordinate: CLLocationCoordinate2D(
+                        latitude: destination.geometryViewportSWLat,
+                        longitude: destination.geometryViewportSWLng))
         
         let nameRow = form.rowBy(tag: "EstablishmentName")
-            as! GooglePlacesTableRow
+                as! GooglePlacesTableRow
         nameRow.placeBounds = coordinateBounds
         
         let locationRow = form.rowBy(tag: "EstablishmentLocation")
-            as! GooglePlacesTableRow
+                as! GooglePlacesTableRow
         locationRow.placeBounds = coordinateBounds
     }
     
@@ -139,29 +148,29 @@ class PlanComposerViewController: FormViewController {
                 break
             case let GooglePlace.prediction(prediction: prediction):
                 row.value = GooglePlace(
-                    string: prediction.attributedPrimaryText.string)
+                        string: prediction.attributedPrimaryText.string)
                 
                 if let placeID = prediction.placeID {
                     GooglePlacesAPIController.shared.getPlaceDetail(
-                    placeId: placeID) {
-                        (place: GooglePlacePlace?, error: Error?) in
-                        if let error = error {
-                            print("ERROR: \(error.localizedDescription)")
-                        } else if let place = place {
-                            let locationRow = self.form.rowBy(
-                                tag: "EstablishmentLocation")
-                                as! GooglePlacesTableRow
-                            locationRow.value = GooglePlace(
-                                string: place.address!)
-                            locationRow.reload()
-                            
-                            let phoneNoRow = self.form.rowBy(
-                                tag: "EstablishmentContact")
-                                as! PhoneRow
-                            phoneNoRow.value = place.phoneNo
-                            phoneNoRow.reload()
-                        }
-                    }
+                            placeId: placeID) {
+                            (place: GooglePlacePlace?, error: Error?) in
+                                if let error = error {
+                                    print("ERROR: \(error.localizedDescription)")
+                                } else if let place = place {
+                                    let locationRow = self.form.rowBy(
+                                        tag: "EstablishmentLocation")
+                                        as! GooglePlacesTableRow
+                                    locationRow.value = GooglePlace(
+                                        string: place.address!)
+                                    locationRow.reload()
+                                    
+                                    let phoneNoRow = self.form.rowBy(
+                                        tag: "EstablishmentContact")
+                                        as! PhoneRow
+                                    phoneNoRow.value = place.phoneNo
+                                    phoneNoRow.reload()
+                                }
+                            }
                 }
             }
         }
@@ -205,37 +214,38 @@ class PlanComposerViewController: FormViewController {
     }
     
     private func addRelationPlan(_ plan: PFObject,
-                                 withDestination destination: PFObject) {
+            withDestination destination: PFObject) {
         let relation = destination.relation(forKey: "plans")
         relation.add(plan)
         destination.saveInBackground {
-            (success: Bool, error: Error?) in
-            if let error = error {
-                print("ERROR: \(error.localizedDescription)")
-            } else if success {
-                print("Plan is successfully saved!")
-            }
-        }
+                (success: Bool, error: Error?) in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                    } else if success {
+                        self.delegate?.planComposerViewController?(self,
+                                didSavePlan: plan)
+                    }
+                }
     }
     
     private func savePlan() {
         let query = PFQuery(className: "Plan")
         query.getObjectInBackground(withId: plan?.objectId ?? "") {
-            (plan: PFObject?, error: Error?) in
-            let composedPlan = self.composePlan(
-                (error == nil && plan != nil ? plan! :
-                    PFObject(className: "Plan")))
-            
-            composedPlan.saveInBackground {
-                (success: Bool, error: Error?) in
-                if let error = error {
-                    print("ERROR: \(error.localizedDescription)")
-                } else if success {
-                    self.addRelationPlan(composedPlan,
-                                         withDestination: self.destination)
+                (plan: PFObject?, error: Error?) in
+                    let composedPlan = self.composePlan(
+                        (error == nil && plan != nil ? plan! :
+                         PFObject(className: "Plan")))
+                    
+                    composedPlan.saveInBackground {
+                            (success: Bool, error: Error?) in
+                                if let error = error {
+                                    print("ERROR: \(error.localizedDescription)")
+                                } else if success {
+                                    self.addRelationPlan(composedPlan,
+                                            withDestination: self.destination)
+                                }
+                            }
                 }
-            }
-        }
     }
     
     @IBAction func cancelChanges(_ sender: Any) {
