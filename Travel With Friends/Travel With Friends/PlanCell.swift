@@ -8,11 +8,78 @@
 
 import UIKit
 
-class PlanCell: UITableViewCell {
+import ParseUI
+
+class PlanCell: PFTableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeCountLabel: UILabel!
 
-    @IBAction func deletePlan(_ sender: Any) {
-        /* TODO: Implement deleting a plan functionality */
+    var plan: PFObject! {
+        didSet {
+            updateUI()
+        }
+    }
+
+    func updateUI() {
+        nameLabel.text = plan["estabName"] as? String
+        locationLabel.text = plan["estabLocation"] as? String
+
+        let relation = plan.relation(forKey: "likedBy")
+        relation.query().findObjectsInBackground {
+                (users: [PFObject]?, error: Error?) in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                    } else if let users = users {
+                        var isLikedByUser = false
+                        for user in users {
+                            if user.objectId == PFUser.current()!.objectId {
+                                isLikedByUser = true
+                                break
+                            }
+                        }
+                        self.likeButton.setTitleColor(
+                                (isLikedByUser ? .red : .lightGray),
+                                for: .normal)
+                        self.likeCountLabel.text = "\(users.count)"
+                    }
+                }
+    }
+
+    func updateIsLikedByUser(_ isLikedByUser: Bool) {
+        let relation = plan.relation(forKey: "likedBy")
+        if isLikedByUser {
+            relation.add(PFUser.current()!)
+        } else {
+            relation.remove(PFUser.current()!)
+        }
+        plan.saveInBackground {
+                (success: Bool, error: Error?) in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                    } else if success {
+                        self.updateUI()
+                    }
+                }
+    }
+
+    @IBAction func toggleIsLikedByUser(_ sender: Any) {
+        let relation = plan.relation(forKey: "likedBy")
+        relation.query().findObjectsInBackground {
+                (users: [PFObject]?, error: Error?) in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                    } else if let users = users {
+                        var isLikedByUser = false
+                        for user in users {
+                            if user.objectId == PFUser.current()!.objectId {
+                                isLikedByUser = true
+                                break
+                            }
+                        }
+                        self.updateIsLikedByUser(!isLikedByUser)
+                    }
+                }
     }
 }
