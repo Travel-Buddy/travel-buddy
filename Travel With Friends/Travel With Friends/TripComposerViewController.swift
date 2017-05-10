@@ -14,7 +14,6 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
 
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     
     var tripToEdit : PFObject?
@@ -24,15 +23,32 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            cancelBarButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            cancelBarButton.title = String.Fontawesome.Cancel
+        }
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            saveBarButton.setTitleTextAttributes(
+                [NSFontAttributeName: font], for: .normal)
+            saveBarButton.title = String.Fontawesome.Save
+        }
+
+        
         
         saveBarButton.isEnabled = false
         
         LabelRow.defaultCellUpdate = { cell, row in
-            cell.contentView.backgroundColor = .red
-            cell.textLabel?.textColor = .white
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+            cell.contentView.backgroundColor = UIColor.FlatColor.Green.Subtext
+            cell.textLabel?.textColor = UIColor.FlatColor.White.Background
+            cell.textLabel?.font = UIFont.Subheadings.Validation
             cell.textLabel?.textAlignment = .right
             
         }
@@ -51,9 +67,6 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
             }
 
         }
-        
-        
-        
         
         initializeForm()
         
@@ -92,19 +105,31 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
 
     func buildTitleSection() -> Section {
         
-        let section = Section(header: "TRIP TITLE", footer: "")
+        let section = Section(header: "Trip Title", footer: "")
         
             <<< TextRow("Trip Title") {
                 $0.add(rule: RuleRequired())
                 if let tripToEdit = tripToEdit {
                     $0.value = tripToEdit["title"] as? String
                 }
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.tintColor = UIColor.FlatColor.Blue.MainText
+                
+                
+                $0.cell.textLabel!.font = UIFont.Buttons.ProfilePageButton
+                $0.cell.textLabel!.textColor = UIColor.FlatColor.Blue.MainText
+                $0.cell.textField.font = UIFont.Buttons.ProfilePageButton
+                $0.cell.textField.textColor = UIColor.FlatColor.Blue.MainText
+                $0.cell.textField?.font = UIFont.Subheadings.TripComposeUserTitleText
+
                 
                 $0.validationOptions = .validatesOnChange
                 }
                 .cellUpdate { cell, row in
-                    if (cell.textField.text?.characters.count)! > 0 && row.isValid {
+                    if (cell.textField.text?.characters.count)! > 0 {
                         self.saveBarButton.isEnabled = true
+                    }else{
+                        self.saveBarButton.isEnabled = false
                     }
                 }
                 .onRowValidationChanged { cell, row in
@@ -117,6 +142,7 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                             let labelRow = LabelRow() {
                                 $0.title = "REQUIRED"
                                 $0.cell.height = { 30 }
+                                
                             }
                             row.section?.insert(labelRow, at: row.indexPath!.row + index + 1)
                         }
@@ -134,6 +160,10 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
             <<< DateInlineRow("START DATE") {
                 $0.title = $0.tag
                 $0.add(rule: RuleRequired())
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
+                $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
                 
                 if let tripToEdit = tripToEdit {
                     $0.value = tripToEdit["startDate"] as? Date
@@ -154,6 +184,9 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 .onExpandInlineRow { cell, row, inlineRow in
                     inlineRow.cellUpdate() { cell, row in
                         cell.datePicker.datePickerMode = .date
+                        cell.datePicker.backgroundColor = UIColor.FlatColor.White.Background
+
+                        
                     }
                     let color = cell.detailTextLabel?.textColor
                     row.onCollapseInlineRow { cell, _, _ in
@@ -164,6 +197,11 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
             
             <<< DateInlineRow("END DATE"){
                 $0.title = $0.tag
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+                $0.cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
+
                 $0.add(rule: RuleRequired())
                 
                 if let tripToEdit = tripToEdit {
@@ -186,6 +224,7 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 .onExpandInlineRow { cell, row, inlineRow in
                     inlineRow.cellUpdate { cell, dateRow in
                         cell.datePicker.datePickerMode = .date
+                        cell.datePicker.backgroundColor = UIColor.FlatColor.White.Background
                     }
                     let color = cell.detailTextLabel?.textColor
                     row.onCollapseInlineRow { cell, _, _ in
@@ -256,6 +295,9 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                     if self.shouldAllowAddFriends {
                         section <<< ButtonRow() { (row: ButtonRow) in
                             row.title = "Add Friends"
+                            row.cell.backgroundColor = UIColor.FlatColor.White.Background
+                            row.cell.tintColor = UIColor.FlatColor.Green.Subtext
+                            row.cell.textLabel?.font = UIFont.Buttons.ProfilePageButton
                             }
                             .onCellSelection({ (cell, row) in
                                 self.performSegue(withIdentifier: "AddFriendsSegue", sender: self)
@@ -264,6 +306,9 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                         self.unsubscribe =  ButtonRow("Unsubscribe") { (row: ButtonRow) in
                             row.title = "Unsubscribe"
                             row.cell.isUserInteractionEnabled = true
+                            row.cell.backgroundColor = UIColor.FlatColor.White.Background
+                            row.cell.tintColor = UIColor.FlatColor.Green.Subtext
+                            row.cell.textLabel?.font = UIFont.Buttons.ProfilePageButton
                             }
                             .onCellSelection({ (cell, row) in
                                 
@@ -291,6 +336,11 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 $0.placeholder = "Owner"
                 $0.cell.isUserInteractionEnabled = false
                 $0.cell.textField.isUserInteractionEnabled = false
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.titleLabel?.textColor = UIColor.FlatColor.Blue.MainText
+                $0.cell.detailTextLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                $0.cell.titleLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+
             }
             
         
@@ -298,6 +348,9 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
                 
                 section <<< ButtonRow() { (row: ButtonRow) in
                     row.title = "Add Friends"
+                    row.cell.backgroundColor = UIColor.FlatColor.White.Background
+                    row.cell.tintColor = UIColor.FlatColor.Green.Subtext
+                    row.cell.textLabel?.font = UIFont.Buttons.ProfilePageButton
                     }
                     .onCellSelection({ (cell, row) in
                         self.performSegue(withIdentifier: "AddFriendsSegue", sender: self)
@@ -339,7 +392,6 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
         let tripTitleRow = self.form.rowBy(tag: "Trip Title") as! TextRow
         let tripStartDateRow = self.form.rowBy(tag: "START DATE") as! DateInlineRow
         let tripEndDateRow = self.form.rowBy(tag: "END DATE") as! DateInlineRow
-        
         let userSection = self.form.sectionBy(tag: "userSection") as! MultivaluedSection
         
         
@@ -487,6 +539,10 @@ extension TripComposerViewController : AddFriendsDelegate {
                 let row = TextRow("\(friend["facebookId"]!)") {
                     $0.title = friend["name"] as? String
                     $0.cell.textField.isUserInteractionEnabled = false
+                    $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                    $0.cell.titleLabel?.textColor = UIColor.FlatColor.Blue.MainText
+                    $0.cell.detailTextLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                    $0.cell.titleLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
                 }
                 
                 userSection.insert(row, at: count)
