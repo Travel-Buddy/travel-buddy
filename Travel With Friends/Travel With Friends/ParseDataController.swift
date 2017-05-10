@@ -33,6 +33,10 @@ class ParseDataController {
                     user["email"] = fbUser.email
                     user["name"] = fbUser.name
                     user["facebookId"] = "\(fbUser.id)"
+                    
+                    if let pictureString = fbUser.picture?.pictureData?.url?.absoluteString {
+                        user["fbImageString"] = pictureString
+                    }                    
                     user.saveInBackground(block: { (success, error) in
                         if success {
                             print(success)

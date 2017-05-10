@@ -20,9 +20,27 @@ class AddFriendsViewController: PFQueryTableViewController {
     var friends : [PFObject] = []
     weak var delegate : AddFriendsDelegate?
     
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Add Friends"
+        self.tableView.backgroundColor = UIColor.FlatColor.White.Background
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            cancelButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            cancelButton.title = String.Fontawesome.CancelX
+        }
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            addButton.setTitleTextAttributes(
+                [NSFontAttributeName: font], for: .normal)
+            addButton.title = String.Fontawesome.AddCircle
+        }
+
 
         // Do any additional setup after loading the view.
     }
@@ -81,6 +99,9 @@ class AddFriendsViewController: PFQueryTableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PFTableViewCell
         if cell == nil {
             cell = PFTableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+            cell!.backgroundColor = UIColor.FlatColor.White.Background
+            cell!.textLabel?.font = UIFont.Headings.NavHeading
+            cell!.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
         }
         
         // Configure the cell to show todo item with a priority at the bottom
@@ -107,6 +128,7 @@ class AddFriendsViewController: PFQueryTableViewController {
         }else {
             cell.accessoryType = .checkmark
             friends.append(self.objects![indexPath.row])
+            
             
         }
     }
