@@ -19,5 +19,6 @@ target 'Travel With Friends' do
   pod 'ParseFacebookUtilsV4'
   pod 'Eureka'
   pod 'GooglePlacesRow'
+  pod 'FontAwesome.swift'
 
 end
