@@ -23,6 +23,7 @@ class TripsHomeViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ParseDataController.shared.updateUserFacebookFrinds()
         
         self.navigationItem.title = "My Trips"
         self.tableView.backgroundColor = UIColor.FlatColor.White.Background
