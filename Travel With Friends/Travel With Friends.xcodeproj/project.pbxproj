@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		193452B01EAE7612004A52D5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193452AF1EAE7612004A52D5 /* LoginViewController.swift */; };
+		1937615F1EC2450D0066A1B2 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937615E1EC2450D0066A1B2 /* ProfilePageViewController.swift */; };
+		193761621EC24ACF0066A1B2 /* ProfileEurekaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193761601EC24ACF0066A1B2 /* ProfileEurekaCell.swift */; };
+		193761631EC24ACF0066A1B2 /* ProfileEurekaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193761611EC24ACF0066A1B2 /* ProfileEurekaCell.xib */; };
+		193761691EC2BC470066A1B2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193761681EC2BC470066A1B2 /* UIColor+Hex.swift */; };
+		1937616B1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937616A1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift */; };
+		1937616D1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937616C1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift */; };
+		1937616F1EC2C4680066A1B2 /* String+Fontawesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937616E1EC2C4680066A1B2 /* String+Fontawesome.swift */; };
 		193950251EAD8661003667F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193950241EAD8661003667F2 /* MapKit.framework */; };
 		193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950261EAD882E003667F2 /* TripTableViewController.swift */; };
 		193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950281EAD8A38003667F2 /* TripSettingsViewController.swift */; };
-		1939502B1EAD8AD2003667F2 /* TripDetailHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939502A1EAD8AD2003667F2 /* TripDetailHomeViewController.swift */; };
-		1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939502C1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift */; };
 		1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */; };
 		193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */; };
-		193950341EAD8C74003667F2 /* TripMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950331EAD8C74003667F2 /* TripMapViewController.swift */; };
 		19396C521EAFC75500D464CC /* POICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C501EAFC75500D464CC /* POICell.swift */; };
 		19396C531EAFC75500D464CC /* POICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19396C511EAFC75500D464CC /* POICell.xib */; };
 		19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C841EB267D500D464CC /* GooglePlacePOI.swift */; };
@@ -24,7 +28,6 @@
 		19396C8E1EB2699100D464CC /* ParseDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C8D1EB2699100D464CC /* ParseDataController.swift */; };
 		19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19396C911EB26AE600D464CC /* GooglePlacePOIProtocols.swift */; };
 		193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD291EAD2768005E8D59 /* AppDelegate.swift */; };
-		193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193BBD2B1EAD2768005E8D59 /* ViewController.swift */; };
 		193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 193BBD301EAD2768005E8D59 /* Assets.xcassets */; };
 		193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193BBD321EAD2768005E8D59 /* LaunchScreen.storyboard */; };
 		19B2559F1EBBB1E100C9CBD5 /* TripsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2559E1EBBB1E100C9CBD5 /* TripsHomeViewController.swift */; };
@@ -33,7 +36,6 @@
 		19B537C31EB407DD0059808C /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B537C21EB407DD0059808C /* FacebookUser.swift */; };
 		19B537C81EB41ADC0059808C /* FacebookUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B537C61EB41ADC0059808C /* FacebookUserCell.swift */; };
 		19B537C91EB41ADC0059808C /* FacebookUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B537C71EB41ADC0059808C /* FacebookUserCell.xib */; };
-		7B0805891EB668B900D592D8 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0805881EB668B900D592D8 /* TripsViewController.swift */; };
 		7B539A211EB6C7C900343D64 /* DetailedPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B539A201EB6C7C900343D64 /* DetailedPlanViewController.swift */; };
 		7B539A231EB6D41000343D64 /* TripComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B539A221EB6D41000343D64 /* TripComposerViewController.swift */; };
 		7B539A251EB6D42200343D64 /* DestinationComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B539A241EB6D42200343D64 /* DestinationComposerViewController.swift */; };
@@ -54,14 +56,18 @@
 
 /* Begin PBXFileReference section */
 		193452AF1EAE7612004A52D5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1937615E1EC2450D0066A1B2 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		193761601EC24ACF0066A1B2 /* ProfileEurekaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEurekaCell.swift; sourceTree = "<group>"; };
+		193761611EC24ACF0066A1B2 /* ProfileEurekaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEurekaCell.xib; sourceTree = "<group>"; };
+		193761681EC2BC470066A1B2 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		1937616A1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Flatcolor.swift"; sourceTree = "<group>"; };
+		1937616C1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Travelbuddy.swift"; sourceTree = "<group>"; };
+		1937616E1EC2C4680066A1B2 /* String+Fontawesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Fontawesome.swift"; sourceTree = "<group>"; };
 		193950241EAD8661003667F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		193950261EAD882E003667F2 /* TripTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		193950281EAD8A38003667F2 /* TripSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSettingsViewController.swift; sourceTree = "<group>"; };
-		1939502A1EAD8AD2003667F2 /* TripDetailHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailHomeViewController.swift; sourceTree = "<group>"; };
-		1939502C1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailLocationsViewController.swift; sourceTree = "<group>"; };
 		1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailPOIViewController.swift; sourceTree = "<group>"; };
 		193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailCostsViewController.swift; sourceTree = "<group>"; };
-		193950331EAD8C74003667F2 /* TripMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapViewController.swift; sourceTree = "<group>"; };
 		19396C501EAFC75500D464CC /* POICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POICell.swift; sourceTree = "<group>"; };
 		19396C511EAFC75500D464CC /* POICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICell.xib; sourceTree = "<group>"; };
 		19396C841EB267D500D464CC /* GooglePlacePOI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacePOI.swift; sourceTree = "<group>"; };
@@ -72,7 +78,6 @@
 		19396C931EB27A7800D464CC /* Travel With Friends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Travel With Friends.entitlements"; sourceTree = "<group>"; };
 		193BBD261EAD2768005E8D59 /* Travel With Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel With Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193BBD291EAD2768005E8D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		193BBD2B1EAD2768005E8D59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		193BBD301EAD2768005E8D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		193BBD331EAD2768005E8D59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		193BBD351EAD2768005E8D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,7 +89,6 @@
 		19B537C71EB41ADC0059808C /* FacebookUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookUserCell.xib; sourceTree = "<group>"; };
 		490AFDF24C0092CBCEC3E685 /* Pods-Travel With Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.release.xcconfig"; sourceTree = "<group>"; };
 		667B7F979B2161223EA5DE72 /* Pods-Travel With Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel With Friends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel With Friends/Pods-Travel With Friends.debug.xcconfig"; sourceTree = "<group>"; };
-		7B0805881EB668B900D592D8 /* TripsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		7B539A201EB6C7C900343D64 /* DetailedPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPlanViewController.swift; sourceTree = "<group>"; };
 		7B539A221EB6D41000343D64 /* TripComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripComposerViewController.swift; sourceTree = "<group>"; };
 		7B539A241EB6D42200343D64 /* DestinationComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationComposerViewController.swift; sourceTree = "<group>"; };
@@ -137,15 +141,11 @@
 		193950321EAD8B30003667F2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				193950331EAD8C74003667F2 /* TripMapViewController.swift */,
 				193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */,
 				1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */,
-				1939502C1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift */,
-				1939502A1EAD8AD2003667F2 /* TripDetailHomeViewController.swift */,
 				193950281EAD8A38003667F2 /* TripSettingsViewController.swift */,
 				193950261EAD882E003667F2 /* TripTableViewController.swift */,
 				193452AF1EAE7612004A52D5 /* LoginViewController.swift */,
-				7B0805881EB668B900D592D8 /* TripsViewController.swift */,
 				7B539A221EB6D41000343D64 /* TripComposerViewController.swift */,
 				7B98F1EA1EB6816300DE19ED /* DestinationsViewController.swift */,
 				7B539A241EB6D42200343D64 /* DestinationComposerViewController.swift */,
@@ -154,6 +154,7 @@
 				7B539A261EB6D43000343D64 /* PlanComposerViewController.swift */,
 				19B2559E1EBBB1E100C9CBD5 /* TripsHomeViewController.swift */,
 				19B255A01EBD81D800C9CBD5 /* AddFriendsViewController.swift */,
+				1937615E1EC2450D0066A1B2 /* ProfilePageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -162,6 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				19396C8F1EB26A9000D464CC /* Cells */,
+				193761681EC2BC470066A1B2 /* UIColor+Hex.swift */,
+				1937616A1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift */,
+				1937616C1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift */,
+				1937616E1EC2C4680066A1B2 /* String+Fontawesome.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -207,6 +212,8 @@
 				7B98F1F41EB6B31600DE19ED /* PlanCell.xib */,
 				E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */,
 				E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */,
+				193761601EC24ACF0066A1B2 /* ProfileEurekaCell.swift */,
+				193761611EC24ACF0066A1B2 /* ProfileEurekaCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -243,7 +250,6 @@
 			children = (
 				19396C931EB27A7800D464CC /* Travel With Friends.entitlements */,
 				193BBD291EAD2768005E8D59 /* AppDelegate.swift */,
-				193BBD2B1EAD2768005E8D59 /* ViewController.swift */,
 				19B255A31EBF8E6700C9CBD5 /* Main.storyboard */,
 				19396C901EB26AA900D464CC /* Protocols */,
 				19396C881EB2691200D464CC /* Data Controllers */,
@@ -346,6 +352,7 @@
 				193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */,
 				193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */,
 				7B98F1EF1EB688D100DE19ED /* DestinationCell.xib in Resources */,
+				193761631EC24ACF0066A1B2 /* ProfileEurekaCell.xib in Resources */,
 				19B255A51EBF8E6700C9CBD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,18 +412,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				193950341EAD8C74003667F2 /* TripMapViewController.swift in Sources */,
 				19396C521EAFC75500D464CC /* POICell.swift in Sources */,
-				193BBD2C1EAD2768005E8D59 /* ViewController.swift in Sources */,
 				19B537C31EB407DD0059808C /* FacebookUser.swift in Sources */,
 				7B539A211EB6C7C900343D64 /* DetailedPlanViewController.swift in Sources */,
 				7B98F1E51EB66D6200DE19ED /* TripCell.swift in Sources */,
+				1937615F1EC2450D0066A1B2 /* ProfilePageViewController.swift in Sources */,
 				19B255A11EBD81D800C9CBD5 /* AddFriendsViewController.swift in Sources */,
+				1937616B1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift in Sources */,
 				19396C8C1EB2697A00D464CC /* GooglePlacesAPIController.swift in Sources */,
 				7B539A251EB6D42200343D64 /* DestinationComposerViewController.swift in Sources */,
+				1937616D1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift in Sources */,
+				193761621EC24ACF0066A1B2 /* ProfileEurekaCell.swift in Sources */,
 				7B98F1F11EB68E6D00DE19ED /* PlansViewController.swift in Sources */,
 				7B98F1EB1EB6816300DE19ED /* DestinationsViewController.swift in Sources */,
-				1939502B1EAD8AD2003667F2 /* TripDetailHomeViewController.swift in Sources */,
 				19B537C81EB41ADC0059808C /* FacebookUserCell.swift in Sources */,
 				193BBD2A1EAD2768005E8D59 /* AppDelegate.swift in Sources */,
 				19396C851EB267D500D464CC /* GooglePlacePOI.swift in Sources */,
@@ -424,16 +432,16 @@
 				19396C921EB26AE600D464CC /* GooglePlacePOIProtocols.swift in Sources */,
 				E9F8D3D21EBEAEF900ABD38F /* CostCell.swift in Sources */,
 				193950311EAD8B0E003667F2 /* TripDetailCostsViewController.swift in Sources */,
-				1939502D1EAD8AE4003667F2 /* TripDetailLocationsViewController.swift in Sources */,
 				7B539A271EB6D43000343D64 /* PlanComposerViewController.swift in Sources */,
 				19396C8E1EB2699100D464CC /* ParseDataController.swift in Sources */,
 				1939502F1EAD8AF9003667F2 /* TripDetailPOIViewController.swift in Sources */,
-				7B0805891EB668B900D592D8 /* TripsViewController.swift in Sources */,
 				7B539A231EB6D41000343D64 /* TripComposerViewController.swift in Sources */,
 				19396C8A1EB2692900D464CC /* FacebookAPIController.swift in Sources */,
 				193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */,
 				193452B01EAE7612004A52D5 /* LoginViewController.swift in Sources */,
+				193761691EC2BC470066A1B2 /* UIColor+Hex.swift in Sources */,
 				7B98F1EE1EB688D100DE19ED /* DestinationCell.swift in Sources */,
+				1937616F1EC2C4680066A1B2 /* String+Fontawesome.swift in Sources */,
 				19B2559F1EBBB1E100C9CBD5 /* TripsHomeViewController.swift in Sources */,
 				193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */,
 			);
