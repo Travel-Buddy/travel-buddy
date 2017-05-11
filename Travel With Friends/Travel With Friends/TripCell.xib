@@ -20,19 +20,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPt-S5-Iye">
-                        <rect key="frame" x="9" y="13" width="83.5" height="22.5"/>
+                        <rect key="frame" x="14" y="13" width="83.5" height="22.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
                         <color key="textColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date - End Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-xD-JuA">
-                        <rect key="frame" x="9" y="38.5" width="134" height="18"/>
+                        <rect key="frame" x="14" y="38.5" width="134" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.2470588235" green="0.76470588240000004" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOW-es-Dwb">
-                        <rect key="frame" x="9" y="59.5" width="36" height="15.5"/>
+                        <rect key="frame" x="14" y="59.5" width="36" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                     <constraint firstItem="vOW-es-Dwb" firstAttribute="leading" secondItem="gPt-S5-Iye" secondAttribute="leading" id="GaS-Vz-wRi"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gPt-S5-Iye" secondAttribute="trailing" constant="8" id="H6y-qy-fpj"/>
                     <constraint firstItem="vOW-es-Dwb" firstAttribute="top" secondItem="0Rr-xD-JuA" secondAttribute="bottom" constant="3" id="KcO-9e-wDH"/>
-                    <constraint firstItem="gPt-S5-Iye" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="Rw3-lM-HGU"/>
+                    <constraint firstItem="gPt-S5-Iye" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Rw3-lM-HGU"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vOW-es-Dwb" secondAttribute="bottom" constant="8" id="Uo9-v0-lsY"/>
                     <constraint firstItem="0Rr-xD-JuA" firstAttribute="top" secondItem="gPt-S5-Iye" secondAttribute="bottom" constant="3" id="UoG-3f-ctl"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vOW-es-Dwb" secondAttribute="trailing" constant="8" id="WPV-tO-Pbq"/>

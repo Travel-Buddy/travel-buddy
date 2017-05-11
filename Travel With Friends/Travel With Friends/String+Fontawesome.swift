@@ -24,6 +24,7 @@ extension String {
         static let Cancel = "\u{f05e}"
         static let CancelX = "\u{f00d}"
         static let AddCircle = "\u{f055}"
+        static let Home = "\u{f015}"
         
     }
     

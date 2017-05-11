@@ -87,18 +87,26 @@ class TripDetailCostsViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as [String: Any]
-        homeBarButtonItem.setTitleTextAttributes(attributes, for: .normal)
-        homeBarButtonItem.title = String.fontAwesomeIcon(name: .home)
-
-        navigationItem.title = "Costs"
+        navigationItem.title = "Trip Costs"
 
         let nib = UINib(nibName: "CostCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CostCell")
 
         navigationController?.setToolbarHidden(false, animated: false)
         totalCostButton.customView = totalCostLabel
+        totalCostLabel.font = UIFont.Subheadings.TripComposeUserTitleText
+        totalCostLabel.tintColor = UIColor.FlatColor.Blue.MainText
         toolbarItems = [totalCostButton]
+        
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            homeBarButtonItem.setTitleTextAttributes(
+                [NSFontAttributeName: font], for: .normal)
+            homeBarButtonItem.title = String.Fontawesome.Home
+           
+        }
+        
+        tableView.backgroundColor = UIColor.FlatColor.White.Background
     }
 
     @IBAction func showHome(_ sender: UIBarButtonItem) {
