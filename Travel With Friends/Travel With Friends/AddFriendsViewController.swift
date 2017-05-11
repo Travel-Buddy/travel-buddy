@@ -18,7 +18,9 @@ class AddFriendsViewController: PFQueryTableViewController {
 
     
     var friends : [PFObject] = []
+    var alreadyAddedArray : [Any] = []
     weak var delegate : AddFriendsDelegate?
+    
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -78,7 +80,23 @@ class AddFriendsViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery<PFObject> {
-        let query = PFUser.query()!
+        
+        
+        
+        
+        
+        
+        
+        let user = PFUser.current()!
+        
+        
+        // create a relation based on the authors key
+        let relation = user.relation(forKey: "facebookFriends")
+        
+        // generate a query based on that relation
+        let query = relation.query()
+        
+        query.whereKey("facebookId", notContainedIn: alreadyAddedArray)
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -86,7 +104,11 @@ class AddFriendsViewController: PFQueryTableViewController {
             query.cachePolicy = .cacheThenNetwork
         }
         
-        query.whereKey("facebookId", notEqualTo: PFUser.current()!["facebookId"])
+        
+        
+        
+        
+   //     query.whereKey("facebookId", notEqualTo: PFUser.current()!["facebookId"])
         
         query.order(byDescending: "createdAt")
         
