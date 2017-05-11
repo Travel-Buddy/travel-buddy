@@ -15,6 +15,7 @@
 		1937616B1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937616A1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift */; };
 		1937616D1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937616C1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift */; };
 		1937616F1EC2C4680066A1B2 /* String+Fontawesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937616E1EC2C4680066A1B2 /* String+Fontawesome.swift */; };
+		193761711EC41A0F0066A1B2 /* Curtis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193761701EC41A0F0066A1B2 /* Curtis.storyboard */; };
 		193950251EAD8661003667F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193950241EAD8661003667F2 /* MapKit.framework */; };
 		193950271EAD882E003667F2 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950261EAD882E003667F2 /* TripTableViewController.swift */; };
 		193950291EAD8A38003667F2 /* TripSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193950281EAD8A38003667F2 /* TripSettingsViewController.swift */; };
@@ -63,6 +64,7 @@
 		1937616A1EC2BC8A0066A1B2 /* UIColor+Flatcolor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Flatcolor.swift"; sourceTree = "<group>"; };
 		1937616C1EC2BE570066A1B2 /* UIFont+Travelbuddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Travelbuddy.swift"; sourceTree = "<group>"; };
 		1937616E1EC2C4680066A1B2 /* String+Fontawesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Fontawesome.swift"; sourceTree = "<group>"; };
+		193761701EC41A0F0066A1B2 /* Curtis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Curtis.storyboard; sourceTree = "<group>"; };
 		193950241EAD8661003667F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		193950261EAD882E003667F2 /* TripTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		193950281EAD8A38003667F2 /* TripSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSettingsViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				19396C931EB27A7800D464CC /* Travel With Friends.entitlements */,
 				193BBD291EAD2768005E8D59 /* AppDelegate.swift */,
+				193761701EC41A0F0066A1B2 /* Curtis.storyboard */,
 				19B255A31EBF8E6700C9CBD5 /* Main.storyboard */,
 				19396C901EB26AA900D464CC /* Protocols */,
 				19396C881EB2691200D464CC /* Data Controllers */,
@@ -349,6 +352,7 @@
 				7B98F1F61EB6B31600DE19ED /* PlanCell.xib in Resources */,
 				7B98F1E91EB6765800DE19ED /* fontawesome-webfont.ttf in Resources */,
 				19B537C91EB41ADC0059808C /* FacebookUserCell.xib in Resources */,
+				193761711EC41A0F0066A1B2 /* Curtis.storyboard in Resources */,
 				193BBD341EAD2768005E8D59 /* LaunchScreen.storyboard in Resources */,
 				193BBD311EAD2768005E8D59 /* Assets.xcassets in Resources */,
 				7B98F1EF1EB688D100DE19ED /* DestinationCell.xib in Resources */,
