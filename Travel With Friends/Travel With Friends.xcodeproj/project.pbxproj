@@ -50,6 +50,7 @@
 		7B98F1F51EB6B31600DE19ED /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98F1F31EB6B31600DE19ED /* PlanCell.swift */; };
 		7B98F1F61EB6B31600DE19ED /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B98F1F41EB6B31600DE19ED /* PlanCell.xib */; };
 		82E8D3D93105E8EE9DADAA00 /* Pods_Travel_With_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */; };
+		E93E0BC81EC3676C00F1BF97 /* TripTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E0BC71EC3676C00F1BF97 /* TripTabBarController.swift */; };
 		E9F8D3D21EBEAEF900ABD38F /* CostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */; };
 		E9F8D3D41EBEAF2600ABD38F /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		7B98F1F31EB6B31600DE19ED /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		7B98F1F41EB6B31600DE19ED /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
 		C81CC800236418C351967897 /* Pods_Travel_With_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_With_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E93E0BC71EC3676C00F1BF97 /* TripTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabBarController.swift; sourceTree = "<group>"; };
 		E9F8D3D11EBEAEF900ABD38F /* CostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCell.swift; sourceTree = "<group>"; };
 		E9F8D3D31EBEAF2600ABD38F /* CostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 		193950321EAD8B30003667F2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E93E0BC71EC3676C00F1BF97 /* TripTabBarController.swift */,
 				193950301EAD8B0E003667F2 /* TripDetailCostsViewController.swift */,
 				1939502E1EAD8AF9003667F2 /* TripDetailPOIViewController.swift */,
 				193950281EAD8A38003667F2 /* TripSettingsViewController.swift */,
@@ -414,6 +417,7 @@
 			files = (
 				19396C521EAFC75500D464CC /* POICell.swift in Sources */,
 				19B537C31EB407DD0059808C /* FacebookUser.swift in Sources */,
+				E93E0BC81EC3676C00F1BF97 /* TripTabBarController.swift in Sources */,
 				7B539A211EB6C7C900343D64 /* DetailedPlanViewController.swift in Sources */,
 				7B98F1E51EB66D6200DE19ED /* TripCell.swift in Sources */,
 				1937615F1EC2450D0066A1B2 /* ProfilePageViewController.swift in Sources */,
