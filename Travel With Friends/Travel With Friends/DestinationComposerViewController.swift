@@ -37,6 +37,8 @@ class DestinationComposerViewController: FormViewController {
             layoutDestinationForm()
             return
         }
+        
+        tableView.backgroundColor = UIColor.FlatColor.White.Background
 
         loadDestination()
     }
@@ -60,7 +62,10 @@ class DestinationComposerViewController: FormViewController {
             +++ Section("Destination")
             <<< GooglePlacesTableRow {
                 $0.tag = "title"
+                
                 $0.placeholder = "Enter destination"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                
 
                 if let destination = destination {
                     if let title = destination["title"] as? String {
@@ -81,6 +86,15 @@ class DestinationComposerViewController: FormViewController {
                         self.displayAlert(message: error.localizedDescription)
                     }
                 }
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
+                
             }
 
             +++ Section("Destination Dates")
@@ -90,6 +104,10 @@ class DestinationComposerViewController: FormViewController {
                 $0.value = destination?["startDate"] as? Date ?? minDate
                 $0.minimumDate = minDate
                 $0.maximumDate = maxDate
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+                $0.cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
 
                 $0.onChange({ (startDate) in
                     if let endDate: DateInlineRow = self.form.rowBy(tag: "endDate") {
@@ -108,14 +126,27 @@ class DestinationComposerViewController: FormViewController {
                 $0.value = destination?["endDate"] as? Date ?? minDate
                 $0.minimumDate = minDate
                 $0.maximumDate = maxDate
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+                $0.cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
             }
 
             +++ Section("Created By")
-            <<< TextRow {
+            
+            <<< LabelRow() {
                 $0.tag = "createdBy"
-                $0.value = user!.value(forKey: "name") as? String
-                $0.cell.isUserInteractionEnabled = false
-            }
+                $0.title = user!.value(forKey: "name") as? String
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+                $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                
+                }.cellUpdate({ (cell, row) in
+                    cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
+                    cell.alpha = 1.0
+                })
+            
+
     }
 
     func saveDestination() {

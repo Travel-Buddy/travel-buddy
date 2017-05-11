@@ -1,61 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CostCell" id="Zty-z7-GQV" customClass="CostCell" customModule="Travel_With_Friends" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CostCell" rowHeight="89" id="Zty-z7-GQV" customClass="CostCell" customModule="Travel_With_Friends" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zty-z7-GQV" id="TcI-52-ci3">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyu-7h-6SE">
-                        <rect key="frame" x="18" y="8" width="74" height="21"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="14" y="13" width="74.5" height="22.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                        <color key="textColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-3N-APm">
-                        <rect key="frame" x="321" y="36" width="36" height="21"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <rect key="frame" x="323" y="38" width="34" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyi-tX-QLh">
-                        <rect key="frame" x="18" y="37" width="86" height="18"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="14" y="38.5" width="77.5" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.2470588235" green="0.76470588240000004" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date - End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcg-Gp-I7f">
-                        <rect key="frame" x="18" y="63" width="130.5" height="16"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="14" y="59.5" width="121" height="16"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.94901960780000005" green="0.94509803920000002" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Bcg-Gp-I7f" secondAttribute="bottom" constant="12.5" id="05n-cN-jgd"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bcg-Gp-I7f" secondAttribute="bottom" constant="8" id="05n-cN-jgd"/>
+                    <constraint firstItem="Bcg-Gp-I7f" firstAttribute="leading" secondItem="Xyi-tX-QLh" secondAttribute="leading" id="0nB-GU-0Dp"/>
+                    <constraint firstItem="Xyi-tX-QLh" firstAttribute="leading" secondItem="wyu-7h-6SE" secondAttribute="leading" id="8vb-jB-C3V"/>
                     <constraint firstAttribute="trailing" secondItem="Eyh-3N-APm" secondAttribute="trailing" constant="18" id="FxR-5D-N3k"/>
-                    <constraint firstItem="Bcg-Gp-I7f" firstAttribute="top" secondItem="Xyi-tX-QLh" secondAttribute="bottom" constant="8" id="H55-V9-RiF"/>
-                    <constraint firstItem="wyu-7h-6SE" firstAttribute="leading" secondItem="TcI-52-ci3" secondAttribute="leading" constant="18" id="IO8-D6-zM4"/>
-                    <constraint firstItem="Xyi-tX-QLh" firstAttribute="top" secondItem="wyu-7h-6SE" secondAttribute="bottom" constant="8" id="JHV-0j-VCX"/>
+                    <constraint firstItem="Bcg-Gp-I7f" firstAttribute="top" secondItem="Xyi-tX-QLh" secondAttribute="bottom" constant="3" id="H55-V9-RiF"/>
+                    <constraint firstItem="wyu-7h-6SE" firstAttribute="leading" secondItem="TcI-52-ci3" secondAttribute="leading" constant="14" id="IO8-D6-zM4"/>
+                    <constraint firstItem="Xyi-tX-QLh" firstAttribute="top" secondItem="wyu-7h-6SE" secondAttribute="bottom" constant="3" id="JHV-0j-VCX"/>
                     <constraint firstItem="Eyh-3N-APm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bcg-Gp-I7f" secondAttribute="trailing" constant="8" id="NZI-hG-uie"/>
                     <constraint firstItem="Eyh-3N-APm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wyu-7h-6SE" secondAttribute="trailing" constant="8" id="YBg-BO-lfP"/>
                     <constraint firstItem="Eyh-3N-APm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xyi-tX-QLh" secondAttribute="trailing" constant="8" id="bW0-UV-COf"/>
                     <constraint firstItem="Eyh-3N-APm" firstAttribute="centerY" secondItem="Xyi-tX-QLh" secondAttribute="centerY" id="deP-uV-mC0"/>
-                    <constraint firstItem="Bcg-Gp-I7f" firstAttribute="leading" secondItem="TcI-52-ci3" secondAttribute="leading" constant="18" id="h4X-5v-inU"/>
-                    <constraint firstItem="wyu-7h-6SE" firstAttribute="top" secondItem="TcI-52-ci3" secondAttribute="top" constant="8" id="nMy-0S-gnv"/>
-                    <constraint firstItem="Xyi-tX-QLh" firstAttribute="leading" secondItem="TcI-52-ci3" secondAttribute="leading" constant="18" id="w60-it-wyx"/>
+                    <constraint firstItem="wyu-7h-6SE" firstAttribute="top" secondItem="TcI-52-ci3" secondAttribute="top" constant="13" id="nMy-0S-gnv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -64,7 +65,7 @@
                 <outlet property="subtitleLabel" destination="Xyi-tX-QLh" id="NEY-lb-MF1"/>
                 <outlet property="titleLabel" destination="wyu-7h-6SE" id="y4h-dX-a6Y"/>
             </connections>
-            <point key="canvasLocation" x="82.5" y="96"/>
+            <point key="canvasLocation" x="82.5" y="94.5"/>
         </tableViewCell>
     </objects>
 </document>

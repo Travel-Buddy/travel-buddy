@@ -28,15 +28,13 @@ class TripsHomeViewController: PFQueryTableViewController {
         self.navigationItem.title = "My Trips"
         self.tableView.backgroundColor = UIColor.FlatColor.White.Background
         
-        if let font = UIFont(name: "FontAwesome", size: 19) {
-            profileButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
-            profileButton.title = String.Fontawesome.Profile
-        }
       
         if let font = UIFont(name: "FontAwesome", size: 19) {
             addTripBarButton.setTitleTextAttributes(
                 [NSFontAttributeName: font], for: .normal)
             addTripBarButton.title = String.Fontawesome.Add
+            profileButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            profileButton.title = String.Fontawesome.Profile
         }
         
         if let user = PFUser.current() {
