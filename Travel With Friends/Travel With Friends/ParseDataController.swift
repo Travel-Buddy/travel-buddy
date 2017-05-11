@@ -54,13 +54,9 @@ class ParseDataController {
                                 user.saveInBackground(block: { (success, error) in
                                     print(success)
                                 })
-                                
-                                
                             }
                         }
                     })
-                    
-                    
                 }
             })
             

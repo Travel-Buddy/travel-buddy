@@ -24,7 +24,6 @@ extension UIColor {
         struct White {
             static let Background = UIColor(netHex: 0xF2F1EF)
             static let NavBarTextTint = UIColor(netHex: 0xF2F1EF)
-
         }
         
         struct Yellow {
