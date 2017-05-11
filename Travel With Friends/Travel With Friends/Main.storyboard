@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="FontAwesome.otf">
+        <array key="fontawesome-webfont.ttf">
             <string>FontAwesome</string>
         </array>
     </customFonts>
@@ -166,7 +166,7 @@
         <scene sceneID="GBW-xC-vGJ">
             <objects>
                 <navigationController id="n5I-bE-ixR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JOT-Bu-JjH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JOT-Bu-JjH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -513,7 +513,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6qD-k5-cOf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Costs" id="5bE-6N-1KQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="41N-GD-tge">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="41N-GD-tge">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -531,7 +531,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TripsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="U0y-68-Cqn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="io1-eq-ZRE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="io1-eq-ZRE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -544,10 +544,10 @@
             </objects>
             <point key="canvasLocation" x="702" y="-332"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Trip Tab Bar Controller-->
         <scene sceneID="HSQ-Lq-sGp">
             <objects>
-                <tabBarController id="Zg7-Xj-Hug" sceneMemberID="viewController">
+                <tabBarController id="Zg7-Xj-Hug" customClass="TripTabBarController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ohu-2q-USv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -568,7 +568,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ba-JW-9zx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Destinations" id="eaP-AE-mG8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mhd-5J-MJW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mhd-5J-MJW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -586,7 +586,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vj-N4-1G6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8kf-4V-dnJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kf-4V-dnJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -604,7 +604,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hw-ad-11H" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IkV-dn-Bw3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IkV-dn-Bw3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -622,7 +622,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBq-I9-fHL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARR-qf-lgV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARR-qf-lgV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -640,7 +640,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y3m-vR-suN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xmu-Hh-k31">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xmu-Hh-k31">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
