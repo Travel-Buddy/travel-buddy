@@ -46,20 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         }
         
+        setAppearance()
         
-    
-//        //if there is already a user, need to handle and go to main screen and skip login
-//        if let accessToken = FacebookAPIController.shared.accessToken {
-//            // User is logged in, use 'accessToken' here.
-//            print("User alread has access = \(accessToken)")
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            
-//            let tripViewController = storyboard.instantiateViewController(withIdentifier: "TripNavVC") as! UINavigationController
-//            
-//            window?.rootViewController = tripViewController
-//            
-//        }
         
         //Observer for if the user logs out
         NotificationCenter.default.addObserver(forName: NSNotification.Name("UserDidLogout"), object: nil, queue: OperationQueue.main) { (NSNotification) ->
@@ -98,7 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         
-    
         //lets fb analytics know that app is being used
          AppEventsLogger.activate(application)
         
@@ -107,6 +94,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func setAppearance() {
+        let attributes: [String: AnyObject] = [
+            NSFontAttributeName: UIFont.Headings.NavHeading,
+            NSForegroundColorAttributeName: UIColor.FlatColor.White.Background
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        UINavigationBar.appearance().barTintColor = UIColor.FlatColor.Blue.BarTint
+        UINavigationBar.appearance().tintColor = UIColor.FlatColor.White.NavBarTextTint
+    }
+    
 
 
 }

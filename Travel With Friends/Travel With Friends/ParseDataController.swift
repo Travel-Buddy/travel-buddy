@@ -22,6 +22,52 @@ class ParseDataController {
         
     }
     
+    func updateUserFacebookFrinds() {
+        
+        let user = PFUser.current()
+        
+        if let user = user {
+            
+            FacebookAPIController.shared.getUsersFriendsWhoHaveApp(completion: { (fbusers, error) in
+                if let fbusers = fbusers {
+                    
+                    var fbIdArray : [Any] = []
+                    
+                    for fbuser in fbusers {
+                        fbIdArray.append("\(fbuser.id)" as Any)
+                    }
+                    
+                    let query = PFUser.query()!
+                    
+                    query.whereKey("facebookId", containedIn: fbIdArray)
+                    
+                    query.order(byDescending: "createdAt")
+                    
+                    
+                    query.findObjectsInBackground(block: { (objects, error) in
+                        if let objects = objects {
+                            
+                            for object in objects {
+                                let relation = user.relation(forKey: "facebookFriends")
+                                relation.add(object)
+                                
+                                user.saveInBackground(block: { (success, error) in
+                                    print(success)
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+            
+            
+            
+        }
+        
+        
+    }
+    
+    
     //updated the fields of the current user in the parse db on new user creation
     func updateUserFields(){
         
@@ -33,6 +79,10 @@ class ParseDataController {
                     user["email"] = fbUser.email
                     user["name"] = fbUser.name
                     user["facebookId"] = "\(fbUser.id)"
+                    
+                    if let pictureString = fbUser.picture?.pictureData?.url?.absoluteString {
+                        user["fbImageString"] = pictureString
+                    }                    
                     user.saveInBackground(block: { (success, error) in
                         if success {
                             print(success)
