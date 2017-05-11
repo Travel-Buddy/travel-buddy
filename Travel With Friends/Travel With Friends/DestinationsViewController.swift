@@ -6,6 +6,7 @@
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
 
+import FontAwesome_swift
 import ParseUI
 import UIKit
 
@@ -14,7 +15,7 @@ class DestinationsViewController: PFQueryTableViewController {
     @IBOutlet weak var homeBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
 
-    var trip: PFObject?
+    var trip: PFObject!
 
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
@@ -27,8 +28,11 @@ class DestinationsViewController: PFQueryTableViewController {
     }
 
     override func queryForTable() -> PFQuery<PFObject> {
+        let tabBarController = self.tabBarController as! TripTabBarController
+        trip = tabBarController.trip
+        
         let destinationQuery = PFQuery(className: parseClassName!)
-        destinationQuery.whereKey("trip", equalTo: trip!)
+        destinationQuery.whereKey("trip", equalTo: trip)
         destinationQuery.order(byAscending: "startDate")
         return destinationQuery
     }
@@ -44,17 +48,8 @@ class DestinationsViewController: PFQueryTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, object: PFObject?) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationCell") as! DestinationCell
 
-        if object != nil {
-            cell.nameLabel.text = object!["title"] as? String
-
-            let startDate = (object!["startDate"] as? Date)!.asString()
-            let endDate = (object!["endDate"] as? Date)!.asString()
-
-            if endDate.compare(startDate) == .orderedSame {
-                cell.dateRangeLabel.text = startDate
-            } else {
-                cell.dateRangeLabel.text = startDate + " - " + endDate
-            }
+        if let object = object {
+            cell.destination = object
         }
 
         return cell
@@ -70,32 +65,34 @@ class DestinationsViewController: PFQueryTableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let destination = self.object(at: indexPath)
-
-            let planQuery = PFQuery(className: "Plan")
-            planQuery.whereKey("destination", equalTo: (destination?.objectId)!)
-            planQuery.findObjectsInBackground(block: { (plans, error) in
-                if error != nil {
-                    self.displayAlert(message: error!.localizedDescription)
-                } else {
-                    for plan in plans! {
-                        plan.deleteInBackground(block: { (success, error) in
-                            if !success {
-                                self.displayAlert(message: (error?.localizedDescription)!)
-                            }
-                        })
-                    }
-                }
-
-                destination?.deleteInBackground(block: { (success, error) in
-                    if success {
-                        self.loadObjects()
-                        self.tableView.reloadData()
+            if let destination = self.object(at: indexPath) {
+                let planQuery = PFQuery(className: "Plan")
+                planQuery.whereKey("destination", equalTo: destination.objectId!)
+                planQuery.findObjectsInBackground(block: { (plans, error) in
+                    if let error = error {
+                        self.displayAlert(message: error.localizedDescription)
                     } else {
-                        self.displayAlert(message: (error?.localizedDescription)!)
+                        if let plans = plans {
+                            for plan in plans {
+                                plan.deleteInBackground(block: { (success, error) in
+                                    if let error = error {
+                                        self.displayAlert(message: error.localizedDescription)
+                                    }
+                                })
+                            }
+                        }
                     }
+
+                    destination.deleteInBackground(block: { (success, error) in
+                        if success {
+                            self.loadObjects()
+                            self.tableView.reloadData()
+                        } else if let error = error {
+                            self.displayAlert(message: error.localizedDescription)
+                        }
+                    })
                 })
-            })
+            }
         }
     }
 
@@ -108,19 +105,11 @@ class DestinationsViewController: PFQueryTableViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "loadDestinations"), object: nil)
 
-        /* Use 'fa-home' and 'fa-plus' text icon from FontAwesome.
-         * http://fontawesome.io/cheatsheet/
-         * NOTE: Intentionally set the two with different size because 'fa-home'
-         *       looks slightly smaller than 'fa-plus'.
-         */
-        if let font = UIFont(name: "FontAwesome", size: 19) {
-            homeBarButtonItem.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
-            homeBarButtonItem.title = "\u{f015}"
-        }
-        if let font = UIFont(name: "FontAwesome", size: 17) {
-            addBarButtonItem.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
-            addBarButtonItem.title = "\u{f067}"
-        }
+        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as [String: Any]
+        homeBarButtonItem.setTitleTextAttributes(attributes, for: .normal)
+        homeBarButtonItem.title = String.fontAwesomeIcon(name: .home)
+        addBarButtonItem.setTitleTextAttributes(attributes, for: .normal)
+        addBarButtonItem.title = String.fontAwesomeIcon(name: .plus)
 
         let nib = UINib(nibName: "DestinationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DestinationCell")
@@ -143,6 +132,7 @@ class DestinationsViewController: PFQueryTableViewController {
                     let vc = navVc?.viewControllers.first as! DestinationComposerViewController
                     vc.trip = trip!
                     vc.destination = destination
+                    vc.isEditingDestination = true
                     vc.navigationItem.title = "Edit Destination"
                 }
 
