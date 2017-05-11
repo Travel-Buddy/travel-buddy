@@ -179,30 +179,28 @@ class TripsHomeViewController: PFQueryTableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "ComposeTripSegue" {
-                
-                let composeNavVC = segue.destination as! UINavigationController
-                
-                let composeVC = composeNavVC.viewControllers[0] as! TripComposerViewController
-                
-                if tripToEdit != nil {
-                    composeVC.tripToEdit = tripToEdit
-                    tripToEdit = nil
-                }
-                shouldReload = true
+        if segue.identifier == "ComposeTripSegue" {
 
-                
-            } else if segue.identifier == "ShowTripDetailSegue" {
-                if let tabBarController = segue.destination as? UITabBarController {
-                    tabBarController.selectedIndex = 0
-                    
-                    let navVc = tabBarController.selectedViewController as? UINavigationController
-                    let vc = navVc?.viewControllers.first as! DestinationsViewController
-                    vc.trip = trip
-                }
+            let composeNavVC = segue.destination as! UINavigationController
+
+            let composeVC = composeNavVC.viewControllers[0] as! TripComposerViewController
+
+            if tripToEdit != nil {
+                composeVC.tripToEdit = tripToEdit
+                tripToEdit = nil
             }
+            shouldReload = true
+
+
+        } else if segue.identifier == "ShowTripDetailSegue" {
+
+            if let tabBarController = segue.destination as? TripTabBarController {
+                tabBarController.trip = trip!
+            }
+
+        }
     }
- 
+
 
 }
 

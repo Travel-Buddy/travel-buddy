@@ -28,6 +28,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.22.0):
     - FBSDKCoreKit
+  - FontAwesome.swift (1.1.1)
   - GooglePlacesRow (2.1.0):
     - Eureka (~> 3.0)
   - Parse (1.14.4):
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - FontAwesome.swift
   - GooglePlacesRow
   - Parse
   - ParseFacebookUtilsV4
@@ -71,6 +73,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
   FBSDKShareKit: 21ab3c8d173f4fa20c47c1061f3a9fac5950b5fa
+  FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
   GooglePlacesRow: b746f7213e0436c4e7529fbade8eeb10d22de3eb
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
@@ -78,6 +81,6 @@ SPEC CHECKSUMS:
   Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
   UnboxedAlamofire: 3ecaf2a745aa018ba3497c0d61487b7338190ac6
 
-PODFILE CHECKSUM: 3ec3dbd81362057f466fb8457c63c414a7316462
+PODFILE CHECKSUM: c02c2575954623bd67df8373555593c3a7b58c14
 
 COCOAPODS: 1.2.0

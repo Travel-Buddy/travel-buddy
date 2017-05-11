@@ -14,21 +14,23 @@ import UIKit
 class DestinationComposerViewController: FormViewController {
 
     var trip: PFObject?
-
     var destination: PFObject?
-
     var user: PFUser?
 
     var minDate: Date?
     var maxDate: Date?
+
+    var isEditingDestination: Bool = false
 
     var valuesDictionary = [String: Any?]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        minDate = trip!["startDate"] as? Date
-        maxDate = trip!["endDate"] as? Date
+        if let trip = trip {
+            minDate = trip["startDate"] as? Date
+            maxDate = trip["endDate"] as? Date
+        }
 
         guard destination != nil else {
             user = PFUser.current()
@@ -55,20 +57,33 @@ class DestinationComposerViewController: FormViewController {
 
     func layoutDestinationForm() {
         form
-            +++ GooglePlacesTableRow() {
+            +++ Section("Destination")
+            <<< GooglePlacesTableRow {
                 $0.tag = "title"
-                $0.title = "Name"
-                $0.placeholder = "Enter destination name"
+                $0.placeholder = "Enter destination"
 
-                if destination != nil {
-                    $0.value = GooglePlace.userInput(value: destination!["title"] as! String)
+                if let destination = destination {
+                    if let title = destination["title"] as? String {
+                        $0.value = GooglePlace.userInput(value: title)
+
+                        if let subtitle = destination["subtitle"] as? String {
+                            if subtitle != "" {
+                                $0.value = GooglePlace.userInput(value: title + " - " + subtitle)
+                            }
+                        }
+                    }
+                    $0.cell.isUserInteractionEnabled = false
                 }
 
                 $0.placeFilter?.type = .city
                 $0.onNetworkingError = { error in
-                    self.displayAlert(message: (error?.localizedDescription)!)
+                    if let error = error {
+                        self.displayAlert(message: error.localizedDescription)
+                    }
                 }
             }
+
+            +++ Section("Destination Dates")
             <<< DateInlineRow {
                 $0.tag = "startDate"
                 $0.title = "Start Date"
@@ -77,12 +92,13 @@ class DestinationComposerViewController: FormViewController {
                 $0.maximumDate = maxDate
 
                 $0.onChange({ (startDate) in
-                    let endDate: DateInlineRow = self.form.rowBy(tag: "endDate")!
-                    endDate.minimumDate = startDate.value
+                    if let endDate: DateInlineRow = self.form.rowBy(tag: "endDate") {
+                        endDate.minimumDate = startDate.value
 
-                    if endDate.value!.compare(startDate.value!) == .orderedAscending {
-                        endDate.value = startDate.value
-                        endDate.updateCell()
+                        if endDate.value!.compare(startDate.value!) == .orderedAscending {
+                            endDate.value = startDate.value
+                            endDate.updateCell()
+                        }
                     }
                 })
             }
@@ -93,11 +109,13 @@ class DestinationComposerViewController: FormViewController {
                 $0.minimumDate = minDate
                 $0.maximumDate = maxDate
             }
-            <<< LabelRow {
+
+            +++ Section("Created By")
+            <<< TextRow {
                 $0.tag = "createdBy"
-                $0.title = "Created by"
                 $0.value = user!.value(forKey: "name") as? String
-        }
+                $0.cell.isUserInteractionEnabled = false
+            }
     }
 
     func saveDestination() {
@@ -107,18 +125,23 @@ class DestinationComposerViewController: FormViewController {
 
         let destinationQuery = PFQuery(className: "Destination")
         destinationQuery.getObjectInBackground(withId: (self.destination?.objectId ?? "")!) { (destination, error) in
-            if error == nil && destination != nil {
+            if let destination = destination {
                 destinationToSave = destination
             } else {
                 destinationToSave = PFObject(className: "Destination")
             }
 
             let place = self.valuesDictionary["title"] as! GooglePlace
-            switch place {
-            case let GooglePlace.userInput(value: value):
-                destinationToSave["title"] = value
-            case let GooglePlace.prediction(prediction: prediction):
-                destinationToSave["title"] = prediction.attributedPrimaryText.string
+
+            if !self.isEditingDestination {
+                switch place {
+                case let GooglePlace.userInput(value: value):
+                    destinationToSave["title"] = value
+                    destinationToSave["subtitle"] = ""
+                case let GooglePlace.prediction(prediction: prediction):
+                    destinationToSave["title"] = prediction.attributedPrimaryText.string
+                    destinationToSave["subtitle"] = prediction.attributedSecondaryText?.string
+                }
             }
 
             destinationToSave["startDate"] = (self.valuesDictionary["startDate"] as! Date).removeTimeComponent()
@@ -126,17 +149,18 @@ class DestinationComposerViewController: FormViewController {
             destinationToSave["trip"] = self.trip
             destinationToSave["createdBy"] = self.user
             destinationToSave.saveInBackground { (success, error) in
-                if success {
+                if let error = error {
+                    self.displayAlert(message: error.localizedDescription)
+                } else {
                     let tripRelation = self.trip!.relation(forKey: "destinations")
                     tripRelation.add(destinationToSave)
                     self.trip!.saveInBackground { (success, error) in
-                        if error != nil {
-                            self.displayAlert(message: (error?.localizedDescription)!)
+                        if let error = error {
+                            self.displayAlert(message: error.localizedDescription)
+                        } else {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadDestinations"), object: nil)
                         }
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadDestinations"), object: nil)
                     }
-                } else {
-                    self.displayAlert(message: (error?.localizedDescription)!)
                 }
             }
         }
@@ -148,11 +172,11 @@ class DestinationComposerViewController: FormViewController {
         let userQuery = PFUser.query()
         userQuery?.whereKey("objectId", equalTo: userId!)
         userQuery?.getFirstObjectInBackground(block: { (user, error) in
-            if error == nil && user != nil {
+            if let user = user {
                 self.user = user as? PFUser
                 self.layoutDestinationForm()
-            } else {
-                self.displayAlert(message: (error?.localizedDescription)!)
+            } else if let error = error {
+                self.displayAlert(message: error.localizedDescription)
             }
         })
     }
@@ -169,13 +193,11 @@ public extension Date {
 
     func removeTimeComponent() -> Date {
         let calendar = Calendar.autoupdatingCurrent
-
         var dateComponents = calendar.dateComponents([.year, .month, .day], from: self)
         dateComponents.hour = 0
         dateComponents.minute = 0
         dateComponents.second = 0
         dateComponents.nanosecond = 0
-
         return calendar.date(from: dateComponents)!
     }
 
@@ -183,8 +205,21 @@ public extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-
         return dateFormatter.string(from: self)
+    }
+
+}
+
+public extension NSNumber {
+
+    func asFormattedCurrency() -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.locale = Locale.current
+        currencyFormatter.maximumFractionDigits = 2
+        currencyFormatter.minimumFractionDigits = 2
+        currencyFormatter.numberStyle = NumberFormatter.Style.currency
+        currencyFormatter.usesGroupingSeparator = true
+        return currencyFormatter.string(from: self)!
     }
 
 }
