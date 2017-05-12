@@ -105,11 +105,17 @@ class DestinationsViewController: PFQueryTableViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "loadDestinations"), object: nil)
 
-        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as [String: Any]
-        homeBarButtonItem.setTitleTextAttributes(attributes, for: .normal)
-        homeBarButtonItem.title = String.fontAwesomeIcon(name: .home)
-        addBarButtonItem.setTitleTextAttributes(attributes, for: .normal)
-        addBarButtonItem.title = String.fontAwesomeIcon(name: .plus)
+        
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            homeBarButtonItem.setTitleTextAttributes(
+                [NSFontAttributeName: font], for: .normal)
+            homeBarButtonItem.title = String.Fontawesome.Home
+            addBarButtonItem.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            addBarButtonItem.title = String.Fontawesome.Add
+        }
+        
+        tableView.backgroundColor = UIColor.FlatColor.White.Background
 
         let nib = UINib(nibName: "DestinationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DestinationCell")

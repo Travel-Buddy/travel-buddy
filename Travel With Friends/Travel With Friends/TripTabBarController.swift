@@ -18,12 +18,15 @@ class TripTabBarController: UITabBarController {
         super.viewDidLoad()
 
         if let destinationsTabItem = tabBar.items?[0] {
-            destinationsTabItem.image = UIImage.fontAwesomeIcon(name: .globe, textColor: .blue, size: CGSize(width: 30, height: 30))
+            destinationsTabItem.image = UIImage.fontAwesomeIcon(name: .globe, textColor: UIColor.FlatColor.Blue.MainText, size: CGSize(width: 30, height: 30))
         }
 
         if let costsTabItem = tabBar.items?[1] {
-            costsTabItem.image = UIImage.fontAwesomeIcon(name: .dollar, textColor: .blue, size: CGSize(width: 30, height: 30))
+            costsTabItem.image = UIImage.fontAwesomeIcon(name: .dollar, textColor: UIColor.FlatColor.Blue.MainText, size: CGSize(width: 30, height: 30))
         }
+        
+        self.tabBar.tintColor = UIColor.FlatColor.Blue.MainText
+        
     }
 
 }

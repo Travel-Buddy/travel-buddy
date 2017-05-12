@@ -18,11 +18,31 @@ class AddFriendsViewController: PFQueryTableViewController {
 
     
     var friends : [PFObject] = []
+    var alreadyAddedArray : [Any] = []
     weak var delegate : AddFriendsDelegate?
+    
+    
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Add Friends"
+        self.tableView.backgroundColor = UIColor.FlatColor.White.Background
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            cancelButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            cancelButton.title = String.Fontawesome.CancelX
+        }
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            addButton.setTitleTextAttributes(
+                [NSFontAttributeName: font], for: .normal)
+            addButton.title = String.Fontawesome.AddCircle
+        }
+
 
         // Do any additional setup after loading the view.
     }
@@ -60,7 +80,23 @@ class AddFriendsViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery<PFObject> {
-        let query = PFUser.query()!
+        
+        
+        
+        
+        
+        
+        
+        let user = PFUser.current()!
+        
+        
+        // create a relation based on the authors key
+        let relation = user.relation(forKey: "facebookFriends")
+        
+        // generate a query based on that relation
+        let query = relation.query()
+        
+        query.whereKey("facebookId", notContainedIn: alreadyAddedArray)
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -68,7 +104,11 @@ class AddFriendsViewController: PFQueryTableViewController {
             query.cachePolicy = .cacheThenNetwork
         }
         
-        query.whereKey("facebookId", notEqualTo: PFUser.current()!["facebookId"])
+        
+        
+        
+        
+   //     query.whereKey("facebookId", notEqualTo: PFUser.current()!["facebookId"])
         
         query.order(byDescending: "createdAt")
         
@@ -81,6 +121,9 @@ class AddFriendsViewController: PFQueryTableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PFTableViewCell
         if cell == nil {
             cell = PFTableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+            cell!.backgroundColor = UIColor.FlatColor.White.Background
+            cell!.textLabel?.font = UIFont.Headings.NavHeading
+            cell!.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
         }
         
         // Configure the cell to show todo item with a priority at the bottom
@@ -107,6 +150,7 @@ class AddFriendsViewController: PFQueryTableViewController {
         }else {
             cell.accessoryType = .checkmark
             friends.append(self.objects![indexPath.row])
+            
             
         }
     }

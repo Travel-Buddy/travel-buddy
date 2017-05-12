@@ -12,21 +12,45 @@ import ParseUI
 
 class TripsHomeViewController: PFQueryTableViewController {
 
+    @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var addTripBarButton: UIBarButtonItem!
     var tripToEdit : PFObject?
     var shouldReload = false
     var trip: PFObject?
 
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let font = UIFont(name: "FontAwesome", size: 17) {
+        
+        ParseDataController.shared.updateUserFacebookFrinds()
+        
+        self.navigationItem.title = "My Trips"
+        self.tableView.backgroundColor = UIColor.FlatColor.White.Background
+        
+      
+        if let font = UIFont(name: "FontAwesome", size: 19) {
             addTripBarButton.setTitleTextAttributes(
                 [NSFontAttributeName: font], for: .normal)
-            addTripBarButton.title = "\u{f067}"
+            addTripBarButton.title = String.Fontawesome.Add
+            profileButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            profileButton.title = String.Fontawesome.Profile
         }
         
+        if let user = PFUser.current() {
+            if user["isFirstLogin"] as? Bool == true {
+                
+                user["isFirstLogin"] = false
+                
+                user.saveInBackground(block: { (success, error) in
+                    if success {
+                        
+                    }
+                })
+                
+                performSegue(withIdentifier: "showProfileViewController", sender: self)
+            }
+        }
         
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -54,9 +78,10 @@ class TripsHomeViewController: PFQueryTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logout(_ sender: Any) {
-        ParseDataController.shared.logout()
+    @IBAction func showProfile(_ sender: Any) {
+        self.performSegue(withIdentifier: "showProfileViewController", sender: self)
     }
+    
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
