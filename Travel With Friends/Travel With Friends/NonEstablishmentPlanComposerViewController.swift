@@ -21,12 +21,20 @@ class NonEstablishmentPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "estabName"
                 $0.placeFilter?.type = .geocode
                 $0.placeBounds = self.coordinateBounds
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = self.plan,
                    let name = plan["estabName"] as? String {
                     $0.value = GooglePlace(string: name)
                 }
-
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
                 $0.onChange(updateUILocationUsingGPTableRow)
             }
 
@@ -35,7 +43,15 @@ class NonEstablishmentPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "estabLocation"
                 $0.placeFilter?.type = .region
                 $0.placeBounds = self.coordinateBounds
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
                 if let plan = self.plan,
                    let location = plan["estabLocation"] as? String {
                     $0.value = GooglePlace(string: location)
@@ -46,6 +62,7 @@ class NonEstablishmentPlanComposerViewController: PlanComposerViewController {
             <<< DateInlineRow() {
                 $0.tag = "startDate"
                 $0.title = "Date"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
@@ -68,6 +85,7 @@ class NonEstablishmentPlanComposerViewController: PlanComposerViewController {
             +++ Section("Admission Ticket Number")
             <<< NameRow() {
                 $0.tag = "estabVerifyNbr"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let confirmationNo = plan["estabVerifyNbr"] as? String {
@@ -78,6 +96,7 @@ class NonEstablishmentPlanComposerViewController: PlanComposerViewController {
             +++ Section("Total Cost")
             <<< DecimalRow() {
                 $0.tag = "cost"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 let formatter = CurrencyFormatter()
                 formatter.locale = .current

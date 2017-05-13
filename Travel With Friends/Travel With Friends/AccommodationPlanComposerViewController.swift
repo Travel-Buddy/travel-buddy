@@ -19,6 +19,7 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
             +++ Section("Name")
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabName"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.placeFilter?.type = .establishment
                 $0.placeBounds = self.coordinateBounds
 
@@ -33,6 +34,7 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
             +++ Section("Location")
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabLocation"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.placeFilter?.type = .address
                 $0.placeBounds = self.coordinateBounds
 
@@ -40,12 +42,21 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
                    let location = plan["estabLocation"] as? String {
                     $0.value = GooglePlace(string: location)
                 }
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
+
             }
 
             +++ Section("Phone Number")
             <<< PhoneRow() {
                 $0.tag = "estabContact"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = self.plan,
                    let phoneNo = plan["estabContact"] as? String {
                     $0.value = phoneNo
@@ -56,7 +67,7 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
             <<< DateInlineRow() {
                 $0.tag = "startDate"
                 $0.title = "Check-in"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
                 /* Handle cases when users enter the same start and end dates */
@@ -89,7 +100,7 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
             <<< DateInlineRow() {
                 $0.tag = "endDate"
                 $0.title = "Check-out"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
                 /* Handle cases when users enter the same start and end dates */
@@ -112,7 +123,7 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
             +++ Section("Confirmation Number")
             <<< NameRow() {
                 $0.tag = "estabVerifyNbr"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = plan,
                    let confirmationNo = plan["estabVerifyNbr"] as? String {
                     $0.value = confirmationNo
@@ -122,7 +133,7 @@ class AccommodationPlanComposerViewController: PlanComposerViewController {
             +++ Section("Total Cost")
             <<< DecimalRow() {
                 $0.tag = "cost"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 let formatter = CurrencyFormatter()
                 formatter.locale = .current
                 formatter.numberStyle = .currency

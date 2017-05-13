@@ -33,9 +33,6 @@ class TripComposerViewController: FormViewController, UITextFieldDelegate {
         if let font = UIFont(name: "FontAwesome", size: 19) {
             cancelBarButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
             cancelBarButton.title = String.Fontawesome.Cancel
-        }
-        
-        if let font = UIFont(name: "FontAwesome", size: 19) {
             saveBarButton.setTitleTextAttributes(
                 [NSFontAttributeName: font], for: .normal)
             saveBarButton.title = String.Fontawesome.Save
