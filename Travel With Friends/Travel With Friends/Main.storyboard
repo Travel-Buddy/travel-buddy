@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="fontawesome-webfont.ttf">
+        <array key="FontAwesome.otf">
             <string>FontAwesome</string>
         </array>
     </customFonts>
@@ -334,8 +334,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addBarButtonItem" destination="mib-sz-SDK" id="L2P-vQ-reL"/>
-                        <segue destination="0hw-ad-11H" kind="show" identifier="ComposePlanSegue" id="wXg-S7-Gb4"/>
                         <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="jkF-rY-ZEm"/>
+                        <segue destination="kff-0u-LgX" kind="presentation" identifier="ComposePlanSegue" id="QLQ-53-cot"/>
+                        <segue destination="kff-0u-LgX" kind="presentation" identifier="EditPlanSegue" id="XWX-fr-2vj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v58-sy-srS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,7 +346,7 @@
         <!--Create | Edit Plan-->
         <scene sceneID="VN3-bV-kJ0">
             <objects>
-                <viewController id="WcH-Z3-iOA" customClass="PlanComposerViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanComposerContainerViewController" id="WcH-Z3-iOA" customClass="PlanComposerContainerViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NR9-K7-EiY"/>
                         <viewControllerLayoutGuide type="bottom" id="f1c-AA-uPo"/>
@@ -353,24 +354,71 @@
                     <view key="view" contentMode="scaleToFill" id="PXv-7w-gkQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K2c-3o-F59">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create | Edit Plan" id="Thu-gR-w9K">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="04k-tP-jr0">
                             <connections>
-                                <action selector="cancelChanges:" destination="WcH-Z3-iOA" id="egs-0b-ndq"/>
+                                <action selector="cancelChanges:" destination="WcH-Z3-iOA" id="Cc3-na-QkF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="fSb-1n-InX">
                             <connections>
-                                <action selector="saveChanges:" destination="WcH-Z3-iOA" id="U7w-Q6-qxn"/>
+                                <action selector="saveChanges:" destination="WcH-Z3-iOA" id="CeW-iQ-h9P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentView" destination="K2c-3o-F59" id="e5h-j1-QJQ"/>
+                        <outlet property="saveBarButtonItem" destination="fSb-1n-InX" id="xnM-qd-spn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SJ-Mh-ihZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7478" y="-1059"/>
+            <point key="canvasLocation" x="8072.8000000000002" y="-1060.1199400299852"/>
+        </scene>
+        <!--Plan Types-->
+        <scene sceneID="X0h-Wa-8hw">
+            <objects>
+                <viewController id="r1t-5R-Dkh" customClass="PlanTypesViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ld9-NL-ZMD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z9U-Xt-Jpn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Uf-wc-WNh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WBx-jV-er9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plan Types" id="dZC-mk-ANK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3ze-lc-K4s">
+                            <connections>
+                                <action selector="cancel:" destination="r1t-5R-Dkh" id="bYH-T2-3tW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="WBx-jV-er9" id="1U4-Vr-QhR"/>
+                        <segue destination="WcH-Z3-iOA" kind="show" identifier="ComposePlanSegue" id="ao5-h9-j74"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b6w-cb-8Ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7265" y="-1060"/>
         </scene>
         <!--Plan-->
         <scene sceneID="3M3-mf-vRZ">
@@ -490,7 +538,7 @@
                         <outlet property="likeButton" destination="w4v-MB-ePa" id="48Y-lE-Wlc"/>
                         <outlet property="likeCountLabel" destination="VCK-jM-G4s" id="8OB-2E-9UD"/>
                         <outlet property="startDateLabel" destination="PLe-Ly-xbl" id="z3I-R1-L1F"/>
-                        <segue destination="0hw-ad-11H" kind="presentation" identifier="ComposePlanSegue" id="eFx-Oa-glY"/>
+                        <segue destination="kff-0u-LgX" kind="presentation" identifier="ComposePlanSegue" id="jtN-an-t70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-LD-tEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,24 +666,6 @@
             <point key="canvasLocation" x="4732" y="-1059.2203898050975"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="DHM-vp-Lyh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hw-ad-11H" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IkV-dn-Bw3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="WcH-Z3-iOA" kind="relationship" relationship="rootViewController" id="Nyg-vu-lhx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gh-6H-QSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6606" y="-1059"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="qSa-QD-w4n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBq-I9-fHL" sceneMemberID="viewController">
@@ -705,13 +735,31 @@
             </objects>
             <point key="canvasLocation" x="3122" y="-1057"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h8n-I1-8yv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kff-0u-LgX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wGl-GG-rBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="r1t-5R-Dkh" kind="relationship" relationship="rootViewController" id="cQM-Vp-L7B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJb-n6-9Yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6470" y="-1059"/>
+        </scene>
     </scenes>
     <resources>
         <image name="fblogin" width="240" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eFx-Oa-glY"/>
         <segue reference="pZR-v7-cuC"/>
+        <segue reference="XWX-fr-2vj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

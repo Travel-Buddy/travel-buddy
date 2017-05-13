@@ -144,6 +144,7 @@ class DestinationsViewController: PFQueryTableViewController {
 
                 if identifier == "ShowDestinationDetailSegue" {
                     let vc = segue.destination as! PlansViewController
+                    vc.trip = trip
                     vc.destination = destination
                 }
             }
