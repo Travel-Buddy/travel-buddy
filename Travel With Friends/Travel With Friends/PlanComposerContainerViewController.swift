@@ -16,6 +16,7 @@ class PlanComposerContainerViewController: UIViewController {
 
     weak var delegate: PlanComposerViewControllerDelegate?
 
+    var trip: PFObject!
     var destination: PFObject!
     var plan: PFObject?
     var planType: String?
@@ -48,6 +49,13 @@ class PlanComposerContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if plan == nil {
+            navigationItem.title = "Create Plan"
+        } else {
+            planType = plan!["planType"] as? String
+            navigationItem.title = "Edit Plan"
+        }
+
         if let font = UIFont(name: "FontAwesome", size: 19) {
             saveBarButtonItem.setTitleTextAttributes(
                     [NSFontAttributeName: font], for: .normal)
@@ -58,33 +66,24 @@ class PlanComposerContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let planToEdit = plan {
-            planType = planToEdit["planType"] as? String
-        }
-
         if planType == "flight" {
-            navigationItem.title = "Flight"
             activeViewController = FlightPlanComposerViewController()
         } else if planType == "car_rental" {
-            navigationItem.title = "Car Rental"
             activeViewController = CarRentalPlanComposerViewController()
         } else if planType == "accommodation" {
-            navigationItem.title = "Accommodation"
             activeViewController = AccommodationPlanComposerViewController()
         } else if planType == "restaurant" {
-            navigationItem.title = "Restaurant"
             activeViewController = RestaurantPlanComposerViewController()
         } else if planType == "establishment" {
-            navigationItem.title = "Landmark"
             activeViewController = EstablishmentPlanComposerViewController()
         } else if planType == "non-establishment" {
-            navigationItem.title = "Other Activity"
             activeViewController = NonEstablishmentPlanComposerViewController()
         } else {
-            navigationItem.title = "Other"
             activeViewController = PlanComposerViewController()
         }
+
         activeViewController?.delegate = delegate
+        activeViewController?.trip = trip
         activeViewController?.destination = destination
         activeViewController?.plan = plan
     }

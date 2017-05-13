@@ -32,11 +32,13 @@ class PlanTypesViewController: UIViewController {
         "non-establishment" : "Other Activity"
     ]
 
+    var trip: PFObject!
     var destination: PFObject!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        tableView.backgroundColor = UIColor.FlatColor.White.Background
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self,
@@ -52,6 +54,7 @@ class PlanTypesViewController: UIViewController {
                 let indexPath = tableView.indexPath(for: cell)!
 
                 viewController.delegate = delegate
+                viewController.trip = trip
                 viewController.destination = destination
                 viewController.plan = nil
                 viewController.planType = types[indexPath.row]
@@ -74,6 +77,9 @@ extension PlanTypesViewController: UITableViewDataSource, UITableViewDelegate {
             -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
                 withIdentifier: "TableViewCell", for: indexPath)
+        cell.backgroundColor = UIColor.FlatColor.White.Background
+        cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
+        cell.textLabel?.font = UIFont(name: "Helvetica Neue-Light", size: 17)
         cell.textLabel?.text = typeNames[types[indexPath.row]]
 
         return cell

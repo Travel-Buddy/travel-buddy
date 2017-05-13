@@ -16,15 +16,16 @@ import Parse
 class EstablishmentPlanComposerViewController: PlanComposerViewController {
     override func loadUI() {
         form
-            +++ Section("Name")
+            +++ Section("Landmark")
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabName"
                 $0.placeFilter?.type = .establishment
                 $0.placeBounds = self.coordinateBounds
 
-                if let plan = self.plan,
+                if let plan = plan,
                    let name = plan["estabName"] as? String {
                     $0.value = GooglePlace(string: name)
+                    $0.cell.isUserInteractionEnabled = false
                 }
 
                 $0.onChange(updateUILocationUsingGPTableRow)
@@ -36,9 +37,10 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                 $0.placeFilter?.type = .address
                 $0.placeBounds = self.coordinateBounds
 
-                if let plan = self.plan,
+                if let plan = plan,
                    let location = plan["estabLocation"] as? String {
                     $0.value = GooglePlace(string: location)
+                    $0.cell.isUserInteractionEnabled = false
                 }
             }
 
@@ -46,9 +48,10 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             <<< PhoneRow() {
                 $0.tag = "estabContact"
 
-                if let plan = self.plan,
+                if let plan = plan,
                    let phoneNo = plan["estabContact"] as? String {
                     $0.value = phoneNo
+                    $0.cell.isUserInteractionEnabled = false
                 }
             }
 
@@ -101,8 +104,46 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                 }
             }
 
+            +++ buildParticipantsSection()
+
         let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()
+    }
+
+    func buildParticipantsSection() -> Section {
+        tableView.isEditing = false
+
+        let section = MultivaluedSection(multivaluedOptions: .Delete,
+                header: "Participants") {
+            $0.tag = "participants"
+        }
+
+        let relation = trip.relation(forKey: "users")
+        relation.query().findObjectsInBackground {
+                (users: [PFObject]?, error: Error?) in
+                    guard error == nil else {
+                        self.displayAlert(message: error!.localizedDescription)
+                        return
+                    }
+
+                    guard let users = users else {
+                        return
+                    }
+
+                    let currentUserId = PFUser.current()!.objectId
+
+                    self.participants.removeAll()
+                    for user in users {
+                        self.participants.append(user as! PFUser)
+                        section <<< LabelRow() {
+                            $0.title = user["name"] as? String
+                            $0.cell.isUserInteractionEnabled =
+                                    !(user.objectId == currentUserId)
+                        }
+                    }
+                }
+
+        return section
     }
 
     override func updateUIGPTableRows() {
@@ -130,7 +171,8 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                             placeId: placeID) {
                             (place: GooglePlacePlace?, error: Error?) in
                                 if let error = error {
-                                    print("ERROR: \(error.localizedDescription)")
+                                    self.displayAlert(
+                                            message: error.localizedDescription)
                                 } else if let place = place {
                                     self.updateUILocationUsingGPPlace(place)
                                 }
@@ -190,6 +232,24 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
         if let cost = dictionary["cost"] as? Double {
             editedPlan["cost"] = cost
         }
+
+        /*
+        if let participantsSection = self.form.sectionBy(tag: "participants")
+                as? MultivaluedSection {
+            for row in participantsSection.enumerated() {
+                if let tag = row.element.tag  {
+                    tagArray.append(tag)
+                }
+            }
+            
+            for (fbId, friend) in friends {
+                if tagArray.index(of: fbId) == nil {
+                    users.remove(friend)
+                }else{
+                    users.add(friend)
+                }
+            }
+        */
 
         /* Do not overwrite when editing existing plans */
         if initialPlan == nil {

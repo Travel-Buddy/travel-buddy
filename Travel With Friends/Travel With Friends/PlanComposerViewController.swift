@@ -20,10 +20,19 @@ import Parse
 class PlanComposerViewController: FormViewController {
     weak var delegate: PlanComposerViewControllerDelegate?
 
+    var trip: PFObject!
     var destination: PFObject!
     var plan: PFObject?
-    
+
+    var participants = [PFUser]()
+
     var coordinateBounds: GMSCoordinateBounds?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.backgroundColor = UIColor.FlatColor.White.Background
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,6 +52,19 @@ class PlanComposerViewController: FormViewController {
                                     gpDestination)
                         }
                     }
+        }
+
+        for row in form.rows {
+            /* FIX ME: Need to differentiate between header and cell row
+            row.baseCell.backgroundColor =
+                    UIColor.FlatColor.White.Background
+            */
+            row.baseCell.textLabel?.font =
+                    UIFont.Subheadings.TripComposeUserTitleText
+            row.baseCell.textLabel?.textColor =
+                    UIColor.FlatColor.Blue.MainText
+            row.baseCell.detailTextLabel?.font =
+                    UIFont.Subheadings.TripComposeUserSubText
         }
     }
 
@@ -122,6 +144,14 @@ class PlanComposerViewController: FormViewController {
                                 }
                             }
                 }
+    }
+
+    func displayAlert(message: String) {
+        let alertController = UIAlertController(title: "Error",
+                message: message, preferredStyle: .alert)
+        alertController.addAction(
+                UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
 

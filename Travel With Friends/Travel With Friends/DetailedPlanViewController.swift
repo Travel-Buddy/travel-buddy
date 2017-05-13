@@ -51,16 +51,14 @@ class DetailedPlanViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        /* NOTE: In detailed view, we don't want to have anything at the bottom
-         *       so hide the tab bar if this VC is within UITabBarController
-         */
+        /* Hide the tab bar if this VC is in UITabBarController */
         tabBarController?.tabBar.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        /* NOTE: Put the tab bar back if this VC is within UITabBarController */
+        /* Show the tab bar back if this VC is in UITabBarController */
         tabBarController?.tabBar.isHidden = false
     }
 

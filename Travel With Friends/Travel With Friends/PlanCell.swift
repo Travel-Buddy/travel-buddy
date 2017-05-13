@@ -8,9 +8,9 @@
 
 import UIKit
 
-import ParseUI
+import Parse
 
-class PlanCell: PFTableViewCell {
+class PlanCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -24,7 +24,12 @@ class PlanCell: PFTableViewCell {
 
     func updateUI() {
         nameLabel.text = plan["estabName"] as? String
-        locationLabel.text = plan["estabLocation"] as? String
+
+        if let location = plan["estabLocation"] as? String {
+            locationLabel.text = location
+        } else if let location = plan["startLocation"] as? String {
+            locationLabel.text = location
+        }
 
         let relation = plan.relation(forKey: "likedBy")
         relation.query().findObjectsInBackground {

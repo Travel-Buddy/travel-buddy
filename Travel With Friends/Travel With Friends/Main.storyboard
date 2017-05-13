@@ -168,7 +168,7 @@
         <scene sceneID="GBW-xC-vGJ">
             <objects>
                 <navigationController id="n5I-bE-ixR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JOT-Bu-JjH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JOT-Bu-JjH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -336,6 +336,7 @@
                         <outlet property="addBarButtonItem" destination="mib-sz-SDK" id="L2P-vQ-reL"/>
                         <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="jkF-rY-ZEm"/>
                         <segue destination="kff-0u-LgX" kind="presentation" identifier="ComposePlanSegue" id="QLQ-53-cot"/>
+                        <segue destination="kff-0u-LgX" kind="presentation" identifier="EditPlanSegue" id="XWX-fr-2vj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v58-sy-srS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -578,7 +579,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6qD-k5-cOf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Costs" id="5bE-6N-1KQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="41N-GD-tge">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="41N-GD-tge">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -596,7 +597,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TripsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="U0y-68-Cqn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="io1-eq-ZRE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="io1-eq-ZRE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -633,7 +634,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ba-JW-9zx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Destinations" id="eaP-AE-mG8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mhd-5J-MJW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mhd-5J-MJW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -651,7 +652,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vj-N4-1G6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kf-4V-dnJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8kf-4V-dnJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -669,7 +670,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBq-I9-fHL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARR-qf-lgV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARR-qf-lgV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -687,7 +688,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y3m-vR-suN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xmu-Hh-k31">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xmu-Hh-k31">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -739,7 +740,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kff-0u-LgX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wGl-GG-rBZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wGl-GG-rBZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -758,7 +759,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pZR-v7-cuC"/>
-        <segue reference="jtN-an-t70"/>
+        <segue reference="XWX-fr-2vj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>
