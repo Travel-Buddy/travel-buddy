@@ -12,6 +12,10 @@ import Parse
 import UIKit
 
 class DestinationComposerViewController: FormViewController {
+    
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     var trip: PFObject?
     var destination: PFObject?
@@ -31,12 +35,21 @@ class DestinationComposerViewController: FormViewController {
             minDate = trip["startDate"] as? Date
             maxDate = trip["endDate"] as? Date
         }
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            cancelButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            cancelButton.title = String.Fontawesome.Cancel
+            saveButton.setTitleTextAttributes(
+                [NSFontAttributeName: font], for: .normal)
+            saveButton.title = String.Fontawesome.Save
+        }
 
         guard destination != nil else {
             user = PFUser.current()
             layoutDestinationForm()
             return
         }
+
         
         tableView.backgroundColor = UIColor.FlatColor.White.Background
 

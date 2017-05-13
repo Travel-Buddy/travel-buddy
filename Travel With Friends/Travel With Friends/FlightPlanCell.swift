@@ -1,8 +1,8 @@
 //
-//  PlanCell.swift
+//  FlightPlanCell.swift
 //  Travel With Friends
 //
-//  Created by Janvier Wijaya on 4/30/17.
+//  Created by Janvier Wijaya on 5/12/17.
 //  Copyright © 2017 kevinthrailkill. All rights reserved.
 //
 
@@ -10,9 +10,11 @@ import UIKit
 
 import Parse
 
-class PlanCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+class FlightPlanCell: UITableViewCell {
+    @IBOutlet weak var locationsLabel: UILabel!
+    @IBOutlet weak var datesLabel: UILabel!
+    @IBOutlet weak var airlineNameLabel: UILabel!
+    @IBOutlet weak var flightNoLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeCountLabel: UILabel!
 
@@ -23,13 +25,21 @@ class PlanCell: UITableViewCell {
     }
 
     func updateUI() {
-        nameLabel.text = plan["estabName"] as? String
-
-        if let location = plan["estabLocation"] as? String {
-            locationLabel.text = location
-        } else if let location = plan["startLocation"] as? String {
-            locationLabel.text = location
+        if let startLocation = plan["startLocation"] as? String,
+           let endLocation = plan["endLocation"] as? String {
+            locationsLabel.text = startLocation + " - " + endLocation
         }
+
+        if let startDate = plan["startDate"] as? Date,
+           let endDate = plan["endDate"] as? Date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy hh:mm a"
+            datesLabel.text = dateFormatter.string(from: startDate) + " - " +
+                    dateFormatter.string(from: endDate)
+        }
+
+        airlineNameLabel.text = plan["estabName"] as? String
+        flightNoLabel.text = plan["estabNbr"] as? String
 
         let relation = plan.relation(forKey: "likedBy")
         relation.query().findObjectsInBackground {

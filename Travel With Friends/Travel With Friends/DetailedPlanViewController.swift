@@ -34,13 +34,10 @@ class DetailedPlanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /* Use 'fa-edit' text icon from FontAwesome.
-         * http://fontawesome.io/cheatsheet/
-         */
-        if let font = UIFont(name: "FontAwesome", size: 17) {
+        if let font = UIFont(name: "FontAwesome", size: 19) {
             editBarButtonItem.setTitleTextAttributes(
                     [NSFontAttributeName: font], for: .normal)
-            editBarButtonItem.title = "\u{f044}"
+            editBarButtonItem.title = String.Fontawesome.Edit
         }
 
         finalizePlanButton.contentEdgeInsets = UIEdgeInsets(
@@ -54,31 +51,36 @@ class DetailedPlanViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        /* NOTE: In detailed view, we don't want to have anything at the bottom
-         *       so hide the tab bar if this VC is within UITabBarController
-         */
+        /* Hide the tab bar if this VC is in UITabBarController */
         tabBarController?.tabBar.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        /* NOTE: Put the tab bar back if this VC is within UITabBarController */
+        /* Show the tab bar back if this VC is in UITabBarController */
         tabBarController?.tabBar.isHidden = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "ComposePlanSegue" {
-                var viewController: PlanComposerViewController
+                var viewController: PlanComposerContainerViewController
                 
                 if let navigationController = segue.destination
                            as? UINavigationController {
-                    viewController = navigationController.topViewController
-                            as! PlanComposerViewController
+                    /* Must do this because PlanComposerContainerViewController
+                     * is not the topViewController of the NavigationController
+                     */
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    viewController = storyboard.instantiateViewController(
+                            withIdentifier: "PlanComposerContainerViewController")
+                            as! PlanComposerContainerViewController
+                    navigationController.pushViewController(viewController,
+                            animated: true)
                 } else {
                     viewController = segue.destination
-                            as! PlanComposerViewController
+                            as! PlanComposerContainerViewController
                 }
                 viewController.delegate = self
                 viewController.destination = destination
