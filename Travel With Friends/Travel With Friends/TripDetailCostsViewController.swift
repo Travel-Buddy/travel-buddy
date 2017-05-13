@@ -45,6 +45,7 @@ class TripDetailCostsViewController: PFQueryTableViewController {
         }
 
         planQuery.whereKey("planStage", equalTo: "finalized")
+        planQuery.includeKey("destination")
         planQuery.order(byAscending: "startDate")
         return planQuery
     }
@@ -52,18 +53,28 @@ class TripDetailCostsViewController: PFQueryTableViewController {
     override func objectsDidLoad(_ error: Error?) {
         super.objectsDidLoad(error)
 
+        var costPerParticipant: Double = 0
+        var numberOfParticipants: Double = 0
         var totalCost: Double = 0
 
         if let objects = objects {
             for object in objects {
-                if let cost = object["cost"] as? Double {
-                    totalCost += cost
+                if let participants = object["participants"] as? PFRelation {
+                    let relationQuery = participants.query()
+                    relationQuery.countObjectsInBackground(block: { (count, error) in
+                        numberOfParticipants = Double(count)
+
+                        if let planCost = object["cost"] as? Double {
+                            costPerParticipant = planCost / numberOfParticipants
+                            totalCost += costPerParticipant
+                        }
+
+                        self.totalCostLabel.text = "Total Cost: \((totalCost).asFormattedCurrency())"
+                        self.totalCostLabel.sizeToFit()
+                    })
                 }
             }
         }
-
-        totalCostLabel.text = "Total Cost: \((totalCost as NSNumber).asFormattedCurrency())"
-        totalCostLabel.sizeToFit()
     }
 
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
