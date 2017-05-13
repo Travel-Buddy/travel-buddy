@@ -254,7 +254,7 @@ public extension Date {
 
 }
 
-public extension NSNumber {
+public extension Double {
 
     func asFormattedCurrency() -> String {
         let currencyFormatter = NumberFormatter()
@@ -263,7 +263,7 @@ public extension NSNumber {
         currencyFormatter.minimumFractionDigits = 2
         currencyFormatter.numberStyle = NumberFormatter.Style.currency
         currencyFormatter.usesGroupingSeparator = true
-        return currencyFormatter.string(from: self)!
+        return currencyFormatter.string(for: self)!
     }
 
 }
