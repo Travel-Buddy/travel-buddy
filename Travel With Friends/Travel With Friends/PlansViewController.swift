@@ -9,45 +9,6 @@ import UIKit
 
 import Parse
 
-/* DEBUG CODE BEG
- let debugPlanStages = [
- "Finalized Plans",
- "Proposed Plans"
- ]
- let debugPlanNames = [
- [
- "!! San Diego (SAN) - Salt Lake City (SLC)",
- "!! Avis Car Rental",
- "Kelly Inn-West Yellowstone"
- ],
- [
- "Hotel ABC",
- "Temple Square",
- "Old Faithful",
- "Mammoth Hot Springs",
- "Jenny Lake",
- "Jackson Lake",
- "Hotel XYZ",
- ]
- ]
- let debugPlanLocations = [
- [
- "!! Delta Air Lines 2546",
- "!! Pick-up at 11:30PM at 656 3800 W, Salt Lake City, UT 84116, USA",
- "104 S Canyon St, West Yellowstone, MT 59758, USA",
- ],
- [
- "1234 S Unknown Rd, Salt Lake City, UT 84150, USA",
- "50 N Temple, Salt Lake City, UT 84150, USA",
- "Yellowstone National Park, WY 82190, USA",
- "Yellowstone National Park, WY 82190, USA",
- "Jenny Lake, Wyoming 83414, USA",
- "Jackson Lake, Wyoming 83013, USA",
- "9876 N Random Rd, Salt Lake City, UT 84150, USA"
- ]
- ]
- DEBUG CODE END */
-
 class PlansViewController: UITableViewController {
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
 
@@ -71,23 +32,24 @@ class PlansViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /* Use 'fa-plus' text icon from FontAwesome.
-         * http://fontawesome.io/cheatsheet/
-         */
-        if let font = UIFont(name: "FontAwesome", size: 17) {
+        if let font = UIFont(name: "FontAwesome", size: 19) {
             addBarButtonItem.setTitleTextAttributes(
                     [NSFontAttributeName: font], for: .normal)
-            addBarButtonItem.title = "\u{f067}"
+            addBarButtonItem.title = String.Fontawesome.Add
         }
-        
+
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 92
-        
+
         tableView.register(UITableViewHeaderFooterView.self,
                 forHeaderFooterViewReuseIdentifier: "TableViewHeaderView")
-        
-        let nib = UINib(nibName: "PlanCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PlanCell")
+
+        let planNib = UINib(nibName: "PlanCell", bundle: nil)
+        tableView.register(planNib, forCellReuseIdentifier: "PlanCell")
+
+        let flightPlanNib = UINib(nibName: "FlightPlanCell", bundle: nil)
+        tableView.register(flightPlanNib,
+                forCellReuseIdentifier: "FlightPlanCell")
 
         /* Allow pull to refresh */
         refreshControl = UIRefreshControl()
@@ -124,14 +86,15 @@ class PlansViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "ComposePlanSegue" {
-                var viewController: PlanComposerViewController
+                var viewController: PlanTypesViewController
+
                 if let navigationController = segue.destination
                            as? UINavigationController {
                     viewController = navigationController.topViewController
-                            as! PlanComposerViewController
+                            as! PlanTypesViewController
                 } else {
                     viewController = segue.destination
-                            as! PlanComposerViewController
+                            as! PlanTypesViewController
                 }
                 viewController.delegate = self
                 viewController.destination = destination
@@ -181,12 +144,23 @@ class PlansViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-                withIdentifier: "PlanCell", for: indexPath) as! PlanCell
         let stage = planStages[indexPath.section]
-        cell.plan = plans[stage]?[indexPath.row]
+        let plan = plans[stage]?[indexPath.row]
 
-        return cell
+        if let planType = plan?["planType"] as? String, planType == "flight" {
+            let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "FlightPlanCell", for: indexPath)
+                    as! FlightPlanCell
+            cell.plan = plan
+
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "PlanCell", for: indexPath) as! PlanCell
+            cell.plan = plan
+
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView,
