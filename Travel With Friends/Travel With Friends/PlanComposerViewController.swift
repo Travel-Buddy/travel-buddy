@@ -118,7 +118,14 @@ class PlanComposerViewController: FormViewController {
                         $0.title = currentUser["name"] as? String
                         $0.cell.isUserInteractionEnabled = false
                         $0.cell.backgroundColor = UIColor.FlatColor.White.Background
-                    }
+                        $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+                        $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                        
+                        }.cellUpdate({ (cell, row) in
+                            cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
+                            cell.alpha = 1.0
+                        })
+            
                     self.tripParticipants[currentUser.objectId!] = currentUser
                     for user in users {
                         if user.objectId == currentUser.objectId {
@@ -128,7 +135,14 @@ class PlanComposerViewController: FormViewController {
                             $0.tag = user.objectId
                             $0.title = user["name"] as? String
                             $0.cell.backgroundColor = UIColor.FlatColor.White.Background
-                        }
+                            $0.cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
+                            $0.cell.detailTextLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                            
+                            }.cellUpdate({ (cell, row) in
+                                cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
+                                cell.alpha = 1.0
+                            })
+                        
                         self.tripParticipants[user.objectId!] = user as? PFUser
                     }
                 }
