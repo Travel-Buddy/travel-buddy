@@ -111,9 +111,10 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 $0.dateFormatter = dateTimeFormatter
                 $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
-                /* FIX ME: Handle cases when returning car at the end of trip
-                $0.maximumDate = destination["endDate"] as? Date
-                */
+                /* Handle cases when returning car at the end of trip */
+                $0.maximumDate = Date(timeInterval: 60 * 60 * 24,
+                            since: trip["endDate"] as! Date)
+
                 /* Handle cases when users enter the same start and end dates */
                 if let minDate = $0.minimumDate,
                    let maxDate = $0.maximumDate,
@@ -188,21 +189,10 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 }
             }
 
-            +++ Section("Total Cost")
-            <<< DecimalRow() {
-                $0.tag = "cost"
-                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
-                let formatter = CurrencyFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .currency
-                $0.formatter = formatter
-                $0.useFormatterDuringInput = true
+            +++ createUICostSection()
 
-                if let plan = plan,
-                   let cost = plan["cost"] as? Double {
-                    $0.value = cost
-                }
-            }
+            +++ createUIParticipantsSection()
+
 
         let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()
@@ -312,10 +302,6 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
 
         if let confirmationNo = dictionary["estabVerifyNbr"] as? String {
             editedPlan["estabVerifyNbr"] = confirmationNo
-        }
-
-        if let cost = dictionary["cost"] as? Double {
-            editedPlan["cost"] = cost
         }
 
         /* Do not overwrite when editing existing plans */
