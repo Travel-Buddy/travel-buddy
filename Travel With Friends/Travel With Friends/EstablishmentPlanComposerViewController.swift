@@ -21,12 +21,21 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "estabName"
                 $0.placeFilter?.type = .establishment
                 $0.placeBounds = self.coordinateBounds
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let name = plan["estabName"] as? String {
                     $0.value = GooglePlace(string: name)
                     $0.cell.isUserInteractionEnabled = false
                 }
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
 
                 $0.onChange(updateUILocationUsingGPTableRow)
             }
@@ -36,7 +45,15 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "estabLocation"
                 $0.placeFilter?.type = .address
                 $0.placeBounds = self.coordinateBounds
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
                 if let plan = plan,
                    let location = plan["estabLocation"] as? String {
                     $0.value = GooglePlace(string: location)
@@ -47,6 +64,7 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             +++ Section("Phone Number")
             <<< PhoneRow() {
                 $0.tag = "estabContact"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let phoneNo = plan["estabContact"] as? String {
@@ -59,6 +77,7 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             <<< DateInlineRow() {
                 $0.tag = "startDate"
                 $0.title = "Date"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
@@ -81,6 +100,7 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             +++ Section("Admission Ticket Number")
             <<< NameRow() {
                 $0.tag = "estabVerifyNbr"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let confirmationNo = plan["estabVerifyNbr"] as? String {
@@ -91,6 +111,7 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             +++ createUICostSection()
 
             +++ createUIParticipantsSection()
+
 
         let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()

@@ -19,7 +19,10 @@ class CostCell: PFTableViewCell {
     var plan: PFObject! {
         didSet {
             titleLabel.text = plan["estabName"] as? String
-            subtitleLabel.text = plan["destination"] as? String
+
+            if let destination = plan["destination"] as? PFObject {
+                subtitleLabel.text = destination["title"] as? String
+            }
 
             if let startDate = plan["startDate"] as? Date, let endDate = plan["endDate"] as? Date {
                 if endDate.compare(startDate) == .orderedSame {
@@ -29,9 +32,25 @@ class CostCell: PFTableViewCell {
                 }
             }
 
-            if let cost = plan["cost"] as? NSNumber {
-                costLabel.text = cost.asFormattedCurrency()
-            }
+            calculateCostPerParticipant()
+        }
+    }
+
+    func calculateCostPerParticipant() {
+        var costPerParticipant: Double = 0
+        var numberOfParticipants: Double = 0
+
+        if let participants = plan["participants"] as? PFRelation {
+            let relationQuery = participants.query()
+            relationQuery.countObjectsInBackground(block: { (count, error) in
+                numberOfParticipants = Double(count)
+
+                if let planCost = self.plan["cost"] as? Double {
+                    costPerParticipant = planCost / numberOfParticipants
+                }
+
+                self.costLabel.text = costPerParticipant.asFormattedCurrency()
+            })
         }
     }
 

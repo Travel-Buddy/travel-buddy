@@ -14,6 +14,8 @@ class PlanComposerContainerViewController: UIViewController {
     @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var contentView: UIView!
 
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    
     weak var delegate: PlanComposerViewControllerDelegate?
 
     var trip: PFObject!
@@ -60,6 +62,8 @@ class PlanComposerContainerViewController: UIViewController {
             saveBarButtonItem.setTitleTextAttributes(
                     [NSFontAttributeName: font], for: .normal)
             saveBarButtonItem.title = String.Fontawesome.Save
+            cancelBarButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            cancelBarButton.title = String.Fontawesome.Cancel
         }
     }
 

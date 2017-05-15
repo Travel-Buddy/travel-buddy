@@ -21,6 +21,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
             <<< NameRow() {
                 $0.tag = "estabName"
                 $0.title = "Airline"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let airlineName = plan["estabName"] as? String {
@@ -30,6 +31,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
             <<< NameRow() {
                 $0.tag = "estabNbr"
                 $0.title = "Flight number"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let flightNo = plan["estabNbr"] as? String {
@@ -41,6 +43,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
             <<< NameRow() {
                 $0.tag = "startLocation"
                 $0.title = "From"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
                    let departureLocation = plan["startLocation"] as? String {
@@ -51,7 +54,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "startDate"
                 $0.title = "Time"
                 $0.dateFormatter = dateTimeFormatter
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
                 /* Handle cases when users enter the same start and end dates */
@@ -86,7 +89,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
             <<< NameRow() {
                 $0.tag = "endLocation"
                 $0.title = "To"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = plan,
                    let arrivalLocation = plan["endLocation"] as? String {
                     $0.value = arrivalLocation
@@ -96,7 +99,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "endDate"
                 $0.title = "Time"
                 $0.dateFormatter = dateTimeFormatter
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
                 /* Handle cases when users enter the same start and end dates */
@@ -118,7 +121,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
             +++ Section("Confirmation Number")
             <<< NameRow() {
                 $0.tag = "estabVerifyNbr"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = plan,
                    let confirmationNo = plan["estabVerifyNbr"] as? String {
                     $0.value = confirmationNo
@@ -128,6 +131,7 @@ class FlightPlanComposerViewController: PlanComposerViewController {
             +++ createUICostSection()
 
             +++ createUIParticipantsSection()
+
 
         let airlineNameRow = form.rowBy(tag: "estabName") as! NameRow
         airlineNameRow.cell.textField.becomeFirstResponder()

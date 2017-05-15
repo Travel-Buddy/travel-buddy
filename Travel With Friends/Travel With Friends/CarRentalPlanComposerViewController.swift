@@ -24,12 +24,19 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "estabName"
                 $0.placeFilter?.type = .establishment
                 $0.placeBounds = self.coordinateBounds
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = plan,
                    let name = plan["estabName"] as? String {
                     $0.value = GooglePlace(string: name)
                 }
-
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
                 $0.onChange(updateUILocationUsingGPTableRow)
             }
 
@@ -38,7 +45,7 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "startDate"
                 $0.title = "Time"
                 $0.dateFormatter = dateTimeFormatter
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
                 $0.maximumDate = destination["endDate"] as? Date
                 /* Handle cases when users enter the same start and end dates */
@@ -73,16 +80,24 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 $0.title = "Location"
                 $0.placeFilter?.type = .address
                 $0.placeBounds = self.coordinateBounds
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = plan,
                    let location = plan["startLocation"] as? String {
                     $0.value = GooglePlace(string: location)
                 }
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
             }
             <<< PhoneRow() {
                 $0.tag = "startContact"
                 $0.title = "Phone"
-                
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = self.plan,
                    let phoneNo = plan["estabContact"] as? String {
                     $0.value = phoneNo
@@ -94,7 +109,7 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "endDate"
                 $0.title = "Time"
                 $0.dateFormatter = dateTimeFormatter
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.minimumDate = destination["startDate"] as? Date
                 /* Handle cases when returning car at the end of trip */
                 $0.maximumDate = Date(timeInterval: 60 * 60 * 24,
@@ -120,10 +135,12 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "sameEndLocation"
                 $0.title = "Return to same location"
                 $0.value = true
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
             }
             <<< GooglePlacesTableRow() {
                 $0.tag = "endLocation"
                 $0.title = "Location"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.placeFilter?.type = .address
                 $0.placeBounds = self.coordinateBounds
                 $0.hidden = Condition.function(["sameEndLocation"]) {
@@ -132,7 +149,14 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
                                     tag: "sameEndLocation") as? CheckRow
                             return sameEndLocationRow?.value ?? true
                         }
-
+                $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.customizeTableViewCell = { cell in
+                    cell.backgroundColor = UIColor.FlatColor.White.Background
+                    cell.textLabel?.font = UIFont.Subheadings.TripComposeUserSubText
+                    cell.textLabel?.textColor = UIColor.FlatColor.Green.Subtext
+                }
+                
+                $0.cell.numberOfCandidates = 4
                 if let plan = plan,
                    let dropOffLocation = plan["endLocation"] as? String {
                     $0.value = GooglePlace(string: dropOffLocation)
@@ -141,6 +165,7 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
             <<< PhoneRow() {
                 $0.tag = "endContact"
                 $0.title = "Phone"
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.hidden = Condition.function(["sameEndLocation"]) {
                         (form: Form) -> Bool in
                             let sameEndLocationRow = form.rowBy(
@@ -157,7 +182,7 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
             +++ Section("Confirmation Number")
             <<< NameRow() {
                 $0.tag = "estabVerifyNbr"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 if let plan = plan,
                    let confirmationNo = plan["estabVerifyNbr"] as? String {
                     $0.value = confirmationNo
@@ -167,6 +192,7 @@ class CarRentalPlanComposerViewController: PlanComposerViewController {
             +++ createUICostSection()
 
             +++ createUIParticipantsSection()
+
 
         let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -265,6 +265,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="voK-nG-SL1" id="y5I-5o-g0p"/>
+                        <outlet property="saveButton" destination="sST-GA-J6b" id="4PY-v4-yk6"/>
                         <outlet property="tableView" destination="OKy-JY-c41" id="k2Q-8b-PVP"/>
                     </connections>
                 </viewController>
@@ -325,6 +327,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Plans" id="DWq-5i-Df2">
+                        <barButtonItem key="backBarButtonItem" title=" " id="YGt-Bj-nW2"/>
                         <barButtonItem key="rightBarButtonItem" title="Create" id="mib-sz-SDK">
                             <connections>
                                 <action selector="createPlan:" destination="3Rv-II-1nc" id="gKp-1C-6t5"/>
@@ -376,6 +379,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelBarButton" destination="04k-tP-jr0" id="2iv-oz-MkD"/>
                         <outlet property="contentView" destination="K2c-3o-F59" id="e5h-j1-QJQ"/>
                         <outlet property="saveBarButtonItem" destination="fSb-1n-InX" id="xnM-qd-spn"/>
                     </connections>
@@ -412,6 +416,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="3ze-lc-K4s" id="mxg-VX-xMH"/>
                         <outlet property="tableView" destination="WBx-jV-er9" id="1U4-Vr-QhR"/>
                         <segue destination="WcH-Z3-iOA" kind="show" identifier="ComposePlanSegue" id="ao5-h9-j74"/>
                     </connections>

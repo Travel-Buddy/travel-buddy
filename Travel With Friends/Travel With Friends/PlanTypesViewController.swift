@@ -13,6 +13,8 @@ import Parse
 class PlanTypesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     weak var delegate: PlanComposerViewControllerDelegate?
 
     let types = [
@@ -43,6 +45,13 @@ class PlanTypesViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self,
                 forCellReuseIdentifier: "TableViewCell")
+        
+        if let font = UIFont(name: "FontAwesome", size: 19) {
+            cancelButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            cancelButton.title = String.Fontawesome.Cancel
+
+        }
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,6 +60,7 @@ class PlanTypesViewController: UIViewController {
                 let viewController = segue.destination
                             as! PlanComposerContainerViewController
                 let cell = sender as! UITableViewCell
+                
                 let indexPath = tableView.indexPath(for: cell)!
 
                 viewController.delegate = delegate
@@ -79,7 +89,7 @@ extension PlanTypesViewController: UITableViewDataSource, UITableViewDelegate {
                 withIdentifier: "TableViewCell", for: indexPath)
         cell.backgroundColor = UIColor.FlatColor.White.Background
         cell.textLabel?.textColor = UIColor.FlatColor.Blue.MainText
-        cell.textLabel?.font = UIFont(name: "Helvetica Neue-Light", size: 17)
+        cell.textLabel?.font = UIFont.Subheadings.TripComposeUserTitleText
         cell.textLabel?.text = typeNames[types[indexPath.row]]
 
         return cell
