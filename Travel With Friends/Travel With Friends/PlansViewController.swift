@@ -155,17 +155,6 @@ class PlansViewController: UITableViewController {
                 viewController.destination = destination
                 viewController.plan = plans[stage]![indexPath.row]
                 selectedIndexPath = indexPath
-            } else if identifier == "ShowPlanDetailSegue" {
-                let viewController = segue.destination
-                        as! DetailedPlanViewController
-                let cell = sender as! UITableViewCell
-                let indexPath = tableView.indexPath(for: cell)!
-                let stage = planStages[indexPath.section]
-
-                viewController.delegate = self
-                viewController.destination = destination
-                viewController.plan = plans[stage]![indexPath.row]
-                selectedIndexPath = indexPath
             }
         }
     }
@@ -227,18 +216,15 @@ class PlansViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView,
-            didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        performSegue(withIdentifier: "ShowPlanDetailSegue",
-                sender: tableView.cellForRow(at: indexPath))
+            shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     override func tableView(_ tableView: UITableView,
             accessoryButtonTappedForRowWith indexPath: IndexPath) {
         performSegue(withIdentifier: "EditPlanSegue",
                 sender: tableView.cellForRow(at: indexPath))
-}
+    }
 
     override func tableView(_ tableView: UITableView,
             canEditRowAt indexPath: IndexPath) -> Bool {
@@ -277,7 +263,6 @@ extension PlansViewController: PlanComposerViewControllerDelegate {
             didSavePlan plan: PFObject, asUpdate update: Bool) {
         if update {
             if let indexPath = selectedIndexPath {
-                print("section: [\(indexPath.section)], row: [\(indexPath.row)]")
                 let curStage = planStages[indexPath.section]
                 plans[curStage]![indexPath.row] = plan
                 tableView.beginUpdates()
@@ -294,28 +279,6 @@ extension PlansViewController: PlanComposerViewControllerDelegate {
             plans["proposal"]!.insert(plan, at: 0)
             tableView.reloadData()
             */
-        }
-    }
-}
-
-extension PlansViewController: DetailedPlanViewControllerDelegate {
-    func detailedPlanViewController(
-            _ detailedPlanViewController: DetailedPlanViewController,
-            didEditPlan plan: PFObject) {
-        if let indexPath = selectedIndexPath {
-            let curStage = planStages[indexPath.section]
-            if let newStage = plan["planStage"] as? String {
-                if newStage != curStage {
-                    /* FIX ME: Let DB handle it for now */
-                    refreshPlans(refreshControl!)
-                } else {
-                    plans[curStage]![indexPath.row] = plan
-                    tableView.beginUpdates()
-                    tableView.reloadRows(at: [indexPath], with: .automatic)
-                    tableView.endUpdates()
-                }
-            }
-            selectedIndexPath = nil
         }
     }
 }

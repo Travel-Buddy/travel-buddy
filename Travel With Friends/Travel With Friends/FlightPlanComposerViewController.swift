@@ -132,9 +132,12 @@ class FlightPlanComposerViewController: PlanComposerViewController {
 
             +++ createUIParticipantsSection()
 
+            +++ createUIStageSection()
 
-        let airlineNameRow = form.rowBy(tag: "estabName") as! NameRow
-        airlineNameRow.cell.textField.becomeFirstResponder()
+        if plan == nil {
+            let airlineNameRow = form.rowBy(tag: "estabName") as! NameRow
+            airlineNameRow.cell.textField.becomeFirstResponder()
+        }
     }
 
     override func composePlan(_ initialPlan: PFObject?) -> PFObject {

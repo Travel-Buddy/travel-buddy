@@ -20,7 +20,7 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabName"
                 $0.placeFilter?.type = .establishment
-                $0.placeBounds = self.coordinateBounds
+                $0.placeBounds = coordinateBounds
                 $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
                 if let plan = plan,
@@ -44,7 +44,7 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabLocation"
                 $0.placeFilter?.type = .address
-                $0.placeBounds = self.coordinateBounds
+                $0.placeBounds = coordinateBounds
                 $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
                 $0.cell.customizeTableViewCell = { cell in
@@ -69,7 +69,6 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                 if let plan = plan,
                    let phoneNo = plan["estabContact"] as? String {
                     $0.value = phoneNo
-                    $0.cell.isUserInteractionEnabled = false
                 }
             }
 
@@ -112,9 +111,12 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
 
             +++ createUIParticipantsSection()
 
+            +++ createUIStageSection()
 
-        let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
-        nameRow.cell.textField.becomeFirstResponder()
+        if plan == nil {
+            let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
+            nameRow.cell.textField.becomeFirstResponder()
+        }
     }
 
     override func updateUIGPTableRows() {

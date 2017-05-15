@@ -55,10 +55,9 @@ class PlanComposerViewController: FormViewController {
         }
 
         for row in form.rows {
-            /* FIX ME: Need to differentiate between header and cell row
+            /* FIX ME: Need to differentiate between header and cell row */
             row.baseCell.backgroundColor =
                     UIColor.FlatColor.White.Background
-            */
             row.baseCell.textLabel?.font =
                     UIFont.Subheadings.TripComposeUserTitleText
             row.baseCell.textLabel?.textColor =
@@ -86,6 +85,8 @@ class PlanComposerViewController: FormViewController {
                 if let plan = plan,
                    let cost = plan["cost"] as? Double {
                     $0.value = cost
+                } else {
+                    $0.value = 0.00
                 }
             }
     }
@@ -148,6 +149,53 @@ class PlanComposerViewController: FormViewController {
                 }
 
         return section
+    }
+
+    func createUIStageSection() -> Section {
+        return Section()
+            <<< ButtonRow() {
+                $0.tag = "stage"
+                if let stage = self.plan?["planStage"] as? String {
+                    if stage == "proposal" {
+                        $0.title = "Finalize Plan"
+                    } else if stage == "finalized" {
+                        $0.title = "Reconsider Plan"
+                    }
+                }
+
+                $0.hidden = Condition.function([]) {
+                        (form: Form) -> Bool in
+                            return self.plan == nil
+                        }
+
+                $0.onCellSelection {
+                        (cell: ButtonCellOf<String>, row: (ButtonRow)) in
+                            if let stage = self.plan?["planStage"] as? String {
+                                if stage == "proposal" {
+                                    self.plan?["planStage"] = "finalized"
+                                } else if stage == "finalized" {
+                                    self.plan?["planStage"] = "proposal"
+                                }
+                                self.plan?.saveInBackground {
+                                        (success: Bool, error: Error?) in
+                                            if let error = error {
+                                                self.displayAlert(
+                                                        message: error.localizedDescription)
+                                            } else if success {
+                                                if stage == "proposal" {
+                                                    row.title = "Reconsider Plan"
+                                                } else if stage == "finalized" {
+                                                    row.title = "Finalize Plan"
+                                                }
+                                                row.updateCell()
+                                                self.delegate?.planComposerViewController?(
+                                                        self, didSavePlan: self.plan!,
+                                                        asUpdate: true)
+                                            }
+                                        }
+                            }
+                        }
+            }
     }
 
     func updateUIGPTableRows() {
