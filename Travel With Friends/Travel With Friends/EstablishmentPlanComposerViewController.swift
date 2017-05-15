@@ -88,62 +88,12 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
                 }
             }
 
-            +++ Section("Total Cost")
-            <<< DecimalRow() {
-                $0.tag = "cost"
+            +++ createUICostSection()
 
-                let formatter = CurrencyFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .currency
-                $0.formatter = formatter
-                $0.useFormatterDuringInput = true
-
-                if let plan = plan,
-                   let cost = plan["cost"] as? Double {
-                    $0.value = cost
-                }
-            }
-
-            +++ buildParticipantsSection()
+            +++ createUIParticipantsSection()
 
         let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
         nameRow.cell.textField.becomeFirstResponder()
-    }
-
-    func buildParticipantsSection() -> Section {
-        tableView.isEditing = false
-
-        let section = MultivaluedSection(multivaluedOptions: .Delete,
-                header: "Participants") {
-            $0.tag = "participants"
-        }
-
-        let relation = trip.relation(forKey: "users")
-        relation.query().findObjectsInBackground {
-                (users: [PFObject]?, error: Error?) in
-                    guard error == nil else {
-                        self.displayAlert(message: error!.localizedDescription)
-                        return
-                    }
-
-                    guard let users = users else {
-                        return
-                    }
-
-                    let currentUserId = PFUser.current()!.objectId
-
-                    self.participants.removeAll()
-                    for user in users {
-                        self.participants.append(user as! PFUser)
-                        section <<< LabelRow() {
-                            $0.title = user["name"] as? String
-                            $0.cell.isUserInteractionEnabled =
-                                    !(user.objectId == currentUserId)
-                        }
-                    }
-                }
-
-        return section
     }
 
     override func updateUIGPTableRows() {
@@ -228,28 +178,6 @@ class EstablishmentPlanComposerViewController: PlanComposerViewController {
         if let confirmationNo = dictionary["estabVerifyNbr"] as? String {
             editedPlan["estabVerifyNbr"] = confirmationNo
         }
-
-        if let cost = dictionary["cost"] as? Double {
-            editedPlan["cost"] = cost
-        }
-
-        /*
-        if let participantsSection = self.form.sectionBy(tag: "participants")
-                as? MultivaluedSection {
-            for row in participantsSection.enumerated() {
-                if let tag = row.element.tag  {
-                    tagArray.append(tag)
-                }
-            }
-            
-            for (fbId, friend) in friends {
-                if tagArray.index(of: fbId) == nil {
-                    users.remove(friend)
-                }else{
-                    users.add(friend)
-                }
-            }
-        */
 
         /* Do not overwrite when editing existing plans */
         if initialPlan == nil {

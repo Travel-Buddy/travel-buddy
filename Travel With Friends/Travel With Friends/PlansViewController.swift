@@ -80,7 +80,8 @@ class PlansViewController: UITableViewController {
     func refreshPlans(_ refreshControl: UIRefreshControl) {
         let query = PFQuery(className: "Plan")
         query.whereKey("destination", equalTo: destination)
-        query.order(byAscending: "planStage, startDate, createdAt")
+        /* Sort results for the finalized plans by start date */
+        query.order(byAscending: "startDate")
         query.findObjectsInBackground {
                 (objects: [PFObject]?, error: Error?) in
                     if let error = error {
@@ -94,6 +95,18 @@ class PlansViewController: UITableViewController {
                                 self.plans[stage]?.append(object)
                             }
                         }
+
+                        /* Manually sort the proposed plans by creation date */
+                        self.plans["proposal"]?.sort {
+                                (plan1: PFObject, plan2: PFObject) -> Bool in
+                                    if let date1 = plan1.createdAt,
+                                       let date2 = plan2.createdAt {
+                                        return date1 > date2
+                                    }
+
+                                    return false
+                                }
+
                         self.tableView.reloadData()
                     }
                     refreshControl.endRefreshing()
@@ -261,10 +274,26 @@ class PlansViewController: UITableViewController {
 extension PlansViewController: PlanComposerViewControllerDelegate {
     func planComposerViewController(
             _ planComposerViewController: PlanComposerViewController,
-            didSavePlan plan: PFObject) {
-        if plans["proposal"] != nil {
+            didSavePlan plan: PFObject, asUpdate update: Bool) {
+        if update {
+            if let indexPath = selectedIndexPath {
+                print("section: [\(indexPath.section)], row: [\(indexPath.row)]")
+                let curStage = planStages[indexPath.section]
+                plans[curStage]![indexPath.row] = plan
+                tableView.beginUpdates()
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+            }
+            selectedIndexPath = nil
+        } else if plans["proposal"] != nil {
+            /* FIX ME: Unknown bug using insert() and reloadData(), let DB
+             *         handle it for now
+             */
+            refreshPlans(refreshControl!)
+            /*
             plans["proposal"]!.insert(plan, at: 0)
             tableView.reloadData()
+            */
         }
     }
 }

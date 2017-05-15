@@ -125,21 +125,9 @@ class FlightPlanComposerViewController: PlanComposerViewController {
                 }
             }
 
-            +++ Section("Total Cost")
-            <<< DecimalRow() {
-                $0.tag = "cost"
+            +++ createUICostSection()
 
-                let formatter = CurrencyFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .currency
-                $0.formatter = formatter
-                $0.useFormatterDuringInput = true
-
-                if let plan = plan,
-                   let cost = plan["cost"] as? Double {
-                    $0.value = cost
-                }
-            }
+            +++ createUIParticipantsSection()
 
         let airlineNameRow = form.rowBy(tag: "estabName") as! NameRow
         airlineNameRow.cell.textField.becomeFirstResponder()
@@ -172,10 +160,6 @@ class FlightPlanComposerViewController: PlanComposerViewController {
 
         if let confirmationNo = dictionary["estabVerifyNbr"] as? String {
             editedPlan["estabVerifyNbr"] = confirmationNo
-        }
-
-        if let cost = dictionary["cost"] as? Double {
-            editedPlan["cost"] = cost
         }
 
         /* Do not overwrite when editing existing plans */

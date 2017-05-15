@@ -208,7 +208,7 @@ class DetailedPlanViewController: UIViewController {
 extension DetailedPlanViewController: PlanComposerViewControllerDelegate {
     func planComposerViewController(
             _ planComposerViewController: PlanComposerViewController,
-            didSavePlan plan: PFObject) {
+            didSavePlan plan: PFObject, asUpdate update: Bool) {
         self.plan = plan
         updateUI()
         self.delegate?.detailedPlanViewController?(self, didEditPlan: plan)
