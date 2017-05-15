@@ -76,7 +76,7 @@ class PlanComposerViewController: FormViewController {
         return Section("Total Cost")
             <<< DecimalRow() {
                 $0.tag = "cost"
-
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                 let formatter = CurrencyFormatter()
                 formatter.locale = .current
                 formatter.numberStyle = .currency
@@ -117,6 +117,7 @@ class PlanComposerViewController: FormViewController {
                         $0.tag = currentUser.objectId
                         $0.title = currentUser["name"] as? String
                         $0.cell.isUserInteractionEnabled = false
+                        $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                     }
                     self.tripParticipants[currentUser.objectId!] = currentUser
                     for user in users {
@@ -126,6 +127,7 @@ class PlanComposerViewController: FormViewController {
                         section <<< LabelRow() {
                             $0.tag = user.objectId
                             $0.title = user["name"] as? String
+                            $0.cell.backgroundColor = UIColor.FlatColor.White.Background
                         }
                         self.tripParticipants[user.objectId!] = user as? PFUser
                     }
