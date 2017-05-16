@@ -167,6 +167,9 @@ class PlanComposerViewController: FormViewController {
                         (form: Form) -> Bool in
                             return self.plan == nil
                         }
+                $0.cell.backgroundColor = UIColor.FlatColor.White.Background
+                $0.cell.tintColor = UIColor.FlatColor.Green.Subtext
+                $0.cell.textLabel?.font = UIFont.Buttons.ProfilePageButton
 
                 $0.onCellSelection {
                         (cell: ButtonCellOf<String>, row: (ButtonRow)) in
