@@ -20,12 +20,13 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabName"
                 $0.placeFilter?.type = .establishment
-                $0.placeBounds = self.coordinateBounds
+                $0.placeBounds = coordinateBounds
                 $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
-                if let plan = self.plan,
+                if let plan = plan,
                    let name = plan["estabName"] as? String {
                     $0.value = GooglePlace(string: name)
+                    $0.cell.isUserInteractionEnabled = false
                 }
                 $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
                 $0.cell.customizeTableViewCell = { cell in
@@ -35,7 +36,6 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
                 }
                 
                 $0.cell.numberOfCandidates = 4
-
 
                 $0.onChange(updateUILocationUsingGPTableRow)
             }
@@ -44,12 +44,13 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
             <<< GooglePlacesTableRow() {
                 $0.tag = "estabLocation"
                 $0.placeFilter?.type = .address
-                $0.placeBounds = self.coordinateBounds
+                $0.placeBounds = coordinateBounds
                 $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
-                if let plan = self.plan,
+                if let plan = plan,
                    let location = plan["estabLocation"] as? String {
                     $0.value = GooglePlace(string: location)
+                    $0.cell.isUserInteractionEnabled = false
                 }
                 $0.cell.tableView?.backgroundColor = UIColor.FlatColor.White.Background
                 $0.cell.customizeTableViewCell = { cell in
@@ -59,7 +60,6 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
                 }
                 
                 $0.cell.numberOfCandidates = 4
-
             }
 
             +++ Section("Phone Number")
@@ -67,7 +67,7 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
                 $0.tag = "estabContact"
                 $0.cell.backgroundColor = UIColor.FlatColor.White.Background
 
-                if let plan = self.plan,
+                if let plan = plan,
                    let phoneNo = plan["estabContact"] as? String {
                     $0.value = phoneNo
                 }
@@ -110,11 +110,14 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
 
             +++ createUICostSection()
 
-
             +++ createUIParticipantsSection()
 
-        let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
-        nameRow.cell.textField.becomeFirstResponder()
+            +++ createUIStageSection()
+
+        if plan == nil {
+            let nameRow = form.rowBy(tag: "estabName") as! GooglePlacesTableRow
+            nameRow.cell.textField.becomeFirstResponder()
+        }
     }
 
     override func updateUIGPTableRows() {
@@ -142,7 +145,8 @@ class RestaurantPlanComposerViewController: PlanComposerViewController {
                             placeId: placeID) {
                             (place: GooglePlacePlace?, error: Error?) in
                                 if let error = error {
-                                    print("ERROR: \(error.localizedDescription)")
+                                    self.displayAlert(
+                                            message: error.localizedDescription)
                                 } else if let place = place {
                                     self.updateUILocationUsingGPPlace(place)
                                 }
