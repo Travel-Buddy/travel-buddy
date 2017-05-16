@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="FontAwesome.otf">
-            <string>FontAwesome</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -337,7 +332,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addBarButtonItem" destination="mib-sz-SDK" id="L2P-vQ-reL"/>
-                        <segue destination="kgF-CD-hvp" kind="show" identifier="ShowPlanDetailSegue" id="jkF-rY-ZEm"/>
                         <segue destination="kff-0u-LgX" kind="presentation" identifier="ComposePlanSegue" id="QLQ-53-cot"/>
                         <segue destination="kff-0u-LgX" kind="presentation" identifier="EditPlanSegue" id="XWX-fr-2vj"/>
                     </connections>
@@ -358,13 +352,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K2c-3o-F59">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2c-3o-F59">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="K2c-3o-F59" secondAttribute="trailing" id="QIJ-Jh-fpV"/>
+                            <constraint firstItem="K2c-3o-F59" firstAttribute="top" secondItem="PXv-7w-gkQ" secondAttribute="top" id="hpb-S4-6zE"/>
+                            <constraint firstItem="f1c-AA-uPo" firstAttribute="top" secondItem="K2c-3o-F59" secondAttribute="bottom" id="l4e-Bp-GfA"/>
+                            <constraint firstItem="K2c-3o-F59" firstAttribute="leading" secondItem="PXv-7w-gkQ" secondAttribute="leading" id="rJ1-Gu-l16"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create | Edit Plan" id="Thu-gR-w9K">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="04k-tP-jr0">
@@ -400,13 +399,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WBx-jV-er9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WBx-jV-er9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WBx-jV-er9" firstAttribute="top" secondItem="6Uf-wc-WNh" secondAttribute="top" id="0vz-Zi-hys"/>
+                            <constraint firstItem="WBx-jV-er9" firstAttribute="leading" secondItem="6Uf-wc-WNh" secondAttribute="leading" id="A2j-4S-MUG"/>
+                            <constraint firstAttribute="trailing" secondItem="WBx-jV-er9" secondAttribute="trailing" id="KOl-AY-vOG"/>
+                            <constraint firstItem="Z9U-Xt-Jpn" firstAttribute="top" secondItem="WBx-jV-er9" secondAttribute="bottom" id="lcZ-06-pZs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Plan Types" id="dZC-mk-ANK">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="3ze-lc-K4s">
@@ -424,131 +428,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6w-cb-8Ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7265" y="-1060"/>
-        </scene>
-        <!--Plan-->
-        <scene sceneID="3M3-mf-vRZ">
-            <objects>
-                <viewController id="kgF-CD-hvp" customClass="DetailedPlanViewController" customModule="Travel_With_Friends" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GKQ-XO-TrF"/>
-                        <viewControllerLayoutGuide type="bottom" id="yAC-a6-ehk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="n1V-Md-IoQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilb-YV-0wK">
-                                <rect key="frame" x="155" y="96" width="65" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NY2-BG-gZk">
-                                <rect key="frame" x="16" y="149" width="65.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLe-Ly-xbl">
-                                <rect key="frame" x="16" y="186" width="36" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4v-MB-ePa">
-                                <rect key="frame" x="16" y="223" width="30" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="WeP-vq-Q5I"/>
-                                    <constraint firstAttribute="height" constant="26" id="eEk-gR-ksJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="14"/>
-                                <state key="normal" title="">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleIsLikedByUser:" destination="kgF-CD-hvp" eventType="touchUpInside" id="KfR-Tz-PN1"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-jM-G4s">
-                                <rect key="frame" x="46" y="227.5" width="67" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Added by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0D-9n-0h4">
-                                <rect key="frame" x="16" y="281" width="74" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="bIa-ot-eoK"/>
-                                    <constraint firstAttribute="height" constant="21" id="mqS-2A-ZWp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dll-6b-VlO">
-                                <rect key="frame" x="96" y="281" width="83" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6X-9H-V3D">
-                                <rect key="frame" x="62" y="334" width="250" height="41"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Finalize Plan">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="updatePlanStage:" destination="kgF-CD-hvp" eventType="touchUpInside" id="O8T-ey-g9l"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ilb-YV-0wK" firstAttribute="centerX" secondItem="n1V-Md-IoQ" secondAttribute="centerX" id="6yj-4W-FiG"/>
-                            <constraint firstItem="Ilb-YV-0wK" firstAttribute="top" secondItem="GKQ-XO-TrF" secondAttribute="bottom" constant="32" id="70A-eL-YIv"/>
-                            <constraint firstItem="k6X-9H-V3D" firstAttribute="centerX" secondItem="n1V-Md-IoQ" secondAttribute="centerX" id="9Jg-wL-nGe"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ilb-YV-0wK" secondAttribute="trailing" constant="16" id="A2q-Tx-ZhA"/>
-                            <constraint firstItem="VCK-jM-G4s" firstAttribute="leading" secondItem="w4v-MB-ePa" secondAttribute="trailing" id="HCq-XL-K6v"/>
-                            <constraint firstItem="w4v-MB-ePa" firstAttribute="top" secondItem="PLe-Ly-xbl" secondAttribute="bottom" constant="16" id="Jq0-8y-jwX"/>
-                            <constraint firstItem="NY2-BG-gZk" firstAttribute="leading" secondItem="n1V-Md-IoQ" secondAttribute="leading" constant="16" id="Nb7-Ek-gAB"/>
-                            <constraint firstItem="k6X-9H-V3D" firstAttribute="top" secondItem="dll-6b-VlO" secondAttribute="bottom" constant="32" id="R5a-dE-ecf"/>
-                            <constraint firstItem="w4v-MB-ePa" firstAttribute="leading" secondItem="NY2-BG-gZk" secondAttribute="leading" id="Tng-kt-VFW"/>
-                            <constraint firstItem="PLe-Ly-xbl" firstAttribute="top" secondItem="NY2-BG-gZk" secondAttribute="bottom" constant="16" id="Tsy-ZF-Cs2"/>
-                            <constraint firstItem="yAC-a6-ehk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="k6X-9H-V3D" secondAttribute="bottom" constant="32" id="VMu-se-Rn8"/>
-                            <constraint firstItem="VCK-jM-G4s" firstAttribute="centerY" secondItem="w4v-MB-ePa" secondAttribute="centerY" id="VZN-WI-GkI"/>
-                            <constraint firstItem="l0D-9n-0h4" firstAttribute="top" secondItem="w4v-MB-ePa" secondAttribute="bottom" constant="32" id="YEm-4U-k53"/>
-                            <constraint firstItem="Ilb-YV-0wK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n1V-Md-IoQ" secondAttribute="leading" constant="16" id="ZUA-lf-Ktv"/>
-                            <constraint firstItem="dll-6b-VlO" firstAttribute="centerY" secondItem="l0D-9n-0h4" secondAttribute="centerY" id="a8q-kn-Ggo"/>
-                            <constraint firstItem="l0D-9n-0h4" firstAttribute="leading" secondItem="NY2-BG-gZk" secondAttribute="leading" id="aUM-ox-exU"/>
-                            <constraint firstItem="NY2-BG-gZk" firstAttribute="top" secondItem="Ilb-YV-0wK" secondAttribute="bottom" constant="24" id="kHm-oJ-17G"/>
-                            <constraint firstItem="dll-6b-VlO" firstAttribute="leading" secondItem="l0D-9n-0h4" secondAttribute="trailing" constant="6" id="rk8-rJ-HN7"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NY2-BG-gZk" secondAttribute="trailing" constant="16" id="s1n-T7-ouh"/>
-                            <constraint firstItem="PLe-Ly-xbl" firstAttribute="leading" secondItem="NY2-BG-gZk" secondAttribute="leading" id="uYN-hI-vGR"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Plan" id="taD-CM-fSU">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="pPV-4R-1Pe">
-                            <connections>
-                                <action selector="editPlan:" destination="kgF-CD-hvp" id="wzM-lt-OFv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="createdByLabel" destination="dll-6b-VlO" id="c2b-lu-QZr"/>
-                        <outlet property="editBarButtonItem" destination="pPV-4R-1Pe" id="768-AC-989"/>
-                        <outlet property="establishmentLocationLabel" destination="NY2-BG-gZk" id="rIc-Yk-FJM"/>
-                        <outlet property="establishmentNameLabel" destination="Ilb-YV-0wK" id="7Ga-NW-c7a"/>
-                        <outlet property="finalizePlanButton" destination="k6X-9H-V3D" id="l8B-hZ-MnE"/>
-                        <outlet property="likeButton" destination="w4v-MB-ePa" id="48Y-lE-Wlc"/>
-                        <outlet property="likeCountLabel" destination="VCK-jM-G4s" id="8OB-2E-9UD"/>
-                        <outlet property="startDateLabel" destination="PLe-Ly-xbl" id="z3I-R1-L1F"/>
-                        <segue destination="kff-0u-LgX" kind="presentation" identifier="ComposePlanSegue" id="jtN-an-t70"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-LD-tEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6469.6000000000004" y="-332.38380809595208"/>
         </scene>
         <!--Trip Detail Costs View Controller-->
         <scene sceneID="zQk-vy-sRs">

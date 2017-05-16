@@ -16,6 +16,9 @@ class CostCell: PFTableViewCell {
     @IBOutlet weak var dateRangeLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
 
+    var startDate: Date!
+    var endDate: Date!
+
     var plan: PFObject! {
         didSet {
             titleLabel.text = plan["estabName"] as? String
@@ -24,12 +27,22 @@ class CostCell: PFTableViewCell {
                 subtitleLabel.text = destination["title"] as? String
             }
 
-            if let startDate = plan["startDate"] as? Date, let endDate = plan["endDate"] as? Date {
-                if endDate.compare(startDate) == .orderedSame {
-                    dateRangeLabel.text = startDate.asString()
-                } else {
-                    dateRangeLabel.text = startDate.asString() + " - " + endDate.asString()
-                }
+            if let startDate = plan["startDate"] as? Date {
+                self.startDate = startDate
+            }
+
+            if let endDate = plan["endDate"] as? Date {
+                self.endDate = endDate
+            } else {
+                self.endDate = nil
+            }
+
+            if endDate == nil {
+                dateRangeLabel.text = startDate.asString()
+            } else if endDate.compare(startDate) == .orderedSame {
+                dateRangeLabel.text = startDate.asString()
+            } else {
+                dateRangeLabel.text = startDate.asString() + " - " + endDate.asString()
             }
 
             calculateCostPerParticipant()
