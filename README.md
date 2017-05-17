@@ -33,7 +33,7 @@ The **optional** functionality:
 Here are videos walkthrough of implemented user stories:
 
 - Week 6:
-<img src='Travel%20With%20Friends%20Demo/travel-with-friends-week6.gif' title='Video Walkthrough - Week 6' width='' alt='Video Walkthrough - Week 6' />
+<img src='http://i.imgur.com/bKzt1v2.gif' title='Video Walkthrough - Week 6' width='' alt='Video Walkthrough - Week 6' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
