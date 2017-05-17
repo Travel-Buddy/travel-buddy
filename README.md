@@ -11,11 +11,11 @@ The **core** functionality:
 - [x] Users can add and plan upcoming trips.
 - [x] Users can add multiple destinations to a trip.
 - [x] Users can add travel friends to a trip.
-- [ ] Users and their travel friends can save places, activities, restaurants and accommodations they have interest on.
-- [ ] Users and their travel friends can vote on which saved places, restaurants and accommodations in finalizing their itinerary.
-- [ ] Users and their travel friends can keep track of the overall and individual costs as well as balance amount paid/owed in local and home currency for each plan (tickets, hotels, rentals, etc) in their itinerary.
+- [X] Users and their travel friends can save places, activities, restaurants and accommodations they have interest on.
+- [X] Users and their travel friends can vote on which saved places, restaurants and accommodations in finalizing their itinerary.
+- [X] Users and their travel friends can keep track of the overall and individual costs as well as balance amount paid/owed in local and home currency for each plan (tickets, hotels, rentals, etc) in their itinerary.
 - [X] Everything in the trip planning is synced up between users and their travel friends (via Parse).
-- [ ] A user can withdraw from a trip. The app automatically removes the trip from the user's list and makes adjustment to the saved interests, votes and costs.
+- [X] A user can withdraw from a trip. The app automatically removes the trip from the user's list and makes adjustment to the saved interests, votes and costs.
 - [x] Users can invite a friend to download the app.
 
 The **optional** functionality:
